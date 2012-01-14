@@ -6,9 +6,6 @@ jQuery(document).ready(function() {
 	jQuery("input[name='sex']").live('click', function(e){
 			var otroOp = jQuery("input[name='sex']:checked").attr('id');
 			if (otroOp=="male"){
-				//$("#bust").hide();
-				//$("#hips").hide();
-				//$("#waist1").hide();
 				jQuery('#bust').val('');
 				jQuery('#waist1').val('');
 				jQuery('#hips').val('');

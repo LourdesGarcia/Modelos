@@ -1,5 +1,6 @@
 var protocolo =  window.location.protocol;
 var url_proccess = "//www.rociolourdes.hostoi.com/proccess.php";
+var url_images = 'http://www.rociolourdes.hostoi.com/img/';
 
 jQuery(document).ready(function() {
 
@@ -142,8 +143,17 @@ jQuery(document).ready(function() {
 				$('#model_selected').show();
 			}
 		}
-	});				
-});
+	});	
+
+	
+	jQuery('#photos_model ul li a').live('click', function(e){
+		var urlMini = $(this).find('label').text();
+		//alert(urlMini);
+		jQuery('#model_selected #big_photo img').attr('src',urlMini);
+	});
+	
+	
+});//
 
 function showCompleteDataModel(model_id){
 	var dataString = 'model_id=' + model_id + '&request_type=showCompleteDataModel';
@@ -189,23 +199,22 @@ function showCompleteDataModel(model_id){
 				if (result.videos.length>0){
 					var i;
 					for(i=0;i<result.videos.length;i++){
-						$('<div><a href="'+result.videos[i].url_youtube+'" target="_blank"></a>'+result.videos[i].video_name+'<div>').appendTo('#youtube_model');
+						$('<div><a href="'+result.videos[i].url_youtube+'" target="_blank"><img src="'+url_images+'FR.jpg"/></a>'+result.videos[i].video_name+'<div>').appendTo('#youtube_model');
 					}
 				}
 				$('#photos_model').find('li').remove();
 				if (result.photos.length>0){
 					var i;
 					for(i=0;i<result.photos.length;i++){
-						$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /></a></div></li>').appendTo('#photos_model ul');
+						$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /><label style="display:none">'+result.photos[i].url_photo+'</label></a></div></li>').appendTo('#photos_model ul');
 					}
 					$('#big_photo').find('img').remove();
 					$('#big_photo').html('<img src="'+result.photos[0].url_photo+'"/>');
 				}
-				
-				
 			}
 		}
 	}); //ajax
+	
 }
 
 function showAllModels(menu_sel){

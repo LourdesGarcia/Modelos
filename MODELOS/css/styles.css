@@ -1,0 +1,255 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* *************************************************************************************** */
+
+/* Estructura */
+#header, #container, #footer { margin:0 auto; width:978px; position:relative;}
+#header { border-bottom:#C5C5C5 solid 1px; padding-bottom:5px; height:54px; margin-bottom:10px;}
+#container { height:527px;}
+#footer { border-top:#C5C5C5 solid 1px; height:30px; margin-top:10px;}
+
+/* Estilos generales */
+body {font-family:Arial, Helvetica, sans-serif;}
+.hide { display:none;}
+.hide2 { position:absolute; display:block; width:0; height:0; overflow:hidden;}
+
+/* Contenido cabecera */
+#header h1 { width:113px; height:54px;}
+#header ul { position:absolute; bottom:5px; left:120px;}
+	#header li { font-family: ‘Abel’, Arial, serif; font-weight:400; float:left; margin-left:34px;}
+		#header li a { color:#999999; text-decoration:none; text-transform:uppercase;}
+			#header li a:hover, #header li a.active { color:#333333}
+#header form { position:absolute; bottom:5px; left:820px;}
+	#header select { border:#C5C5C5 solid 1px; width:158px; height:20px; font-size:10px; /* text-transform:uppercase;*/}
+
+/* Contenido pie */
+#footer p {font-size:10px; color:#666666; text-transform:uppercase; float:left; line-height:50px;}
+#footer ul {font-size:10px; color:#999999;}
+	#footer ul li { float:right; line-height:50px;}
+		#footer ul li a {color:#999999; text-decoration:none;}
+		#footer ul li img { margin-left:10px; margin-top:14px;}
+
+/* Modulos Container */
+
+	/* Intro site */
+
+	/* Listado de modelos por book */
+	#primerplano { height:500px; overflow:auto;}
+		#primerplano li { width:185px; height:241px; border:solid 1px #C8C8C8; float:left; margin:0 5px 8px 0; position:relative;}
+			#primerplano li strong { display:block; position:absolute; bottom:0; width:185px; height:23px; background-color:#000000; color:#CCCCCC; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; text-align:center; line-height:22px; font-weight:bold; text-transform:uppercase;}
+				#primerplano li a:hover strong { background-color:#FFFFFF; color:#333333;}
+				
+	#alfabeto { font-size:14px; margin:10px 0 0 290px;}
+		#alfabeto li { float:left; margin:0 2px;}
+			#alfabeto li a { color:#999999; text-decoration:none;}
+				#alfabeto li a:hover, #alfabeto li a.active { color:#333333;}
+	
+	/* Book */
+	#book {}
+	
+	/* Formulario "Become a model" */
+	#becomeamodel {}
+	
+	/* Contacto */
+	
+	
+/* Estilos personalizados de cursor mediante jQuery */
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 100%;
+	background: #CCCCCC;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: red;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	background: #CCCCCC;
+	position: relative;
+}
+
+.jspDrag
+{
+	background: #999999;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}
+
+
+/******************************************************************************/
+
+
+a{cursor:pointer; outline:none; text-decoration: none;}
+
+img {border:none;}
+
+.container_formdatos{
+	height: 280px;
+	width: 646px;
+}
+
+.col1{
+	float : left;
+}
+
+.col2{
+	float : right;
+}
+
+.adjuntos{
+	height: 100px;
+}
+
+.selected_menu, .selected_letter{
+	font-weight:bold;
+}

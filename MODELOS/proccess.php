@@ -195,6 +195,7 @@ if($requestType){
 					for($j=0;$j<$num_cols_videos;$j++){
 						$row2 = mysql_fetch_assoc($resultVideos);
 						$arrayAux2['video_name'] = utf8_encode($row2['video_name']);
+						$arrayAux2['id'] = utf8_encode($row2['id']);
 						$arrayAux2['url_youtube'] = $row2['url_youtube'];
 						array_push($resultTotal['videos'],$arrayAux2);
 					}

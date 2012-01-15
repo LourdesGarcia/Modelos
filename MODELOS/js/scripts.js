@@ -1,5 +1,6 @@
 var protocolo =  window.location.protocol;
 var url_proccess = "//www.rociolourdes.hostoi.com/proccess.php";
+var url_print = "//www.rociolourdes.hostoi.com/print.php";
 var url_images = 'http://www.rociolourdes.hostoi.com/img/';
 
 jQuery(document).ready(function() {
@@ -98,6 +99,7 @@ jQuery(document).ready(function() {
 		var model = $(this).attr('id');
 		var modelId = model.substr(11,model.length);
 		showCompleteDataModel(modelId);
+		//showPrint(modelId,url_photo);
 	});
 	
 	jQuery("#find_a_model").live('change', function(e){
@@ -122,11 +124,11 @@ jQuery(document).ready(function() {
 	});	
 
 	/////////////////////
-	jQuery('#photos_model ul li a').live('click', function(e){
+	/* jQuery('#photos_model ul li a').live('click', function(e){
 		var urlMini = $(this).find('label').text();
 		//alert(urlMini);
 		jQuery('#model_selected #big_photo img').attr('src',urlMini);
-	});
+	}); */
 
 	jQuery("#saltar_intro").live('click', function(e){
 		jQuery('.menus').hide();
@@ -138,6 +140,7 @@ jQuery(document).ready(function() {
 		jQuery('#menu li #women').addClass('selected_menu');
 		$('#model_selected').hide();
 	});
+	
 	
 });//
 
@@ -160,7 +163,7 @@ function showCompleteDataModel(model_id){
 				if (result.datos.length>0){
 					var i;
 					for(i=0;i<result.datos.length;i++){
-						$(' '+result.datos[i].first_name.toUpperCase()+' <strong>'+result.datos[i].last_name.toUpperCase()+'</strong>').appendTo('#m_name');
+						$('<label>'+result.datos[i].first_name.toUpperCase()+' <strong>'+result.datos[i].last_name.toUpperCase()+'</strong></label>').appendTo('#m_name');
 						if (result.datos[i].gender == 'female'){
 							//var data_gender = '<strong>Bust</strong>: '+result.datos[i].bust+' <br><strong>Hips</strong>: '+result.datos[i].hips;
 							var data_gender = '<dt>Bust:</dt><dd>'+result.datos[i].bust+'</dd><dt>Hips:</dt><dd>'+result.datos[i].hips+'</dd>';
@@ -177,7 +180,7 @@ function showCompleteDataModel(model_id){
 					var i;
 					for(i=0;i<result.videos.length;i++){
 						//$('<div><a href="'+result.videos[i].url_youtube+'" target="_blank"><img src="'+url_images+'FR.jpg"/></a>'+result.videos[i].video_name+'<div>').appendTo('#youtube_model');
-						$('<li><a href="'+result.videos[i].url_youtube+'"><img src="'+url_images+'thumbnail_video.gif" alt="xxx" />'+result.videos[i].video_name+'</a></li>').appendTo('#listavideos');
+						$('<li><a id="v_'+result.videos[i].id+'" href="'+result.videos[i].url_youtube+'"><img src="'+url_images+'thumbnail_video.gif" alt="xxx" />'+result.videos[i].video_name+'</a></li>').appendTo('#listavideos');
 					}
 				}
 				$('#galeria #pikame').find('li').remove();
@@ -337,6 +340,48 @@ function sendData(first_name,last_name,address,phone_number,mobile,gender,age,he
 	*/
 	
 }
+
+function showPrint(modelId,url_photo){
+	var dataString = 'model_id=' + modelId + '&request_type=showCompleteDataModel';
+	$.ajax({
+		type: "POST",
+		url: protocolo + url_proccess,
+		data: dataString,
+		dataType: "json",
+		cache: false,
+		error: function(a, b, c){
+				alert('a: ' + a + ',b: ' + b + ',c: ' +c );
+		},
+		success: function(result){
+			if (result.res == "SUCCESS"){
+				var i;
+				for(i=0;i<result.datos.length;i++){
+					top.location.href=protocolo+url_print+'?first_name='+result.datos[i].first_name+'&last_name='+result.datos[i].last_name+'&height='+result.datos[i].height+'&gender='+result.datos[i].gender+'&bust='+result.datos[i].bust+'&waist='+result.datos[i].waist+'&hips='+result.datos[i].hips+'&collar='+result.datos[i].collar+'&chest='+result.datos[i].chest+'&hair_color='+result.datos[i].hair_color+'&url_photo='+url_photo;
+				}
+			}	
+		}
+	}); //ajax
+}
+
+
+/*function goPrint(modelId,first_name,last_name,height,gender,bust,waist,hips,collar,chest,eyes_color,hair_color,url_photo){
+	var dataString = 'first_name='+first_name+'&last_name='+last_name+'&height='+height+'&gender='+gender+'&bust='+bust+'&waist='+waist+'&hips='+hips+'&collar='+collar+'&chest='+chest+'&hair_color='+hair_color+'&url_photo='+url_photo;
+	$.ajax({
+		type: "POST",
+		url: protocolo + url_print,
+		data: dataString,
+		//dataType: "json",
+		cache: false,
+		error: function(a, b, c){
+				alert('a: ' + a + ',b: ' + b + ',c: ' +c );
+		},
+		success: function(result){
+			if (result.res == "SUCCESS"){
+				
+			}
+		}
+	}); 
+}*/
 
 function cleanInput(){
 	$('input').each(function(){

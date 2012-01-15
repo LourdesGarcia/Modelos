@@ -253,7 +253,7 @@
 	</div>-->
 	<div id="model_selected" class="menu" style="display:none">
 		<div id="book">
-			<h2 id="m_name"><strong></strong></h2>
+			<h2 id="m_name"><label><strong></strong></label></h2>
 			<dl id="m_data">
 				<!--<dt>Height:</dt>
 				<dd>1.78</dd>
@@ -286,17 +286,17 @@
 		</div>
 		<div id="galeria">
 			<ul id="pikame" class="jcarousel-skin-pika">
-				<!--<li><a><img src="modelos/adinda/mini_adinda01.jpg" ref="modelos/adinda/book_adinda01.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda02.jpg" ref="modelos/adinda/book_adinda02.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda03.jpg" ref="modelos/adinda/book_adinda03.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda04.jpg" ref="modelos/adinda/book_adinda04.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda05.jpg" ref="modelos/adinda/book_adinda05.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda06.jpg" ref="modelos/adinda/book_adinda06.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda07.jpg" ref="modelos/adinda/book_adinda07.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda08.jpg" ref="modelos/adinda/book_adinda08.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda09.jpg" ref="modelos/adinda/book_adinda09.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda10.jpg" ref="modelos/adinda/book_adinda10.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a ><img src="modelos/adinda/mini_adinda11.jpg" ref="modelos/adinda/book_adinda11.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<!--<li><a href="#"><img src="imagesmodel/mini_adinda01.jpg" ref="imagesmodel/book_adinda01.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda02.jpg" ref="imagesmodel/book_adinda02.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda03.jpg" ref="imagesmodel/book_adinda03.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda04.jpg" ref="imagesmodel/book_adinda04.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda05.jpg" ref="imagesmodel/book_adinda05.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda06.jpg" ref="imagesmodel/book_adinda06.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda07.jpg" ref="imagesmodel/book_adinda07.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda08.jpg" ref="imagesmodel/book_adinda08.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda09.jpg" ref="imagesmodel/book_adinda09.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda10.jpg" ref="imagesmodel/book_adinda10.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda11.jpg" ref="imagesmodel/book_adinda11.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
 				-->
 			</ul>
 		</div>

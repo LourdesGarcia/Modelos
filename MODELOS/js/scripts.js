@@ -59,48 +59,25 @@ jQuery(document).ready(function() {
 		var headshot_photo = jQuery('#headshot_photo').val();
 		var full_length_photo = jQuery('#full_length_photo').val();
 		var checkLB = jQuery("#checkLB").attr('checked'); 
-		//sendData(first_name,last_name,address,phone_number,mobile,gender,age,height,bust,waist1,hips,zip_code,city,the_state,email,hair_color,eyes_color,collar,chest,waist2,headshot_photo,full_length_photo);
 		checkData(first_name,last_name,address,phone_number,mobile,gender,age,height,bust,waist1,hips,zip_code,city,the_state,email,hair_color,eyes_color,collar,chest,waist2,headshot_photo,full_length_photo,checkLB);
 	});
 	
 	jQuery("#menu li a").live('click', function(e){
-		/*
 		var menuId = jQuery(this).attr('id');
 		$('#menu li a').removeClass('selected_menu');
 		jQuery(this).addClass('selected_menu');
 		var letter = jQuery(this).attr('id');
+		jQuery('.menus').hide();
 		if ((menuId == 'women')||(menuId == 'men')|| (menuId == 'special_booking')){
 			$('#alfabeto').show();
 			$('#alfabeto li a').removeClass('selected_letter');
 			jQuery('#all').addClass('selected_letter');
-			//showAllModels(menuId);
+			showAllModels(menuId);
+			jQuery('#menu_models').show();
 		}else{
-			$('#alfabeto').hide();
-		}
-		jQuery('.menus').hide();
-		jQuery('#menu_'+menuId).show();
-		$('#model_selected').hide();
-		*/
-		
-		var menuId = jQuery(this).attr('id');
-		$('#menu li a').removeClass('selected_menu');
-		jQuery(this).addClass('selected_menu');
-		var letter = jQuery(this).attr('id');
-		jQuery('.menus').hide();
-		if ((menuId == 'women')||(menuId == 'men')|| (menuId == 'special_booking')){
-		//switch (menuId){
-			//case 'women': case 'men': case 'special_booking':
-				$('#alfabeto').show();
-				$('#alfabeto li a').removeClass('selected_letter');
-				jQuery('#all').addClass('selected_letter');
-				showAllModels(menuId);
-				jQuery('#menu_models').show();
-		}else{
-			//break;
-			//case 'become_a_model':
+			
 			$('#menu_'+menuId).show();
 			$('#alfabeto').hide();
-		//}
 		}
 		$('#model_selected').hide();
 	});
@@ -120,7 +97,6 @@ jQuery(document).ready(function() {
 	jQuery(".models_guide ul li a").live('click', function(e){
 		var model = $(this).attr('id');
 		var modelId = model.substr(11,model.length);
-		//alert(model_id.substr(11,model_id.length));
 		showCompleteDataModel(modelId);
 	});
 	
@@ -145,7 +121,7 @@ jQuery(document).ready(function() {
 		}
 	});	
 
-	
+	/////////////////////
 	jQuery('#photos_model ul li a').live('click', function(e){
 		var urlMini = $(this).find('label').text();
 		//alert(urlMini);
@@ -178,48 +154,40 @@ function showCompleteDataModel(model_id){
 		},
 		success: function(result){
 			if (result.res == "SUCCESS"){
-				/*
-				$('#menu_'+menu_sel).find('li').remove();
-				if (result.modelos.length>0){
-					var i;
-					for(i=0;i<result.modelos.length;i++){
-						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'">Nombre: '+result.modelos[i].first_name.toUpperCase()+'</a><br><label>Apellido: '+result.modelos[i].last_name.toUpperCase()+'</label><br><label>Url imagen de cara: '+result.modelos[i].url_headshot_photo+'</label><br><label>Url imagen de cuerpo entero: '+result.modelos[i].url_full_length_photo+'</a></li>').appendTo('#menu_'+menu_sel+' ul');
-					}
-				}
-				*/
 				$('.menus').hide();
 				$('#alfabeto').hide();
 				$('#model_selected').show();
-				/*<div id="data_model"></div>
-				<div id="youtube_model"></div>
-				<div id="photos_model"></div>*/
-				$('#data_model').find('div').remove();
 				if (result.datos.length>0){
 					var i;
 					for(i=0;i<result.datos.length;i++){
+						$(' '+result.datos[i].first_name.toUpperCase()+' <strong>'+result.datos[i].last_name.toUpperCase()+'</strong>').appendTo('#m_name');
 						if (result.datos[i].gender == 'female'){
-							var data_gender = '<strong>Bust</strong>: '+result.datos[i].bust+' <br><strong>Hips</strong>: '+result.datos[i].hips;
+							//var data_gender = '<strong>Bust</strong>: '+result.datos[i].bust+' <br><strong>Hips</strong>: '+result.datos[i].hips;
+							var data_gender = '<dt>Bust:</dt><dd>'+result.datos[i].bust+'</dd><dt>Hips:</dt><dd>'+result.datos[i].hips+'</dd>';
 						}else{
-							var data_gender = '<strong>Collar</strong>: '+result.datos[i].collar+' <br><strong>Chest</strong>: '+result.datos[i].chest;
+							//var data_gender = '<strong>Collar</strong>: '+result.datos[i].collar+' <br><strong>Chest</strong>: '+result.datos[i].chest;
+							var data_gender = '<dt>Collar:</dt><dd>'+result.datos[i].collar+'</dd><dt>Chest:</dt><dd>'+result.datos[i].chest+'</dd>';
 						}
-						$('<div id="name_model">'+result.datos[i].first_name.toUpperCase()+' '+result.datos[i].last_name.toUpperCase()+'</div><div id="more_data"> <strong>Height</strong>: '+result.datos[i].height+'<br>'+data_gender+'<br><strong>Waist</strong>: '+result.datos[i].waist+'<br><strong>Eyes Color</strong>: '+result.datos[i].eyes_color+'<br><strong>Hair Color</strong>: '+result.datos[i].hair_color+'<br></div>').appendTo('#data_model');
+						//$('<div id="name_model">'+result.datos[i].first_name.toUpperCase()+' '+result.datos[i].last_name.toUpperCase()+'</div><div id="more_data"> <strong>Height</strong>: '+result.datos[i].height+'<br>'+data_gender+'<br><strong>Waist</strong>: '+result.datos[i].waist+'<br><strong>Eyes Color</strong>: '+result.datos[i].eyes_color+'<br><strong>Hair Color</strong>: '+result.datos[i].hair_color+'<br></div>').appendTo('#book');
+						$('<dt>Height:</dt><dd>'+result.datos[i].height+'</dd><dt>Waist:</dt><dd>86</dd>'+data_gender+'<dt>Eye color:</dt><dd>'+result.datos[i].eyes_color+'</dd><dt>Hair color:</dt><dd>'+result.datos[i].hair_color+'</dd>').appendTo('#m_data');
 					}
 				}
-				$('#youtube_model').find('div').remove();
+				$('#listavideos').find('li').remove();
 				if (result.videos.length>0){
 					var i;
 					for(i=0;i<result.videos.length;i++){
-						$('<div><a href="'+result.videos[i].url_youtube+'" target="_blank"><img src="'+url_images+'FR.jpg"/></a>'+result.videos[i].video_name+'<div>').appendTo('#youtube_model');
+						//$('<div><a href="'+result.videos[i].url_youtube+'" target="_blank"><img src="'+url_images+'FR.jpg"/></a>'+result.videos[i].video_name+'<div>').appendTo('#youtube_model');
+						$('<li><a href="'+result.videos[i].url_youtube+'"><img src="'+url_images+'thumbnail_video.gif" alt="xxx" />'+result.videos[i].video_name+'</a></li>').appendTo('#listavideos');
 					}
 				}
-				$('#photos_model').find('li').remove();
+				$('#galeria #pikame').find('li').remove();
 				if (result.photos.length>0){
 					var i;
 					for(i=0;i<result.photos.length;i++){
-						$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /><label style="display:none">'+result.photos[i].url_photo+'</label></a></div></li>').appendTo('#photos_model ul');
+						//$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /><label style="display:none">'+result.photos[i].url_photo+'</label></a></div></li>').appendTo('#photos_model ul');
+						$('<li id="photo'+result.photos[i].id+'"<a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>').appendTo('#galeria #pikame');
 					}
-					$('#big_photo').find('img').remove();
-					$('#big_photo').html('<img src="'+result.photos[0].url_photo+'"/>');
+					
 				}
 			}
 		}

@@ -13,6 +13,7 @@
 <script type="text/javascript" src="js/jquery.js"></script> 
 <script type="text/javascript" src="js/scripts.js"></script> 
 <link rel="stylesheet" href="css/styles.css?v=3" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 </head>
 
 <body>
@@ -244,11 +245,61 @@
 	<div id="menu_contact" class="menus" style="display:none">
 		<p>DATOS DE CONTACTO</p>
 	</div>
-	<div id="model_selected" class="menu" style="display:none">
+	<!--<div id="model_selected" class="menu" style="display:none">
 		<div id="data_model"></div>
 		<div id="youtube_model"></div>
 		<div id="big_photo"></div>
 		<div id="photos_model"><ul></ul></div>
+	</div>-->
+	<div id="model_selected" class="menu" style="display:none">
+		<div id="book">
+			<h2 id="m_name"><strong></strong></h2>
+			<dl id="m_data">
+				<!--<dt>Height:</dt>
+				<dd>1.78</dd>
+				<dt>Bust:</dt>
+				<dd>86</dd>
+				<dt>Waist:</dt>
+				<dd>63</dd>
+				<dt>Hips:</dt>
+				<dd>90</dd>
+				<dt>Shoe size:</dt>
+				<dd>41</dd>
+				<dt>Eye color:</dt>
+				<dd>Green</dd>
+				<dt>Hair color:</dt>
+				<dd>Blonde</dd>
+				-->
+			</dl>
+
+			<h3 class="videos">Videos</h3>
+			<ul id="listavideos">
+				<!--<li><a href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
+				<li><a href="http://www.youtube.com/watch?v=sAIVGehL88k"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
+				<li><a href="http://www.youtube.com/watch?v=19LZIWHeRjo"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
+				<li><a href="http://www.youtube.com/watch?v=TNjQFbC_lQk"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
+				-->
+			</ul>
+					
+			<h3 class="composite"><a >Donwload/Composite</a></h3>
+
+		</div>
+		<div id="galeria">
+			<ul id="pikame" class="jcarousel-skin-pika">
+				<!--<li><a><img src="modelos/adinda/mini_adinda01.jpg" ref="modelos/adinda/book_adinda01.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda02.jpg" ref="modelos/adinda/book_adinda02.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda03.jpg" ref="modelos/adinda/book_adinda03.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda04.jpg" ref="modelos/adinda/book_adinda04.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda05.jpg" ref="modelos/adinda/book_adinda05.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda06.jpg" ref="modelos/adinda/book_adinda06.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda07.jpg" ref="modelos/adinda/book_adinda07.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda08.jpg" ref="modelos/adinda/book_adinda08.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda09.jpg" ref="modelos/adinda/book_adinda09.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda10.jpg" ref="modelos/adinda/book_adinda10.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a ><img src="modelos/adinda/mini_adinda11.jpg" ref="modelos/adinda/book_adinda11.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				-->
+			</ul>
+		</div>
 	</div>
     <!-- listado de modelos: EOC -->
     <!-- filtro listado de modelos: BOC -->
@@ -294,11 +345,11 @@
 </div>
 
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<!-- the mousewheel plugin - optional to provide mousewheel support -->
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-<!-- the jScrollPane script -->
 <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-<!-- Llamada de elementos a ejecutar a la carga de la pagina -->
+<script type="text/javascript" src="js/callingtostage.js"></script>
+<script type="text/javascript" src="js/jquery.pikachoose.js"></script>
+<script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <script type="text/javascript" src="js/callingtostage.js"></script>
 </body>
 </html>

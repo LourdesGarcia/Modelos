@@ -80,7 +80,9 @@ if($requestType){
 									$bHayFicheros = 0; 
 									$sCabeceraTexto = ""; 
 									$sAdjuntos = "";
-									if (form_mail("rolu06@gmail.com", "asuntoo", "Los datos introducidos en el formulario son:\n\n", "poner_email@deDestino.com") ){
+									//echo '--'.$first_name.','.$last_name.','.$address.','.$address_cont.','.$phone_number.','.$mobile.','.$gender.','.$age.','.$height.','.$zip_code.','.$city.','.$the_state.','.$email.','.$hair_color.','.$eyes_color.','.$file_headshot_photo.','.$file_full_length_photo;
+									//exit();
+									if (form_mail("rolu06@gmail.com", "asuntoo", "Los datos introducidos en el formulario son:\n\n", "poner_email@deDestino.com",$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust, $waist1,$hips,$collar,$waist2,$chest) ){
 									}else{
 										$resultTotal['res']='ERROR'; 
 										$resultTotal['mensaje']= utf8_encode('- No se ha podido enviar el correo. Por favor, inténtalo de nuevo.');

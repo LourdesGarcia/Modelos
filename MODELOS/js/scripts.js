@@ -162,6 +162,7 @@ function showCompleteDataModel(model_id){
 				$('#model_selected').show();
 				if (result.datos.length>0){
 					var i;
+					$('#m_name').find('label').remove();
 					for(i=0;i<result.datos.length;i++){
 						$('<label>'+result.datos[i].first_name.toUpperCase()+' <strong>'+result.datos[i].last_name.toUpperCase()+'</strong></label>').appendTo('#m_name');
 						if (result.datos[i].gender == 'female'){

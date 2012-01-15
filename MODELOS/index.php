@@ -119,115 +119,120 @@
 		</div>
 	</div>
 	<div id="menu_become_a_model" class="menus" style="display:none">
-		<div class="container_formdatos">
-			<div class="coldatos col1">
-				<div>
-					<label for="">Nombre / First Name:</label>
-					<input type="text" id="first_name" />
+		<form class="adjuntos" action="proccess.php" method="POST" ENCTYPE="multipart/form-data">
+			<div class="container_formdatos">
+				<div class="coldatos col1">
+					<div>
+						<label for="">Nombre / First Name:</label>
+						<input type="text" id="first_name" name="first_name"/>
+					</div>
+					<div>
+						<label for="">Dirección / Address:</label>
+						<input type="text" id="address" name="address"/>
+					</div>
+					<div>
+						<label for=""></label>
+						<input type="text" id="address_cont" name="address_cont" />
+					</div>
+					<div>
+						<label for="">Tel. / Phone Number</label>
+						<input type="text" id="phone_number" name="phone_number"maxlength="9"/>
+					</div>
+					<div>
+						<label for="">Móvil / Mobile</label>
+						<input type="text" id="mobile" name="mobile" maxlength="9"/>
+					</div>
+					<div>
+						<span class="gender">Gender:</span>
+						<label for="" class="nobullet">Female</label>
+						<input type="radio" id="female" name="sex" value="female"/>
+						<label for="" class="nobullet">Male</label>
+						<input type="radio" id="male" name="sex" value="male" />
+					</div>
+					<div>
+						<label for="">Edad / Age:</label>
+						<input type="text" id="age" name="age" />
+					</div>
+					<div>
+						<label for="">Altura / Height:</label>
+						<input type="text" id="height" name="height" />
+					</div>
+					<div>
+						<label for="">Pecho / Bust:</label>
+						<input type="text" id="bust" name="bust"/>
+					</div>
+					<div>
+						<label for="">Cintura / Waist:</label>
+						<input type="text" id="waist1" name="waist1" />
+					</div>
+					<div>
+						<label for="">Cadera / Hips:</label>
+						<input type="text" id="hips" name="hips"  />
+					</div>
 				</div>
-				<div>
-					<label for="">Dirección / Address:</label>
-					<input type="text" id="address" />
-				</div>
-				<div>
-					<label for=""></label>
-					<input type="text" id="address_cont" />
-				</div>
-				<div>
-					<label for="">Tel. / Phone Number</label>
-					<input type="text" id="phone_number"  maxlength="9"/>
-				</div>
-				<div>
-					<label for="">Móvil / Mobile</label>
-					<input type="text" id="mobile"  maxlength="9"/>
-				</div>
-				<div>
-					<span class="gender">Gender:</span>
-					<label for="" class="nobullet">Female</label>
-					<input type="radio" id="female" name="sex" />
-					<label for="" class="nobullet">Male</label>
-					<input type="radio" id="male" name="sex" />
-				</div>
-				<div>
-					<label for="">Edad / Age:</label>
-					<input type="text" id="age" />
-				</div>
-				<div>
-					<label for="">Altura / Height:</label>
-					<input type="text" id="height" />
-				</div>
-				<div>
-					<label for="">Pecho / Bust:</label>
-					<input type="text" id="bust"/>
-				</div>
-				<div>
-					<label for="">Cintura / Waist:</label>
-					<input type="text" id="waist1" />
-				</div>
-				<div>
-					<label for="">Cadera / Hips:</label>
-					<input type="text" id="hips" />
+				<div class="coldatos col2">
+					<div>
+						<label for="">Apellido / Last Name:</label>
+						<input type="text" id="last_name" name="last_name"  />
+					</div>
+					<div>
+						<label for="">C.P. / Zip Code:</label>
+						<input type="text" id="zip_code" name="zip_code" />
+					</div>
+					<div>
+						<label for="">Ciudad /City:</label>
+						<input type="text" id="city" name="city"/>
+					</div>
+					<div>
+						<label for="">Provincia / State:</label>
+						<input type="text" id="the_state" name="the_state"/>
+					</div>
+					<div>
+						<label for="">E-mail:</label>
+						<input type="text" id="email" name="email"/>
+					</div>
+					<div>
+						<label for="">Pelo / Hair Color:</label>
+						<input type="text" id="hair_color" name="hair_color" />
+					</div>
+					<div>
+						<label for="">Ojos / Eyes Color:</label>
+						<input type="text" id="eyes_color" name="eyes_color"/>
+					</div>
+					<div>
+						<label for="">Cuello / Collar:</label>
+						<input type="text" id="collar" name="collar"/>
+					</div>
+					<div>
+						<label for="">Pecho / Chest:</label>
+						<input type="text" id="chest" name="chest"/>
+					</div>
+					<div>
+						<label for="">Cintura / Waist:</label>
+						<input type="text" id="waist2" name="waist2" />
+					</div>
 				</div>
 			</div>
-			<div class="coldatos col2">
+			<div  class="adjuntos" >
 				<div>
-					<label for="">Apellido / Last Name:</label>
-					<input type="text" id="last_name" />
+					<label for="">Adjuntar foto de cara / Attach a headshot photo:</label>
+					<input type="file" id="headshot_photo" name="headshot_photo" size=45 maxlength=200> 
+					<input type="hidden" name="MAX_FILE_SIZE"  value=100000 />
 				</div>
 				<div>
-					<label for="">C.P. / Zip Code:</label>
-					<input type="text" id="zip_code" />
+					<label for="">Adjuntar foto de cuerpo entero / Attach a full length photo:</label>
+					<input type="file" id="full_length_photo" name="full_length_photo" size=45 maxlength=200> 
+					<input type="hidden" name="MAX_FILE_SIZE"  value=100000 />
 				</div>
 				<div>
-					<label for="">Ciudad /City:</label>
-					<input type="text" id="city" />
-				</div>
-				<div>
-					<label for="">Provincia / State:</label>
-					<input type="text" id="the_state" />
-				</div>
-				<div>
-					<label for="">E-mail:</label>
-					<input type="text" id="email" />
-				</div>
-				<div>
-					<label for="">Pelo / Hair Color:</label>
-					<input type="text" id="hair_color" />
-				</div>
-				<div>
-					<label for="">Ojos / Eyes Color:</label>
-					<input type="text" id="eyes_color" />
-				</div>
-				<div>
-					<label for="">Cuello / Collar:</label>
-					<input type="text" id="collar" />
-				</div>
-				<div>
-					<label for="">Pecho / Chest:</label>
-					<input type="text" id="chest" />
-				</div>
-				<div>
-					<label for="">Cintura / Waist:</label>
-					<input type="text" id="waist2" />
+					<input type="checkbox" id="checkLB" />
+					<label for="" class="nobullet">Estoy de acuerdo de ser contactado por ISABEL NAVARRO Model Management / I agree to be contacted by ISABEL NAVARRO Model Management</label>
+					<input type="hidden" name="request_type" id="request_type" value='submitForm' />
+					<!--<input type="button" class="submitButton" value="SUBMIT"/>-->
+					<button type="submit" class="submitButton" value="SUBMIT"/>
 				</div>
 			</div>
-		</div>
-		<div class="adjuntos">
-			<div>
-				<label for="">Adjuntar foto de cara / Attach a headshot photo:</label>
-				<input type="file" id="headshot_photo" name="headshot_photo" size=45 maxlength=40> 
-			</div>
-			<div>
-				<label for="">Adjuntar foto de cuerpo entero / Attach a full length photo:</label>
-				<input type="file" id="full_length_photo" name="full_length_photo" size=45 maxlength=40> 
-			</div>
-			<div>
-				<input type="checkbox" id="checkLB" />
-				<label for="" class="nobullet">Estoy de acuerdo de ser contactado por ISABEL NAVARRO Model Management / I agree to be contacted by ISABEL NAVARRO Model Management</label>
-				<input type="hidden" name="request_type" id="request_type" value='submitForm' />
-				<input type="button" class="submitButton" value="SUBMIT"/>
-			</div>
-		</div>
+		</form>
 	</div>
 	<div id="menu_contact" class="menus" style="display:none">
 		<p>DATOS DE CONTACTO</p>

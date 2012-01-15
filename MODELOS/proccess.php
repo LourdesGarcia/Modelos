@@ -11,9 +11,10 @@ $requestType = ((isset($_REQUEST['request_type']) && ($_REQUEST['request_type'] 
 $first_name = ((isset($_REQUEST['first_name']) && ($_REQUEST['first_name'] != ''))?$_REQUEST['first_name']:false);
 $last_name = ((isset($_REQUEST['last_name']) && ($_REQUEST['last_name'] != ''))?$_REQUEST['last_name']:false);
 $address = ((isset($_REQUEST['address']) && ($_REQUEST['address'] != ''))?$_REQUEST['address']:false);
+$address_cont = ((isset($_REQUEST['address_cont']) && ($_REQUEST['address_cont'] != ''))?$_REQUEST['address_cont']:false);
 $phone_number = ((isset($_REQUEST['phone_number']) && ($_REQUEST['phone_number'] != ''))?$_REQUEST['phone_number']:false);
 $mobile = ((isset($_REQUEST['mobile']) && ($_REQUEST['mobile'] != ''))?$_REQUEST['mobile']:false);
-$gender = ((isset($_REQUEST['gender']) && ($_REQUEST['gender'] != ''))?$_REQUEST['gender']:false);
+$gender = ((isset($_REQUEST['sex']) && ($_REQUEST['sex'] != ''))?$_REQUEST['sex']:false);
 $age = ((isset($_REQUEST['age']) && ($_REQUEST['age'] != ''))?$_REQUEST['age']:false);
 $height = ((isset($_REQUEST['height']) && ($_REQUEST['height'] != ''))?$_REQUEST['height']:false);
 $bust = (isset($_REQUEST['bust'])?$_REQUEST['bust']:false);
@@ -28,14 +29,27 @@ $eyes_color = ((isset($_REQUEST['eyes_color']) && ($_REQUEST['eyes_color'] != ''
 $collar = (isset($_REQUEST['collar'])?$_REQUEST['collar']:false);
 $chest = (isset($_REQUEST['chest'])?$_REQUEST['chest']:false);
 $waist2 = (isset($_REQUEST['waist2'])?$_REQUEST['waist2']:false);
-$headshot_photo = ((isset($_REQUEST['headshot_photo']) && ($_REQUEST['headshot_photo'] != ''))?$_REQUEST['headshot_photo']:false);
-$full_length_photo = ((isset($_REQUEST['full_length_photo']) && ($_REQUEST['full_length_photo'] != ''))?$_REQUEST['full_length_photo']:false);
+$name_headshot_photo = ((isset($_REQUEST['headshot_photo']) && ($_REQUEST['headshot_photo'] != ''))?$_REQUEST['headshot_photo']:false);
+$name_full_length_photo = ((isset($_REQUEST['full_length_photo']) && ($_REQUEST['full_length_photo'] != ''))?$_REQUEST['full_length_photo']:false);
+
+$file_headshot_photo = ((isset($_FILES['headshot_photo']['tmp_name']) && ($_FILES['headshot_photo']['tmp_name'] != ''))?$_FILES['headshot_photo']['tmp_name']:false);
+$file_full_length_photo = ((isset($_FILES['full_length_photo']['tmp_name']) && ($_FILES['full_length_photo']['tmp_name'] != ''))?$_FILES['full_length_photo']['tmp_name']:false);
 
 $menu_sel = ((isset($_REQUEST['menu_sel']) && ($_REQUEST['menu_sel'] != ''))?$_REQUEST['menu_sel']:false);
 $letter = ((isset($_REQUEST['letter']) && ($_REQUEST['letter'] != ''))?$_REQUEST['letter']:false);
 $model_id = ((isset($_REQUEST['model_id']) && ($_REQUEST['model_id'] != ''))?$_REQUEST['model_id']:false);
 
+/* //echo '..'.json_encode($file_headshot_photo);
+echo '..'.json_encode($_FILES);
 
+exit();
+  */
+ 
+ /* echo '--'.json_encode($_REQUEST);
+ exit(); */
+ 
+ echo '--'.$first_name.','.$last_name.','.$address.','.$address_cont.','.$phone_number.','.$mobile.','.$gender.','.$age.','.$height.','.$zip_code.','.$city.','.$the_state.','.$email.','.$hair_color.','.$eyes_color.','.$file_headshot_photo.','.$file_full_length_photo;
+ 
 $resultTotal = array();
 $resultTotal['res']='ERROR'; 
 $resultTotal['mensaje']='Tipo indefinido.';
@@ -57,7 +71,7 @@ $result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')
 if($requestType){
 	switch($requestType){
 		case 'submitForm':
-			if ($first_name && $last_name && $address && $phone_number && $mobile && $gender && $age && $height && $zip_code && $city && $the_state && $email && $hair_color && $eyes_color && $headshot_photo && $full_length_photo ){
+			if ($first_name && $last_name && $address && $phone_number && $mobile && $gender && $age && $height && $zip_code && $city && $the_state && $email && $hair_color && $eyes_color && $file_headshot_photo&& $file_full_length_photo ){
 				if (checkEmail($email)){
 					if (is_numeric($mobile)){
 						if (is_numeric($phone_number)){
@@ -72,7 +86,7 @@ if($requestType){
 										$resultTotal['mensaje']= utf8_encode('- No se ha podido enviar el correo. Por favor, inténtalo de nuevo.');
 									}
 									$resultTotal['res']='SUCCESS'; 
-									$resultTotal['mensaje']= utf8_encode('- OK!!!!!!');
+									$resultTotal['mensaje']= utf8_encode(json_encode($file_headshot_photo));
 								}else{
 									$resultTotal['res']='ERROR'; 
 									$resultTotal['mensaje']= utf8_encode('- Todos los campos son obligatorios');
@@ -207,4 +221,7 @@ if($requestType){
 }
 
 echo json_encode($resultTotal);
+if(($requestType=="submitForm")&&($resultTotal['res']=='SUCCESS')){
+	header('Location: http://www.rociolourdes.hostoi.com');
+}
 ?>

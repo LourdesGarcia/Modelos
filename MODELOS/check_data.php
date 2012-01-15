@@ -29,6 +29,7 @@
 		return true;
 	}
 	
+	
 	function form_mail($sPara, $sAsunto, $sTexto, $sDe)
 		{ 
 		$bHayFicheros = 0; 
@@ -73,6 +74,50 @@
 		$sTexto .= $sAdjuntos."\n\n----_Separador-de-mensajes_----\n"; 
 		return(mail($sPara, $sAsunto, $sTexto, $sCabeceras)); 
 	}
+	
 
+	/*
+	$body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Prueba Modelos</title>
+		</head>
+		<body>
+			<p></p>
+		</body>
+		</html>';
+	*/
+	
+/*	function saveFich($nameFich1, $nameFich2, $file1, $file2)
+	{
+		if ($_FILES[$nameFich1]['error']) {
+          switch ($_FILES[$nameFich1]['error']){
+                   case 1: // UPLOAD_ERR_INI_SIZE
+                   echo"El archivo sobrepasa el limite autorizado por el servidor(archivo php.ini) !";
+                   break;
+                   case 2: // UPLOAD_ERR_FORM_SIZE
+                   echo "El archivo sobrepasa el limite autorizado en el formulario HTML !");
+                   break;
+                   case 3: // UPLOAD_ERR_PARTIAL
+                   echo "El envio del archivo ha sido suspendido durante la transferencia!";
+                   break;
+                   case 4: // UPLOAD_ERR_NO_FILE
+                   echo "El archivo que ha enviado tiene un tamaño nulo !");
+                   break;
+			}
+		}
+		else {
+			if ((isset($_FILES[$nameFich1]['name'])&&($_FILES[$nameFich1]['error'] == UPLOAD_ERR_OK)) {
+				$ruta_destino = '/var/www/archivos/';
+				move_uploaded_file($_FILES[$nameFich1]['tmp_name'], $ruta_destino.$_FILES[$nameFich1]['name']);
+			}
+		} 
+	}
+
+	/*
+	function form_mail($sPara, $sAsunto, $sTexto, $sDe, $nameFich1, $nameFich2, $file1, $file2){
+		
+	}	 */
 	
 ?>

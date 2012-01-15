@@ -305,6 +305,7 @@ function checkData(first_name,last_name,address,phone_number,mobile,gender,age,h
 								ok=false;
 							}else{
 								sendData(first_name,last_name,address,phone_number,mobile,gender,age,height,bust,waist1,hips,zip_code,city,the_state,email,hair_color,eyes_color,collar,chest,waist2,headshot_photo,full_length_photo);
+								//$('.adjuntos').submit();
 							}
 						}
 					}
@@ -324,10 +325,13 @@ function checkData(first_name,last_name,address,phone_number,mobile,gender,age,h
 		}
 		alert(textError);
 	}
+	//else{
+		//$('.adjuntos').submit();
+	//}
 }
 
 function sendData(first_name,last_name,address,phone_number,mobile,gender,age,height,bust,waist1,hips,zip_code,city,the_state,email,hair_color,eyes_color,collar,chest,waist2,headshot_photo,full_length_photo){
-	var dataString = 'first_name=' + first_name + '&last_name=' + last_name + '&address=' + address +
+	/*var dataString = 'first_name=' + first_name + '&last_name=' + last_name + '&address=' + address +
 					 '&phone_number=' + phone_number + '&mobile=' + mobile + '&gender=' + gender + '&age=' + age + 
 					 '&height=' + height + '&bust=' + bust + '&waist1=' + waist1 + '&hips=' + hips + 
 					 '&zip_code=' + zip_code + '&city=' + city + '&the_state=' + the_state + '&email=' + email + 
@@ -345,13 +349,6 @@ function sendData(first_name,last_name,address,phone_number,mobile,gender,age,he
 		},
 		success: function(result){
 			if (result.res == "SUCCESS"){
-				/*if (result.type=='OK'){
-					alert('todo esta ok');
-				}else{
-					if (result.type=='KO'){
-						alert('no se ha podido enviar el email. Por favor, vuelve a intentarlo.');
-					}
-				}*/
 				alert('todo esta ok');
 			}else{
 				//QUITAR ALERT Y PONER POPUP
@@ -359,6 +356,8 @@ function sendData(first_name,last_name,address,phone_number,mobile,gender,age,he
 			}
 		}
 	}); //ajax
+	*/
+	
 }
 
 function cleanInput(){

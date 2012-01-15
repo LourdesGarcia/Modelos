@@ -12,7 +12,7 @@
 <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="js/jquery.js"></script> 
 <script type="text/javascript" src="js/scripts.js"></script> 
-<link rel="stylesheet" href="css/styles.css?v=3" type="text/css"/>
+<link rel="stylesheet" href="css/styles.css?v=4" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 </head>
 
@@ -102,7 +102,7 @@
 		</div>
 		<div><a id="saltar_intro">SALTAR INTRO</a></div>
 	</div>
-	<div id="menu_models" class="menus" style="display:block">
+	<div id="menu_models" class="menus" style="display:none">
 		<div class="models_guide">
 			<ul id="primerplano">
 				<?
@@ -251,11 +251,11 @@
 		<div id="big_photo"></div>
 		<div id="photos_model"><ul></ul></div>
 	</div>-->
-	<div id="model_selected" class="menu" style="display:none">
+	<div id="model_selected" class="menu" style="display:block">
 		<div id="book">
 			<h2 id="m_name"><label><strong></strong></label></h2>
 			<dl id="m_data">
-				<!--<dt>Height:</dt>
+				<dt>Height:</dt>
 				<dd>1.78</dd>
 				<dt>Bust:</dt>
 				<dd>86</dd>
@@ -269,16 +269,16 @@
 				<dd>Green</dd>
 				<dt>Hair color:</dt>
 				<dd>Blonde</dd>
-				-->
+			
 			</dl>
 
 			<h3 class="videos">Videos</h3>
 			<ul id="listavideos">
-				<!--<li><a href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
+				<li><a href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
 				<li><a href="http://www.youtube.com/watch?v=sAIVGehL88k"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
 				<li><a href="http://www.youtube.com/watch?v=19LZIWHeRjo"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
 				<li><a href="http://www.youtube.com/watch?v=TNjQFbC_lQk"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
-				-->
+				
 			</ul>
 					
 			<h3 class="composite"><a >Donwload/Composite</a></h3>
@@ -286,7 +286,7 @@
 		</div>
 		<div id="galeria">
 			<ul id="pikame" class="jcarousel-skin-pika">
-				<!--<li><a href="#"><img src="imagesmodel/mini_adinda01.jpg" ref="imagesmodel/book_adinda01.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="#"><img src="imagesmodel/mini_adinda01.jpg" ref="imagesmodel/book_adinda01.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
 				<li><a href="#"><img src="imagesmodel/mini_adinda02.jpg" ref="imagesmodel/book_adinda02.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
 				<li><a href="#"><img src="imagesmodel/mini_adinda03.jpg" ref="imagesmodel/book_adinda03.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
 				<li><a href="#"><img src="imagesmodel/mini_adinda04.jpg" ref="imagesmodel/book_adinda04.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
@@ -297,7 +297,7 @@
 				<li><a href="#"><img src="imagesmodel/mini_adinda09.jpg" ref="imagesmodel/book_adinda09.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
 				<li><a href="#"><img src="imagesmodel/mini_adinda10.jpg" ref="imagesmodel/book_adinda10.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
 				<li><a href="#"><img src="imagesmodel/mini_adinda11.jpg" ref="imagesmodel/book_adinda11.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				-->
+				
 			</ul>
 		</div>
 	</div>

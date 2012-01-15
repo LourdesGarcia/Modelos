@@ -48,7 +48,7 @@ exit();
  /* echo '--'.json_encode($_REQUEST);
  exit(); */
  
- echo '--'.$first_name.','.$last_name.','.$address.','.$address_cont.','.$phone_number.','.$mobile.','.$gender.','.$age.','.$height.','.$zip_code.','.$city.','.$the_state.','.$email.','.$hair_color.','.$eyes_color.','.$file_headshot_photo.','.$file_full_length_photo;
+// echo '--'.$first_name.','.$last_name.','.$address.','.$address_cont.','.$phone_number.','.$mobile.','.$gender.','.$age.','.$height.','.$zip_code.','.$city.','.$the_state.','.$email.','.$hair_color.','.$eyes_color.','.$file_headshot_photo.','.$file_full_length_photo;
  
 $resultTotal = array();
 $resultTotal['res']='ERROR'; 

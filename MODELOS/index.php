@@ -28,20 +28,6 @@
         <li><a id="become_a_model">Become a model</a></li>
         <li><a id="contact">Contact</a></li>
     </ul>
-   <!-- <form id="modelselector" action="" method="get">
-        <label for="find_a_model">Find a model</label>
-        <select name="find_a_model" id="find_a_model">
-            <option>Find a model</option>
-            <option>Alejandra Morales</option>
-            <option>Alejandra Guilmant</option>
-            <option>Alex Grace</option>
-            <option>Bambi Northwood-Blyth</option>
-        </select>
-        <span>
-        	<input name="ir" type="submit" value="Ir" />
-		</span>
-    </form>
-	-->
 	<div id="modelselector">
 		<label for="find_a_model">Find a model</label>
 		<select name="find_a_model" id="find_a_model">
@@ -93,7 +79,28 @@
 </div>
 
 <div id="container">
-	<!-- listado de modelos: BOC -->
+	<div id="menu_intro" class="menus" style="display:none">
+		<div class="models_intro">
+			<ul>
+				<?
+					$resultIntroi = mysql_query("SELECT * FROM models_intro ORDER BY add_date");
+					$num_colsi = mysql_affected_rows();
+				
+					if ($num_colsi>0){
+						for($m=0;$m<$num_colsi;$m++){
+							$rowi = mysql_fetch_assoc($resultIntroi);
+				?>
+				<li id="model_<?= $rowi['id'] ?>">
+					<img src="<?= utf8_encode($rowi['url_photo']) ?>" alt="p_<?= utf8_encode($rowi['id']) ?>" />
+				</li>
+				<?
+						}
+					}
+				?>
+			</ul>
+		</div>
+		<div><a id="saltar_intro">SALTAR INTRO</a></div>
+	</div>
 	<div id="menu_models" class="menus" style="display:block">
 		<div class="models_guide">
 			<ul id="primerplano">
@@ -245,7 +252,7 @@
 	</div>
     <!-- listado de modelos: EOC -->
     <!-- filtro listado de modelos: BOC -->
-    <ul id="alfabeto">
+    <ul id="alfabeto" style="display:none">
     	<li><a id="all" class="selected_letter">ALL</a></li>
         <li><a >A</a></li>
         <li><a >B</a></li>

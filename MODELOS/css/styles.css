@@ -253,3 +253,7 @@ img {border:none;}
 .selected_menu, .selected_letter{
 	font-weight:bold;
 }
+
+.models_intro ul li{
+	float:left;
+}

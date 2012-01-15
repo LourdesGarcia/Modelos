@@ -151,7 +151,17 @@ jQuery(document).ready(function() {
 		//alert(urlMini);
 		jQuery('#model_selected #big_photo img').attr('src',urlMini);
 	});
-	
+
+	jQuery("#saltar_intro").live('click', function(e){
+		jQuery('.menus').hide();
+		$('#alfabeto').show();
+		$('#alfabeto li a').removeClass('selected_letter');
+		jQuery('#all').addClass('selected_letter');
+		jQuery('#menu_models').show();
+		jQuery('#menu li a').removeClass('selected_menu');
+		jQuery('#menu li #women').addClass('selected_menu');
+		$('#model_selected').hide();
+	});
 	
 });//
 

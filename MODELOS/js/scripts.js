@@ -1,9 +1,12 @@
 var protocolo =  window.location.protocol;
-var url_proccess = "//rociolourdes.hostoi.com/proccess.php";
 var url_print = "//rociolourdes.hostoi.com/print.php";
-var url_images = 'http://rociolourdes.hostoi.com/img/';
+
+var url_proccess = "//www.rociolourdes.hostoi.com/proccess.php";
+var url_images = 'http://www.rociolourdes.hostoi.com/img/';
 
 jQuery(document).ready(function() {
+
+	  	// Ocultamos elementos del selector de modelos
 
 	jQuery("input[name='sex']").live('click', function(e){
 			var otroOp = jQuery("input[name='sex']:checked").attr('id');
@@ -102,6 +105,21 @@ jQuery(document).ready(function() {
 		//showPrint(modelId,url_photo);
 	});
 	
+	jQuery(".models_guide ul li a img").live('click', function(e){
+		var model = $(this).attr('id');
+		var modelId = model.substr(3,model.length);
+		showCompleteDataModel(modelId);
+		//showPrint(modelId,url_photo);
+	});
+	
+	jQuery(".pika-stage a").live('click', function(e){
+		var url_photo = $(this).find('img').attr('src');
+		var model = $('#m_name label').attr('id');
+		var modelId = model.substr(2,model.length);
+		//showCompleteDataModel(modelId,url_photo);
+		showPrint(modelId,url_photo);	
+	});
+	
 	jQuery("#find_a_model").live('change', function(e){
 		var idM = jQuery("#find_a_model option:selected").val();
 		if (idM!=''){
@@ -163,8 +181,9 @@ function showCompleteDataModel(model_id){
 				if (result.datos.length>0){
 					var i;
 					$('#m_name').find('label').remove();
+					$('#m_data').find('dt, dd').remove();
 					for(i=0;i<result.datos.length;i++){
-						$('<label>'+result.datos[i].first_name.toUpperCase()+' <strong>'+result.datos[i].last_name.toUpperCase()+'</strong></label>').appendTo('#m_name');
+						$('<label id="l_'+result.datos[i].id+'">'+result.datos[i].first_name.toUpperCase()+' <strong>'+result.datos[i].last_name.toUpperCase()+'</strong></label>').appendTo('#m_name');
 						if (result.datos[i].gender == 'female'){
 							//var data_gender = '<strong>Bust</strong>: '+result.datos[i].bust+' <br><strong>Hips</strong>: '+result.datos[i].hips;
 							var data_gender = '<dt>Bust:</dt><dd>'+result.datos[i].bust+'</dd><dt>Hips:</dt><dd>'+result.datos[i].hips+'</dd>';
@@ -187,15 +206,45 @@ function showCompleteDataModel(model_id){
 				$('#galeria #pikame').find('li').remove();
 				if (result.photos.length>0){
 					var i;
+					var cont = 1;
 					for(i=0;i<result.photos.length;i++){
-						//$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /><label style="display:none">'+result.photos[i].url_photo+'</label></a></div></li>').appendTo('#photos_model ul');
-						$('<li id="photo'+result.photos[i].id+'"<a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>').appendTo('#galeria #pikame');
+							//$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /><label style="display:none">'+result.photos[i].url_photo+'</label></a></div></li>').appendTo('#photos_model ul');
+						//$('<li id="photo'+result.photos[i].id+'"<a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>').appendTo('#galeria #pikame');
+						$('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>').appendTo('#galeria #pikame');
+						cont++;
 					}
+					//$('#galeria .pika-stage').find('img').attr('src',result.photos[0].url_photo);
+				}
+				$('#galeria').show();
+				if (jQuery('#listavideos').length) {
+					jQuery('#listavideos a').click(function() {
+						jQuery.fancybox({
+								'padding'		: 0,
+								'autoScale'		: false,
+								'transitionIn'	: 'none',
+								'transitionOut'	: 'none',
+								'title'			: this.title,
+								'width'		: 680,
+								'height'		: 495,
+								'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+								'type'			: 'swf',
+								'swf'			: {
+									 'wmode'		: 'transparent',
+									'allowfullscreen'	: 'true'
+								}
+							});
 					
+						return false;
+					});	
 				}
 			}
 		}
 	}); //ajax
+	/*if (jQuery('#pikame').length) {
+		jQuery('#pikame').PikaChoose({carousel:true, showTooltips:true, autoPlay:false});
+	}
+	*/ 
+	//$("#pikame").PikaChoose({auto_play:true, IESafe: true});
 	
 }
 
@@ -218,7 +267,7 @@ function showAllModels(menu_sel){
 					var i;
 					for(i=0;i<result.modelos.length;i++){
 						//$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'">Nombre: '+result.modelos[i].first_name.toUpperCase()+'</a><br><label>Apellido: '+result.modelos[i].last_name.toUpperCase()+'</label><br><label>Url imagen de cara: '+result.modelos[i].url_headshot_photo+'</label><br><label>Url imagen de cuerpo entero: '+result.modelos[i].url_full_length_photo+'</a></li>').appendTo('#menu_'+menu_sel+' ul');
-						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img src='+result.modelos[i].url_headshot_photo+' alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
+						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img id="'+result.modelos[i].id+'" src='+result.modelos[i].url_headshot_photo+' alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
 					}
 				}
 			}
@@ -357,7 +406,7 @@ function showPrint(modelId,url_photo){
 			if (result.res == "SUCCESS"){
 				var i;
 				for(i=0;i<result.datos.length;i++){
-					top.location.href=protocolo+url_print+'?first_name='+result.datos[i].first_name+'&last_name='+result.datos[i].last_name+'&height='+result.datos[i].height+'&gender='+result.datos[i].gender+'&bust='+result.datos[i].bust+'&waist='+result.datos[i].waist+'&hips='+result.datos[i].hips+'&collar='+result.datos[i].collar+'&chest='+result.datos[i].chest+'&hair_color='+result.datos[i].hair_color+'&url_photo='+url_photo;
+					top.location.href=protocolo+url_print+'?first_name='+result.datos[i].first_name+'&last_name='+result.datos[i].last_name+'&height='+result.datos[i].height+'&gender='+result.datos[i].gender+'&bust='+result.datos[i].bust+'&waist='+result.datos[i].waist+'&hips='+result.datos[i].hips+'&collar='+result.datos[i].collar+'&chest='+result.datos[i].chest+'&eyes_color='+result.datos[i].eyes_color+'&hair_color='+result.datos[i].hair_color+'&url_photo='+url_photo;
 				}
 			}	
 		}

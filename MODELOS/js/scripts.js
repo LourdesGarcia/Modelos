@@ -1,7 +1,7 @@
 var protocolo =  window.location.protocol;
 var url_print = "//rociolourdes.hostoi.com/print.php";
 
-var url_proccess = "//www.rociolourdes.hostoi.com/proccess.php";
+var url_proccess = "//rociolourdes.hostoi.com/proccess.php";
 var url_images = 'http://www.rociolourdes.hostoi.com/img/';
 
 jQuery(document).ready(function() {
@@ -112,7 +112,7 @@ jQuery(document).ready(function() {
 		//showPrint(modelId,url_photo);
 	});
 	
-	jQuery(".pika-stage a img").live('click', function(e){
+	jQuery(".pika-stage img").live('click', function(e){
 		var url_photo = $(this).attr('src');
 		var model = $('#m_name label').attr('id');
 		var modelId = model.substr(2,model.length);
@@ -206,15 +206,36 @@ function showCompleteDataModel(model_id){
 				if (result.photos.length>0){
 					var i;
 					var cont = 1;
+					$('#galeria .pika-stage').find('img').attr('src',result.photos[0].url_photo);
 					for(i=0;i<result.photos.length;i++){
 							//$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /><label style="display:none">'+result.photos[i].url_photo+'</label></a></div></li>').appendTo('#photos_model ul');
 						//$('<li id="photo'+result.photos[i].id+'"<a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>').appendTo('#galeria #pikame');
-						$('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>').appendTo('#galeria #pikame');
+						//$('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>').appendTo('#galeria #pikame');
+						$("#pikame").append('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>');
+						$("#pikame").data('pikachoose').updateThumbs();
+					$("#pikame").data('pikachoose').bindEvents();
 						cont++;
 					}
-					//$('#galeria .pika-stage').find('img').attr('src',result.photos[0].url_photo);
+					
 				}
+				
+			/*
 				$('#galeria').show();
+				
+						var a = function(self){
+				  self.anchor.fancybox();
+			   };
+			   $("#pikame").PikaChoose({buildFinished:a});
+			   */
+			   /*
+					//adds your image
+					$(".pikame").append('<li><img src="../../4.jpg"></li>');
+					//resizes the thumbnails
+					$(".pikame").data('pikachoose').updateThumbs();
+					//makes the clicks work on thumbs
+					$(".pikame").data('pikachoose').bindEvents();
+			   */
+			   
 				if (jQuery('#listavideos').length) {
 					jQuery('#listavideos a').click(function() {
 						jQuery.fancybox({

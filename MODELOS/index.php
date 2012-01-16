@@ -127,15 +127,16 @@
 		</div>
 	</div>
 	<div id="menu_become_a_model" class="menus" style="display:none">
+		<h2><span>Cómo</span> ser modelo / <span>Become</span> a model</h2>
 		<form class="adjuntos" action="proccess.php" method="POST" ENCTYPE="multipart/form-data">
 			<div class="container_formdatos">
 				<div class="coldatos col1">
 					<div>
-						<label for="">Nombre / First Name:</label>
+						<label for=""><strong>Nombre /</strong> First Name</label>
 						<input type="text" id="first_name" name="first_name"/>
 					</div>
 					<div>
-						<label for="">Dirección / Address:</label>
+						<label for=""><strong>Dirección /</strong> Address</label>
 						<input type="text" id="address" name="address"/>
 					</div>
 					<div>
@@ -143,107 +144,128 @@
 						<input type="text" id="address_cont" name="address_cont" />
 					</div>
 					<div>
-						<label for="">Tel. / Phone Number</label>
+						<label for=""><strong>Tel. /</strong> Phone Number</label>
 						<input type="text" id="phone_number" name="phone_number"maxlength="9"/>
 					</div>
 					<div>
-						<label for="">Móvil / Mobile</label>
+						<label for=""><strong>Móvil /</strong> Mobile</label>
 						<input type="text" id="mobile" name="mobile" maxlength="9"/>
 					</div>
 					<div>
-						<span class="gender">Gender:</span>
-						<label for="" class="nobullet">Female</label>
+						<span class="gender">Gender</span>
 						<input type="radio" id="female" name="sex" value="female"/>
-						<label for="" class="nobullet">Male</label>
+						<label for="" class="nobullet"><strong>Female</strong></label>
 						<input type="radio" id="male" name="sex" value="male" />
+						<label for="" class="nobullet"><strong>Male</strong></label>
 					</div>
 					<div>
-						<label for="">Edad / Age:</label>
+						<label for=""><strong>Edad /</strong> Age</label>
 						<input type="text" id="age" name="age" />
 					</div>
 					<div>
-						<label for="">Altura / Height:</label>
+						<label for=""><strong>Altura /</strong> Height</label>
 						<input type="text" id="height" name="height" />
 					</div>
 					<div>
-						<label for="">Pecho / Bust:</label>
+						<label for=""><strong>Pecho /</strong> Bust</label>
 						<input type="text" id="bust" name="bust"/>
 					</div>
 					<div>
-						<label for="">Cintura / Waist:</label>
+						<label for=""><strong>Cintura</strong> / Waist</label>
 						<input type="text" id="waist1" name="waist1" />
 					</div>
 					<div>
-						<label for="">Cadera / Hips:</label>
+						<label for=""><strong>Cadera /</strong> Hips</label>
 						<input type="text" id="hips" name="hips"  />
 					</div>
 				</div>
 				<div class="coldatos col2">
 					<div>
-						<label for="">Apellido / Last Name:</label>
+						<label for=""><strong>Apellido /</strong> Last Name</label>
 						<input type="text" id="last_name" name="last_name"  />
 					</div>
 					<div>
-						<label for="">C.P. / Zip Code:</label>
+						<label for=""><strong>C.P. /</strong> Zip Code</label>
 						<input type="text" id="zip_code" name="zip_code" />
 					</div>
 					<div>
-						<label for="">Ciudad /City:</label>
+						<label for=""><strong>Ciudad /</strong>City</label>
 						<input type="text" id="city" name="city"/>
 					</div>
 					<div>
-						<label for="">Provincia / State:</label>
+						<label for=""><strong>Provincia /</strong> State</label>
 						<input type="text" id="the_state" name="the_state"/>
 					</div>
 					<div>
-						<label for="">E-mail:</label>
+						<label for="">E-mail</label>
 						<input type="text" id="email" name="email"/>
 					</div>
 					<div>
-						<label for="">Pelo / Hair Color:</label>
+						<label for=""><strong>Pelo /</strong> Hair Color</label>
 						<input type="text" id="hair_color" name="hair_color" />
 					</div>
 					<div>
-						<label for="">Ojos / Eyes Color:</label>
+						<label for=""><strong>Ojos /</strong> Eyes Color</label>
 						<input type="text" id="eyes_color" name="eyes_color"/>
 					</div>
 					<div>
-						<label for="">Cuello / Collar:</label>
+						<label for=""><strong>Cuello /</strong> Collar</label>
 						<input type="text" id="collar" name="collar"/>
 					</div>
 					<div>
-						<label for="">Pecho / Chest:</label>
+						<label for=""><strong>Pecho /</strong> Chest</label>
 						<input type="text" id="chest" name="chest"/>
 					</div>
 					<div>
-						<label for="">Cintura / Waist:</label>
+						<label for=""><strong>Cintura /</strong> Waist</label>
 						<input type="text" id="waist2" name="waist2" />
 					</div>
 				</div>
 			</div>
-			<div  class="adjuntos" >
+			<div  class="adjuntos bloqueAdjuntos" >
 				<div>
-					<label for="">Adjuntar foto de cara / Attach a headshot photo:</label>
-					<input type="file" id="headshot_photo" name="headshot_photo" size=45 maxlength=200> 
+					<label for=""><strong>Adjuntar foto de cara /</strong> Attach a headshot photo:</label>
+					<input type="file" id="headshot_photo" name="headshot_photo" size=30 maxlength=200> 
 					<input type="hidden" name="MAX_FILE_SIZE"  value=100000 />
 				</div>
 				<div>
-					<label for="">Adjuntar foto de cuerpo entero / Attach a full length photo:</label>
-					<input type="file" id="full_length_photo" name="full_length_photo" size=45 maxlength=200> 
+					<label for=""><strong>Adjuntar foto de cuerpo entero /</strong> Attach a full length photo:</label>
+					<input type="file" id="full_length_photo" name="full_length_photo" size=30 maxlength=200> 
 					<input type="hidden" name="MAX_FILE_SIZE"  value=100000 />
 				</div>
-				<div>
+				<div class="agree">
 					<input type="checkbox" id="checkLB" />
-					<label for="" class="nobullet">Estoy de acuerdo de ser contactado por ISABEL NAVARRO Model Management / I agree to be contacted by ISABEL NAVARRO Model Management</label>
+					<label for="" class="nobullet"><strong>Estoy de acuerdo de ser contactado por ISABEL NAVARRO Model Management /</strong> I agree to be contacted by ISABEL NAVARRO Model Management</label>
 					<input type="hidden" name="request_type" id="request_type" value='submitForm' />
 					<!--<input type="button" class="submitButton" value="SUBMIT"/>-->
-					<button type="submit" class="submitButton" value="SUBMIT"/>
+					<button type="submit" class="submitButton" value="SUBMIT"/>Submit</button>
 				</div>
 			</div>
 		</form>
+		<div id="requirements">
+            <div class="spanish">
+                <h3>REQUISITOS:</h3>
+                <p>MUJERES<br />Edades desde 16: 1.75 m mínimo.<br />HOMBRES<br />Edades desde 16: 1.80 m mínimo.</p>
+                <p>Por favor enviar polaroids que muestren cara y cuerpo entero. No usar maquillaje, imágenes con luz natural en exterior con vestuario básico.</p>
+                <p>El tamaño máximo de las dos imágenes debe ser de 2MB.<br />Sólo si cumples con los requisitos te contactaremos.</p>
+            </div>
+            <div class="english">
+                <h3>REQUIREMENTS:</h3>
+                <p>WOMEN<br />Ages  UP 16: 1.75 m Minimum.<br />MEN<br />Ages UP 16: 1.80 m Minimum.</p>
+                <p>Please provide polaroids that show very clear headshot and full length images.<br />No makeup, shot outside with natural light and in a basic color top and bottom.</p>
+                <p>The size of both photographs must not exceed 2MB.<br />Our agency will contact you only if you match our requirements.</p>
+            </div>
+        </div>
 	</div>
 	<div id="menu_contact" class="menus" style="display:none">
-		<p>DATOS DE CONTACTO</p>
+		<p>Príncipe de Vergara 90, 1°D<br />Madrid<br />28006 (Spain)</p>
+		<p><span>T.</span>  +34 915 633 042<br />
+			<span>M.</span> +34 651 422 161<br />
+			<span>Fax</span> +34 915 630 339</p>
+		<p><span>INFORMATION</span></p>
+		<p><strong>Fashion</strong><br /><a href="mailto:models@isabelnavarro.net">models@isabelnavarro.net</a></p>
+		<p><strong>Commercial</strong><br /><a href="mailto:casting@isabelnavarro.net">casting@isabelnavarro.net</a></p>
+		<p><strong>Scouting</strong><br /><a href="isabel@isabelnavarro.net">isabel@isabelnavarro.net</a></p>
 	</div>
 	<!--<div id="model_selected" class="menu" style="display:none">
 		<div id="data_model"></div>

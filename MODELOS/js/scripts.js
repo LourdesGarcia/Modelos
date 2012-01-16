@@ -112,11 +112,10 @@ jQuery(document).ready(function() {
 		//showPrint(modelId,url_photo);
 	});
 	
-	jQuery(".pika-stage a").live('click', function(e){
-		var url_photo = $(this).find('img').attr('src');
+	jQuery(".pika-stage a img").live('click', function(e){
+		var url_photo = $(this).attr('src');
 		var model = $('#m_name label').attr('id');
 		var modelId = model.substr(2,model.length);
-		//showCompleteDataModel(modelId,url_photo);
 		showPrint(modelId,url_photo);	
 	});
 	

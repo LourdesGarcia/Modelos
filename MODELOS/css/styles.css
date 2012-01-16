@@ -62,15 +62,19 @@ table {
 body {font-family:Arial, Helvetica, sans-serif;}
 .hide { display:none;}
 .hide2 { position:absolute; display:block; width:0; height:0; overflow:hidden;}
+a{cursor:pointer; outline:none; text-decoration: none;}
+img {border:none;}
 
 /* Contenido cabecera */
 #header h1 { width:113px; height:54px;}
 #header ul { position:absolute; bottom:5px; left:120px;}
-	#header li { font-family: ‘Abel’, Arial, serif; font-weight:400; float:left; margin-left:34px;}
+	#header li { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:14px; float:left; margin-left:34px;}
 		#header li a { color:#999999; text-decoration:none; text-transform:uppercase;}
 			#header li a:hover, #header li a.active { color:#333333}
 #header form { position:absolute; bottom:5px; left:820px;}
-	#header select { border:#C5C5C5 solid 1px; width:158px; height:20px; font-size:10px; /* text-transform:uppercase;*/}
+	#header select { border:#C5C5C5 solid 1px; width:158px; height:20px; font-size:10px; text-transform:uppercase;}
+	
+.selected_menu, .selected_letter { font-weight:bold;}
 
 /* Contenido pie */
 #footer p {font-size:10px; color:#666666; text-transform:uppercase; float:left; line-height:50px;}
@@ -82,6 +86,9 @@ body {font-family:Arial, Helvetica, sans-serif;}
 /* Modulos Container */
 
 	/* Intro site */
+.models_intro ul li{
+	float:left;
+}
 
 	/* Listado de modelos por book */
 	#primerplano { height:500px; overflow:auto;}
@@ -95,388 +102,94 @@ body {font-family:Arial, Helvetica, sans-serif;}
 				#alfabeto li a:hover, #alfabeto li a.active { color:#333333;}
 	
 	/* Book */
-	/*#book {}*/
+	#book { width:275px; height:345px; margin-top:110px; float:left;}
+		#book h2 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; text-transform:uppercase; letter-spacing:5px; word-spacing:-10px; margin-bottom:23px;}
+			#book h2 strong { color:#333333;}
+		#book dl { font-size:11px;}
+			#book dl dt { display:inline-block; clear:left; float:left; color:#333333; margin-right:5px;}
+			#book dl dd { color:#999999; clear:right; float:left;} 
+		#book h3.videos { clear:both; font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:11px; color:#999999; text-transform:uppercase; padding-top: 40px; padding-bottom:5px;}
+		#book ul { clear:both; margin-bottom:30px;}
+			#book ul li { width:80px; height:85px; float:left; margin:0 5px 5px 0;}
+				#book ul li a { font-size:9px; color:#666666; text-decoration:none;}
+		#book h3.composite { clear:both; font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:12px; color:#333333; text-decoration:none; padding-top: 30px; padding-bottom: 5px;}
+			#book h3.composite a { color:#333333; text-decoration:none;}
+	
+	#galeria { width:405px; height:345px; float:left; padding-left: 70px;}
 	
 	/* Formulario "Become a model" */
-	/*#becomeamodel {}*/
+	#menu_become_a_model {}
+		#menu_become_a_model h2 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; text-transform:uppercase; letter-spacing:5px; margin: 23px 0;}
+			#menu_become_a_model h2 span { color:#333333;}
+
+	#menu_become_a_model label { font-size:11px; color:#999999;}
+		#menu_become_a_model label strong { color:#666666;}	
+	#menu_become_a_model input[type=text] {	border: 1px solid #C5C5C5; font-size: 10px; height: 20px; width: 158px;	}
 	
+	
+.container_formdatos{ height: 360px; width: 600px;}
+
+#menu_become_a_model .coldatos div { width:280px; height:30px;}
+	#menu_become_a_model .coldatos div input { float:right;}
+	#menu_become_a_model .coldatos div label { display: block; float: left; line-height: 25px; text-align: right; width: 110px;;}
+
+#menu_become_a_model .coldatos .gender { font-size: 11px; padding: 0 5px 0 115px; text-transform: uppercase;}
+#menu_become_a_model .coldatos .nobullet { display: inline; float: none; width: auto;}
+#menu_become_a_model .coldatos #female, #menu_become_a_model .coldatos #male { float:none; vertical-align: middle;}
+
+.col1{ float : left;}
+.col2{ float : right;}
+.adjuntos{ width:600px; height: 80px;}
+
+#menu_become_a_model .bloqueAdjuntos div { width:600px; height:30px;}
+#menu_become_a_model .bloqueAdjuntos div label { display: block; float: left; line-height: 25px; text-align: right; width: 300px;;}
+
+#menu_become_a_model .bloqueAdjuntos div input { float:right;}
+
+#menu_become_a_model div.agree { width:925px;}
+	#menu_become_a_model div.agree label { float:none; display:inline; font-size:12px; margin-right:40px;}
+	#menu_become_a_model div.agree input { float:none;}
+	
+#requirements { font-size:11px; font-weight:400; position:absolute; top:0; right:50px; width:240px; line-height: 13px;}
+	#requirements .spanish { color:#333333; margin-bottom:30px;}
+	#requirements .english { color:#666666;}
+    	#requirements h3 { margin-bottom:15px;}
+        #requirements p { margin-bottom:15px;}
+
 	/* Contacto */
+#contact { font-size:12px; color:#999999; margin:135spx 0 0 370px; width:250px;}
+	#contact p { margin-bottom:20px;}
+	#contact span { color:#666666; font-weight:400;}
+	#contact strong { color:#333333; font-weight:400;}
+	#contact a { color:#999999; text-decoration:none;}
+		#contact a:hover { color:#666666; text-decoration:underline;}
 	
-	
-/* Estilos personalizados de cursor mediante jQuery */
+/* Estilos personalizados de cursor mediante jQuery: BOC */
 /*
  * CSS Styles that are needed by jScrollPane for it to operate correctly.
  *
  * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
  * may not operate correctly without them.
  */
-
-.jspContainer
-{
-	overflow: hidden;
-	position: relative;
-}
-
-.jspPane
-{
-	position: absolute;
-}
-
-.jspVerticalBar
-{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 10px;
-	height: 100%;
-	background: #CCCCCC;
-}
-
-.jspHorizontalBar
-{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 16px;
-	background: red;
-}
-
-.jspVerticalBar *,
-.jspHorizontalBar *
-{
-	margin: 0;
-	padding: 0;
-}
-
-.jspCap
-{
-	display: none;
-}
-
-.jspHorizontalBar .jspCap
-{
-	float: left;
-}
-
-.jspTrack
-{
-	background: #CCCCCC;
-	position: relative;
-}
-
-.jspDrag
-{
-	background: #999999;
-	position: relative;
-	top: 0;
-	left: 0;
-	cursor: pointer;
-}
-
-.jspHorizontalBar .jspTrack,
-.jspHorizontalBar .jspDrag
-{
-	float: left;
-	height: 100%;
-}
-
-.jspArrow
-{
-	background: #50506d;
-	text-indent: -20000px;
-	display: block;
-	cursor: pointer;
-}
-
-.jspArrow.jspDisabled
-{
-	cursor: default;
-	background: #80808d;
-}
-
-.jspVerticalBar .jspArrow
-{
-	height: 16px;
-}
-
-.jspHorizontalBar .jspArrow
-{
-	width: 16px;
-	float: left;
-	height: 100%;
-}
-
-.jspVerticalBar .jspArrow:focus
-{
-	outline: none;
-}
-
-.jspCorner
-{
-	background: #eeeef4;
-	float: left;
-	height: 100%;
-}
-
+.jspContainer {	overflow:hidden; position:relative;}
+.jspPane { position: absolute;}
+.jspVerticalBar { position: absolute; top: 0; right: 0; width: 10px; height: 100%; background: #CCCCCC;}
+.jspHorizontalBar { position: absolute; bottom: 0; left: 0; width: 100%; height: 16px; background: red;}
+.jspVerticalBar *, .jspHorizontalBar * { margin: 0; padding: 0;}
+.jspCap { display: none;}
+.jspHorizontalBar .jspCap { float: left;}
+.jspTrack { background: #CCCCCC; position: relative;}
+.jspDrag { background: #999999; position: relative; top: 0; left: 0; cursor: pointer;}
+.jspHorizontalBar .jspTrack, .jspHorizontalBar .jspDrag { float: left; height: 100%;}
+.jspArrow { background: #50506d; text-indent: -20000px; display: block; cursor: pointer;}
+.jspArrow.jspDisabled { cursor: default; background: #80808d;}
+.jspVerticalBar .jspArrow { height: 16px;}
+.jspHorizontalBar .jspArrow { width: 16px; float: left; height: 100%;}
+.jspVerticalBar .jspArrow:focus { outline: none;}
+.jspCorner { background: #eeeef4; float: left; height: 100%;}
 /* Yuk! CSS Hack for IE6 3 pixel bug :( */
-* html .jspCorner
-{
-	margin: 0 -3px 0 0;
-}
-
-
-/******************************************************************************/
-
-
-a{cursor:pointer; outline:none; text-decoration: none;}
-
-img {border:none;}
-
-.container_formdatos{
-	height: 360px;
-    width: 600px;
-}
-
-.col1{
-	float : left;
-}
-
-.col2{
-	float : right;
-}
-
-.selected_menu, .selected_letter{
-	font-weight:bold;
-}
-
-.models_intro ul li{
-	float:left;
-}
-
-#book {
-    float: left;
-    height: 345px;
-    margin-top: 110px;
-    width: 275px;
-}
-
-#book h2 {
-    color: #999999;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    margin-bottom: 23px;
-    text-transform: uppercase;
-    word-spacing: -10px;
-}
-
-#book h2 strong {
-    color: #333333;
-}
-
-#book h3.videos {
-    clear: both;
-    color: #999999;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 11px;
-    font-weight: 400;
-    padding-bottom: 5px;
-    padding-top: 40px;
-    text-transform: uppercase;
-}
-#book dl {
-    font-size: 11px;
-}
-#book dl dd {
-    clear: right;
-    color: #999999;
-    float: left;
-}
-#book dl dt {
-    clear: left;
-    color: #333333;
-    display: inline-block;
-    float: left;
-    margin-right: 5px;
-}
-#book ul {
-    clear: both;
-    margin-bottom: 30px;
-}
-#book ul li {
-    float: left;
-    height: 85px;
-    margin: 0 5px 5px 0;
-    width: 80px;
-}
-#book ul li a {
-    color: #666666;
-    font-size: 9px;
-    text-decoration: none;
-}
-#book h3.composite {
-    clear: both;
-    color: #333333;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 12px;
-    font-weight: 400;
-    padding-bottom: 5px;
-    padding-top: 30px;
-    text-decoration: none;
-}
-
-#book h3.composite a {
-    color: #333333;
-    text-decoration: none;
-}
-
-#galeria {
-    float: left;
-    height: 345px;
-    padding-left: 70px;
-    width: 405px;
-}
-
-#menu_become_a_model {
-}
-#menu_become_a_model h2 {
-    color: #999999;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    margin: 23px 0;
-    text-transform: uppercase;
-}
-#menu_become_a_model h2 span {
-    color: #333333;
-}
-#menu_become_a_model label {
-    color: #999999;
-    font-size: 11px;
-}
-#menu_become_a_model label strong {
-    color: #666666;
-}
-#menu_become_a_model input[type="text"] {
-    border: 1px solid #C5C5C5;
-    font-size: 10px;
-    height: 20px;
-    width: 158px;
-}
-/*.container_formdatos {
-    height: 360px;
-    width: 600px;
-} */
-#menu_become_a_model .coldatos div {
-    height: 30px;
-    width: 280px;
-}
-#menu_become_a_model .coldatos div input {
-    float: right;
-}
-#menu_become_a_model .coldatos div label {
-    display: block;
-    float: left;
-    line-height: 25px;
-    text-align: right;
-    width: 110px;
-}
-#menu_become_a_model .coldatos .gender {
-    font-size: 11px;
-    padding: 0 5px 0 115px;
-    text-transform: uppercase;
-}
-#menu_become_a_model .coldatos .nobullet {
-    display: inline;
-    float: none;
-    width: auto;
-}
-#menu_become_a_model .coldatos #female, #menu_become_a_model .coldatos #male {
-    float: none;
-    vertical-align: middle;
-}
-
-.adjuntos {
-    height: 80px;
-    width: 600px;
-}
-#menu_become_a_model .bloqueAdjuntos div {
-    height: 30px;
-    width: 600px;
-}
-#menu_become_a_model .bloqueAdjuntos div label {
-    display: block;
-    float: left;
-    line-height: 25px;
-    text-align: right;
-    width: 300px;
-}
-#menu_become_a_model .bloqueAdjuntos div input {
-    float: right;
-}
-#menu_become_a_model div.agree {
-    width: 925px;
-}
-#menu_become_a_model div.agree label {
-    display: inline;
-    float: none;
-    font-size: 12px;
-    margin-right: 40px;
-}
-#menu_become_a_model div.agree input {
-    float: none;
-}
-#requirements {
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 13px;
-    position: absolute;
-    right: 50px;
-    top: 0;
-    width: 240px;
-}
-#requirements .spanish {
-    color: #333333;
-    margin-bottom: 30px;
-}
-#requirements .english {
-    color: #666666;
-}
-#requirements h3 {
-    margin-bottom: 15px;
-}
-#requirements p {
-    margin-bottom: 15px;
-}
-#menu_contact {	
-	margin: 30px 0 0 0;
-    color: #999999;
-    font-size: 12px;
-    width: 250px;
-}
-#menu_contact p {
-    margin-bottom: 20px;
-}
-#menu_contact span {
-    color: #666666;
-    font-weight: 400;
-}
-#menu_contact strong {
-    color: #333333;
-    font-weight: 400;
-}
-#menu_contact a {
-    color: #999999;
-    text-decoration: none;
-}
-#menu_contact a:hover {
-    color: #666666;
-    text-decoration: underline;
-}
-
+* html .jspCorner { margin: 0 -3px 0 0;}
+/* Estilos personalizados de cursor mediante jQuery: EOC */
 
 /* Estilos personalizados de carrusel mediante jQuery: BOC */
 .pikachoose {width: 520px; margin: 0 auto;}
@@ -515,8 +228,8 @@ img {border:none;}
 .pika-loader{ background: url(../img/loading.gif) 3px 3px no-repeat #000; background-color:#333333; color:#FFFFFF; width:60px; font-size:11px; padding:5px 3px; 
 	text-align:right; position:absolute; top:15px; right:15px; }
 	
-.jcarousel-skin-pika .jcarousel-container-horizontal { padding: 0; overflow:hidden;}
-.jcarousel-skin-pika .jcarousel-clip-horizontal {height: 90px; width: 485px;}
+.jcarousel-skin-pika .jcarousel-container-horizontal { padding: 0; overflow:hidden;width: 404px;}
+.jcarousel-skin-pika .jcarousel-clip-horizontal {height: 90px; width: 485px;left: 30px;}
 .jcarousel-skin-pika .jcarousel-item-horizontal { margin-right: 3px;}
 
 
@@ -529,12 +242,12 @@ img {border:none;}
     top: 5px;
     width: 32px;
 }
-.jcarousel-skin-pika jcarousel-next-horizontal {
+.jcarousel-skin-pika .jcarousel-next-horizontal {
     background: url(../img/next.png) no-repeat scroll 50% 50% #FFFFFF;
     cursor: pointer;
     height: 60px;
     position: absolute;
-    right: 5px;
+    right: 0;
     top: 5px;
     width: 32px;
 }

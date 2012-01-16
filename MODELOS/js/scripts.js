@@ -1,7 +1,7 @@
 var protocolo =  window.location.protocol;
-var url_proccess = "//www.rociolourdes.hostoi.com/proccess.php";
-var url_print = "//www.rociolourdes.hostoi.com/print.php";
-var url_images = 'http://www.rociolourdes.hostoi.com/img/';
+var url_proccess = "//rociolourdes.hostoi.com/proccess.php";
+var url_print = "//rociolourdes.hostoi.com/print.php";
+var url_images = 'http://rociolourdes.hostoi.com/img/';
 
 jQuery(document).ready(function() {
 

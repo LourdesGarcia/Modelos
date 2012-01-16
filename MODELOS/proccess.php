@@ -224,7 +224,7 @@ if($requestType){
 }
 
 echo json_encode($resultTotal);
-if(($requestType=="submitForm")&&($resultTotal['res']=='SUCCESS')){
+if($requestType=="submitForm"){
 	header('Location: http://www.rociolourdes.hostoi.com');
 }
 ?>

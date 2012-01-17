@@ -212,10 +212,10 @@ function showCompleteDataModel(model_id){
 						//$('<li id="photo'+result.photos[i].id+'"<a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>').appendTo('#galeria #pikame');
 						//$('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>').appendTo('#galeria #pikame');
 						$("#pikame").append('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>');
-						$("#pikame").data('pikachoose').updateThumbs();
-					$("#pikame").data('pikachoose').bindEvents();
 						cont++;
 					}
+					$("#pikame").data('pikachoose').updateThumbs();
+					$("#pikame").data('pikachoose').bindEvents();
 					
 				}
 				

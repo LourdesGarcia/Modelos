@@ -7,6 +7,7 @@ var url_images = 'http://www.rociolourdes.hostoi.com/img/';
 jQuery(document).ready(function() {
 
 	  	// Ocultamos elementos del selector de modelos
+	jQuery("#hidden_link").fancybox().trigger('click');
 
 	jQuery("input[name='sex']").live('click', function(e){
 			var otroOp = jQuery("input[name='sex']:checked").attr('id');

@@ -1,0 +1,44 @@
+1- gestión de rotabanner
+2- añadir modelos
+3- editar modelo
+4- borrar modelo
+5- añadir videos
+6- añadir fotos modelo
+7- borrarlos
+
+
+Los datos que hay que guardar los meten desde la administración de la agencia y son únicamente los que se ven en la parte pública, las fotos, los vídeos y el documento descargable.
+
+Nombre
+Altura
+Pecho
+Cintura
+Cadera
+Color de ojos
+Color de pelo
+Tipo de modelo
+Vídeos
+Composite
+
+
+De todos los datos que tienes en el formulario y que estás guardando te sirven los que se muestran en la página detallada de la modelo
+
+en la home, las imagenes son: '1plano_'
+cuando pinchas en la modelos, se muestra el carrusel con 'book_' y su 'mini_' correspondiente
+y de estas hay muchas, pero 1plano solo una
+es asi?
+
+
+Fernando: exacto
+
+
+Lourdes: pero con la posibilidad de añadir mas
+si es asi,en el caso de 1plano, se mostraria la ultima insertada
+verdad?
+
+solo tengo que modificar las tablas. quitar de la de modelos los datos que no me sirvan, ademas, de añadir un campo para habillidat/deshabilitar
+eso lo tengo tambien que añadir a los videos y a las imagenes
+creo que mejor lo que voy a hacer es añadir una tabla mas para las imagenes de 1plano
+
+
+

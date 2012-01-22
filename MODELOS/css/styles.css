@@ -490,7 +490,7 @@ img {border:none;}
 /* The stage is the wrapper. The image fills 100% the height of the stage */
 .pika-stage, .pika-textnav {width: 320px;}
 .pika-stage {position: relative; border: 1px solid #e5e5e5; padding:0; text-align:center; height:459px; margin-left: 40px;}
-.pika-stage img{height:100%;}
+.pika-stage img{height:100%;cursor:pointer;}
 .pika-stage .caption {position: absolute; background: #000; background: rgba(0,0,0,0.75);  border: 1px solid #141414; font-size: 11px; color: #fafafa; padding: 10px; text-align: right; bottom: 50px; right: 10px;}
 	.pika-stage .caption p {padding: 0; margin: 0; line-height: 14px;}
 

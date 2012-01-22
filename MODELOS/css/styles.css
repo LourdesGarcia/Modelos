@@ -62,15 +62,22 @@ table {
 body {font-family:Arial, Helvetica, sans-serif;}
 .hide { display:none;}
 .hide2 { position:absolute; display:block; width:0; height:0; overflow:hidden;}
+a{cursor:pointer; outline:none; text-decoration: none;}
+img {border:none;}
+.floatRight { float:right;}
+.floatLeft { float:left;}
+.alignCenter { margin:0 auto;}
 
 /* Contenido cabecera */
 #header h1 { width:113px; height:54px;}
 #header ul { position:absolute; bottom:5px; left:120px;}
-	#header li { font-family: ‘Abel’, Arial, serif; font-weight:400; float:left; margin-left:34px;}
+	#header li { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:14px; float:left; margin-left:34px;}
 		#header li a { color:#999999; text-decoration:none; text-transform:uppercase;}
 			#header li a:hover, #header li a.active { color:#333333}
-#header form { position:absolute; bottom:5px; left:820px;}
-	#header select { border:#C5C5C5 solid 1px; width:158px; height:20px; font-size:10px; /* text-transform:uppercase;*/}
+#header #modelselector { position:absolute; bottom:5px; left:820px;}
+	#header select { border:#C5C5C5 solid 1px; width:158px; height:20px; font-size:10px; text-transform:uppercase;}
+	
+.selected_menu, .selected_letter { font-weight:bold;}
 
 /* Contenido pie */
 #footer p {font-size:10px; color:#666666; text-transform:uppercase; float:left; line-height:50px;}
@@ -82,6 +89,8 @@ body {font-family:Arial, Helvetica, sans-serif;}
 /* Modulos Container */
 
 	/* Intro site */
+.models_intro ul li{ float:left;}
+#saltar_intro { z-index:99; width:975px; height:90px; position:absolute; bottom:0; left:0; line-height: 85px; text-align:center; color:#FFFFFF; background:transparent url(../img/fondo_saltar_intro.png) top left repeat-x;}
 
 	/* Listado de modelos por book */
 	#primerplano { height:500px; overflow:auto;}
@@ -95,388 +104,94 @@ body {font-family:Arial, Helvetica, sans-serif;}
 				#alfabeto li a:hover, #alfabeto li a.active { color:#333333;}
 	
 	/* Book */
-	/*#book {}*/
+	#book { width:275px; height:345px; margin-top:110px; float:left;}
+		#book h2 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; text-transform:uppercase; letter-spacing:5px; word-spacing:-10px; margin-bottom:23px;}
+			#book h2 strong { color:#333333;}
+		#book dl { font-size:11px;}
+			#book dl dt { display:inline-block; clear:left; float:left; color:#333333; margin-right:5px;}
+			#book dl dd { color:#999999; clear:right; float:left;} 
+		#book h3.videos { clear:both; font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:11px; color:#999999; text-transform:uppercase; padding-top: 40px; padding-bottom:5px;}
+		#book ul { clear:both; margin-bottom:30px;}
+			#book ul li { width:80px; height:85px; float:left; margin:0 5px 5px 0;}
+				#book ul li a { font-size:9px; color:#666666; text-decoration:none;}
+		#book h3.composite { clear:both; font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:12px; color:#333333; text-decoration:none; padding-top: 30px; padding-bottom: 5px;}
+			#book h3.composite a { color:#333333; text-decoration:none;}
+	
+	#galeria { width:405px; height:345px; float:left; padding-left: 70px;}
 	
 	/* Formulario "Become a model" */
-	/*#becomeamodel {}*/
+	#menu_become_a_model {}
+		#menu_become_a_model h2 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; text-transform:uppercase; letter-spacing:5px; margin: 23px 0;}
+			#menu_become_a_model h2 span { color:#333333;}
+
+	#menu_become_a_model label { font-size:11px; color:#999999;}
+		#menu_become_a_model label strong { color:#666666;}	
+	#menu_become_a_model input[type=text] {	border: 1px solid #C5C5C5; font-size: 10px; height: 20px; width: 158px;	}
 	
+	
+.container_formdatos{ height: 360px; width: 600px;}
+
+#menu_become_a_model .coldatos div { width:280px; height:30px;}
+	#menu_become_a_model .coldatos div input { float:right;}
+	#menu_become_a_model .coldatos div label { display: block; float: left; line-height: 25px; text-align: right; width: 110px;;}
+
+#menu_become_a_model .coldatos .gender { font-size: 11px; padding: 0 5px 0 115px; text-transform: uppercase;}
+#menu_become_a_model .coldatos .nobullet { display: inline; float: none; width: auto;}
+#menu_become_a_model .coldatos #female, #menu_become_a_model .coldatos #male { float:none; vertical-align: middle;}
+
+.col1{ float : left;}
+.col2{ float : right;}
+.adjuntos{ width:600px; height: 80px;}
+
+#menu_become_a_model .bloqueAdjuntos div { width:600px; height:30px;}
+#menu_become_a_model .bloqueAdjuntos div label { display: block; float: left; line-height: 25px; text-align: right; width: 300px;;}
+
+#menu_become_a_model .bloqueAdjuntos div input { float:right;}
+
+#menu_become_a_model div.agree { width:925px;}
+	#menu_become_a_model div.agree label { float:none; display:inline; font-size:12px; margin-right:40px;}
+	#menu_become_a_model div.agree input { float:none;}
+	
+#requirements { font-size:11px; font-weight:400; position:absolute; top:0; right:50px; width:240px; line-height: 13px;}
+	#requirements .spanish { color:#333333; margin-bottom:30px;}
+	#requirements .english { color:#666666;}
+    	#requirements h3 { margin-bottom:15px;}
+        #requirements p { margin-bottom:15px;}
+
 	/* Contacto */
+#menu_contact { font-size:12px; color:#999999; padding:135px 0 0 370px; width:250px;}
+	#menu_contact p { margin-bottom:20px;}
+	#menu_contact span { color:#666666; font-weight:400;}
+	#menu_contact strong { color:#333333; font-weight:400;}
+	#menu_contact a { color:#999999; text-decoration:none;}
+		#menu_contact a:hover { color:#666666; text-decoration:underline;}
 	
-	
-/* Estilos personalizados de cursor mediante jQuery */
+/* Estilos personalizados de cursor mediante jQuery: BOC */
 /*
  * CSS Styles that are needed by jScrollPane for it to operate correctly.
  *
  * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
  * may not operate correctly without them.
  */
-
-.jspContainer
-{
-	overflow: hidden;
-	position: relative;
-}
-
-.jspPane
-{
-	position: absolute;
-}
-
-.jspVerticalBar
-{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 10px;
-	height: 100%;
-	background: #CCCCCC;
-}
-
-.jspHorizontalBar
-{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 16px;
-	background: red;
-}
-
-.jspVerticalBar *,
-.jspHorizontalBar *
-{
-	margin: 0;
-	padding: 0;
-}
-
-.jspCap
-{
-	display: none;
-}
-
-.jspHorizontalBar .jspCap
-{
-	float: left;
-}
-
-.jspTrack
-{
-	background: #CCCCCC;
-	position: relative;
-}
-
-.jspDrag
-{
-	background: #999999;
-	position: relative;
-	top: 0;
-	left: 0;
-	cursor: pointer;
-}
-
-.jspHorizontalBar .jspTrack,
-.jspHorizontalBar .jspDrag
-{
-	float: left;
-	height: 100%;
-}
-
-.jspArrow
-{
-	background: #50506d;
-	text-indent: -20000px;
-	display: block;
-	cursor: pointer;
-}
-
-.jspArrow.jspDisabled
-{
-	cursor: default;
-	background: #80808d;
-}
-
-.jspVerticalBar .jspArrow
-{
-	height: 16px;
-}
-
-.jspHorizontalBar .jspArrow
-{
-	width: 16px;
-	float: left;
-	height: 100%;
-}
-
-.jspVerticalBar .jspArrow:focus
-{
-	outline: none;
-}
-
-.jspCorner
-{
-	background: #eeeef4;
-	float: left;
-	height: 100%;
-}
-
+.jspContainer {	overflow:hidden; position:relative;}
+.jspPane { position: absolute;}
+.jspVerticalBar { position: absolute; top: 0; right: 0; width: 10px; height: 100%; background: #CCCCCC;}
+.jspHorizontalBar { position: absolute; bottom: 0; left: 0; width: 100%; height: 16px; background: red;}
+.jspVerticalBar *, .jspHorizontalBar * { margin: 0; padding: 0;}
+.jspCap { display: none;}
+.jspHorizontalBar .jspCap { float: left;}
+.jspTrack { background: #CCCCCC; position: relative;}
+.jspDrag { background: #999999; position: relative; top: 0; left: 0; cursor: pointer;}
+.jspHorizontalBar .jspTrack, .jspHorizontalBar .jspDrag { float: left; height: 100%;}
+.jspArrow { background: #50506d; text-indent: -20000px; display: block; cursor: pointer;}
+.jspArrow.jspDisabled { cursor: default; background: #80808d;}
+.jspVerticalBar .jspArrow { height: 16px;}
+.jspHorizontalBar .jspArrow { width: 16px; float: left; height: 100%;}
+.jspVerticalBar .jspArrow:focus { outline: none;}
+.jspCorner { background: #eeeef4; float: left; height: 100%;}
 /* Yuk! CSS Hack for IE6 3 pixel bug :( */
-* html .jspCorner
-{
-	margin: 0 -3px 0 0;
-}
-
-
-/******************************************************************************/
-
-
-a{cursor:pointer; outline:none; text-decoration: none;}
-
-img {border:none;}
-
-.container_formdatos{
-	height: 360px;
-    width: 600px;
-}
-
-.col1{
-	float : left;
-}
-
-.col2{
-	float : right;
-}
-
-.selected_menu, .selected_letter{
-	font-weight:bold;
-}
-
-.models_intro ul li{
-	float:left;
-}
-
-#book {
-    float: left;
-    height: 345px;
-    margin-top: 110px;
-    width: 275px;
-}
-
-#book h2 {
-    color: #999999;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    margin-bottom: 23px;
-    text-transform: uppercase;
-    word-spacing: -10px;
-}
-
-#book h2 strong {
-    color: #333333;
-}
-
-#book h3.videos {
-    clear: both;
-    color: #999999;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 11px;
-    font-weight: 400;
-    padding-bottom: 5px;
-    padding-top: 40px;
-    text-transform: uppercase;
-}
-#book dl {
-    font-size: 11px;
-}
-#book dl dd {
-    clear: right;
-    color: #999999;
-    float: left;
-}
-#book dl dt {
-    clear: left;
-    color: #333333;
-    display: inline-block;
-    float: left;
-    margin-right: 5px;
-}
-#book ul {
-    clear: both;
-    margin-bottom: 30px;
-}
-#book ul li {
-    float: left;
-    height: 85px;
-    margin: 0 5px 5px 0;
-    width: 80px;
-}
-#book ul li a {
-    color: #666666;
-    font-size: 9px;
-    text-decoration: none;
-}
-#book h3.composite {
-    clear: both;
-    color: #333333;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 12px;
-    font-weight: 400;
-    padding-bottom: 5px;
-    padding-top: 30px;
-    text-decoration: none;
-}
-
-#book h3.composite a {
-    color: #333333;
-    text-decoration: none;
-}
-
-#galeria {
-    float: left;
-    height: 345px;
-    padding-left: 70px;
-    width: 405px;
-}
-
-#menu_become_a_model {
-}
-#menu_become_a_model h2 {
-    color: #999999;
-    font-family: ‘Abel’,Arial,serif;
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    margin: 23px 0;
-    text-transform: uppercase;
-}
-#menu_become_a_model h2 span {
-    color: #333333;
-}
-#menu_become_a_model label {
-    color: #999999;
-    font-size: 11px;
-}
-#menu_become_a_model label strong {
-    color: #666666;
-}
-#menu_become_a_model input[type="text"] {
-    border: 1px solid #C5C5C5;
-    font-size: 10px;
-    height: 20px;
-    width: 158px;
-}
-/*.container_formdatos {
-    height: 360px;
-    width: 600px;
-} */
-#menu_become_a_model .coldatos div {
-    height: 30px;
-    width: 280px;
-}
-#menu_become_a_model .coldatos div input {
-    float: right;
-}
-#menu_become_a_model .coldatos div label {
-    display: block;
-    float: left;
-    line-height: 25px;
-    text-align: right;
-    width: 110px;
-}
-#menu_become_a_model .coldatos .gender {
-    font-size: 11px;
-    padding: 0 5px 0 115px;
-    text-transform: uppercase;
-}
-#menu_become_a_model .coldatos .nobullet {
-    display: inline;
-    float: none;
-    width: auto;
-}
-#menu_become_a_model .coldatos #female, #menu_become_a_model .coldatos #male {
-    float: none;
-    vertical-align: middle;
-}
-
-.adjuntos {
-    height: 80px;
-    width: 600px;
-}
-#menu_become_a_model .bloqueAdjuntos div {
-    height: 30px;
-    width: 600px;
-}
-#menu_become_a_model .bloqueAdjuntos div label {
-    display: block;
-    float: left;
-    line-height: 25px;
-    text-align: right;
-    width: 300px;
-}
-#menu_become_a_model .bloqueAdjuntos div input {
-    float: right;
-}
-#menu_become_a_model div.agree {
-    width: 925px;
-}
-#menu_become_a_model div.agree label {
-    display: inline;
-    float: none;
-    font-size: 12px;
-    margin-right: 40px;
-}
-#menu_become_a_model div.agree input {
-    float: none;
-}
-#requirements {
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 13px;
-    position: absolute;
-    right: 50px;
-    top: 0;
-    width: 240px;
-}
-#requirements .spanish {
-    color: #333333;
-    margin-bottom: 30px;
-}
-#requirements .english {
-    color: #666666;
-}
-#requirements h3 {
-    margin-bottom: 15px;
-}
-#requirements p {
-    margin-bottom: 15px;
-}
-#menu_contact {	
-	margin: 30px 0 0 0;
-    color: #999999;
-    font-size: 12px;
-    width: 250px;
-}
-#menu_contact p {
-    margin-bottom: 20px;
-}
-#menu_contact span {
-    color: #666666;
-    font-weight: 400;
-}
-#menu_contact strong {
-    color: #333333;
-    font-weight: 400;
-}
-#menu_contact a {
-    color: #999999;
-    text-decoration: none;
-}
-#menu_contact a:hover {
-    color: #666666;
-    text-decoration: underline;
-}
-
+* html .jspCorner { margin: 0 -3px 0 0;}
+/* Estilos personalizados de cursor mediante jQuery: EOC */
 
 /* Estilos personalizados de carrusel mediante jQuery: BOC */
 .pikachoose {width: 520px; margin: 0 auto;}
@@ -490,7 +205,7 @@ img {border:none;}
 /* The stage is the wrapper. The image fills 100% the height of the stage */
 .pika-stage, .pika-textnav {width: 320px;}
 .pika-stage {position: relative; border: 1px solid #e5e5e5; padding:0; text-align:center; height:459px; margin-left: 40px;}
-.pika-stage img{height:100%;cursor:pointer;}
+.pika-stage img{height:100%;}
 .pika-stage .caption {position: absolute; background: #000; background: rgba(0,0,0,0.75);  border: 1px solid #141414; font-size: 11px; color: #fafafa; padding: 10px; text-align: right; bottom: 50px; right: 10px;}
 	.pika-stage .caption p {padding: 0; margin: 0; line-height: 14px;}
 
@@ -542,3 +257,41 @@ img {border:none;}
 
 
 /* Estilos personalizados de carrusel mediante jQuery: EOC */
+
+/* Administrador */
+#cabecera { width:970px; height:50px; padding:15px;}
+	#cabecera h1 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; }
+#secciones { width:150px; height:750px; float:left; padding:15px;}
+	#secciones li { font-size:14px; background:#FFFFFF url(../img/bullet.png) no-repeat left top; padding-left:14px; margin-bottom:5px;}
+		#secciones li a {color:#5F5F5F;}
+			#secciones li a:hover { text-decoration:underline;}
+			#secciones li.active { font-size:13px; font-weight:bold;}
+#panelCentral { width:790px; height:auto; float:left; padding:15px; border-left: solid 1px #999999; }	
+	#panelCentral h2 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; margin-bottom:10px; border-bottom:solid 1px #999999;}
+	#panelCentral p { margin-bottom:15px;}
+	#panelCentral fieldset { border:solid 1px #999999; padding:10px; margin-bottom:25px;}
+	#panelCentral legend { font-size:14px; font-weight:bold;}
+	#panelCentral ul.rotabanner li { margin-bottom:15px;}
+	#panelCentral ol li { margin-bottom:5px; list-style:inside decimal;}
+		#panelCentral ol li a { color:#999999;}
+			#panelCentral ol li a:hover { text-decoration:underline;}
+	#panelCentral div.agree { width: 100%; text-align:right;}
+	#panelCentral .adjuntos { height:520px;}
+	#panelCentral .container_formdatos { height: 460px;}
+	#panelCentral .listavideos li ul { margin-bottom:20px; border-bottom:solid 1px #999999;}
+	.rotabanner label {
+    display: block;
+    float: left;
+    line-height: 25px;
+    text-align: right;
+    width: 110px;
+	   color: #999999;
+    font-size: 11px;
+}
+.rotabanner input[type="text"] {
+    border: 1px solid #C5C5C5;
+    font-size: 10px;
+    height: 20px;
+    width: 158px;
+	margin-left:5px;
+}

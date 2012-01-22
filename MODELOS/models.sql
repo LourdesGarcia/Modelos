@@ -161,15 +161,6 @@ VALUES (2,"photo_name_1","http://www.rociolourdes.hostoi.com/imagesmodel/book_ad
 
 
 INSERT INTO models_intro (photo_name,url_photo, add_date)
-VALUES ("photo_name_1","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda01.jpg",1325912400),
-("photo_name_2","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda02.jpg",1325912403),
-("photo_name_3","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda03.jpg",1325912402),
-("photo_name_4","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda04.jpg",1325912403),
-("photo_name_5","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda05.jpg",1325912402),
-("photo_name_6","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda06.jpg",1325912405),
-("photo_name_7","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda07.jpg",1325912406),
-("photo_name_8","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda08.jpg",1325912407),
-("photo_name_9","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda01.jpg",1325912408),
-("photo_name_10","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda10.jpg",1325912410),
-("photo_name_11","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda11.jpg",1325912408);
-
+VALUES ("photo_name_1","http://www.rociolourdes.hostoi.com/intro/intro01.gif",1325912400),
+("photo_name_2","http://www.rociolourdes.hostoi.com/intro/intro02.gif",1325912403),
+("photo_name_3","http://www.rociolourdes.hostoi.com/intro/intro03.gif",1325912402);

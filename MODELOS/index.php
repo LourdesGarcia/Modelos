@@ -17,6 +17,7 @@
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
 <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="js/jquery.cycle.lite.js"></script>
 <link rel="stylesheet" href="css/styles.css?v=4" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 <script type="text/javascript" src="js/scripts.js"></script> 
@@ -86,7 +87,7 @@
 </div>
 
 <div id="container">
-	<div id="menu_intro" class="menus" style="display:none">
+	<div id="menu_intro" class="menus" style="display:block">
 		<div class="models_intro">
 			<ul>
 				<?
@@ -106,7 +107,7 @@
 				?>
 			</ul>
 		</div>
-		<div><a id="saltar_intro">SALTAR INTRO</a></div>
+		<a id="saltar_intro">SALTAR INTRO</a>
 	</div>
 	<div id="menu_models" class="menus" style="display:block">
 

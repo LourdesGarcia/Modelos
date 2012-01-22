@@ -161,6 +161,6 @@ VALUES (2,"photo_name_1","http://www.rociolourdes.hostoi.com/imagesmodel/book_ad
 
 
 INSERT INTO models_intro (photo_name,url_photo, add_date)
-VALUES ("photo_name_1","http://www.rociolourdes.hostoi.com/intro/intro01.gif",1325912400),
-("photo_name_2","http://www.rociolourdes.hostoi.com/intro/intro02.gif",1325912403),
-("photo_name_3","http://www.rociolourdes.hostoi.com/intro/intro03.gif",1325912402);
+VALUES ("photo_name_1","http://www.rociolourdes.hostoi.com/intro/intro_01.gif",1325912400),
+("photo_name_2","http://www.rociolourdes.hostoi.com/intro/intro_02.gif",1325912403),
+("photo_name_3","http://www.rociolourdes.hostoi.com/intro/intro_03.gif",1325912402);

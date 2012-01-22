@@ -1,7 +1,7 @@
 var protocolo =  window.location.protocol;
-var url_print = "//rociolourdes.hostoi.com/print.php";
+var url_print = "//www.rociolourdes.hostoi.com/print.php";
 
-var url_proccess = "//rociolourdes.hostoi.com/proccess.php";
+var url_proccess = "//www.rociolourdes.hostoi.com/proccess.php";
 var url_images = 'http://www.rociolourdes.hostoi.com/img/';
 
 jQuery(document).ready(function() {
@@ -218,7 +218,8 @@ function showCompleteDataModel(model_id){
 					}
 					$("#pikame").data('pikachoose').updateThumbs();
 					$("#pikame").data('pikachoose').bindEvents();
-					
+					$('.pika-stage .caption').show();
+					$('.pika-stage .caption').html('Click aquí para imprimir esta fotografía.');
 				}
 			
 				if (jQuery('#listavideos').length) {

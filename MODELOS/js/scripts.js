@@ -192,10 +192,11 @@ function showCompleteDataModel(model_id){
 							var data_gender = '<dt>Collar:</dt><dd>'+result.datos[i].collar+'</dd><dt>Chest:</dt><dd>'+result.datos[i].chest+'</dd>';
 						}
 						//$('<div id="name_model">'+result.datos[i].first_name.toUpperCase()+' '+result.datos[i].last_name.toUpperCase()+'</div><div id="more_data"> <strong>Height</strong>: '+result.datos[i].height+'<br>'+data_gender+'<br><strong>Waist</strong>: '+result.datos[i].waist+'<br><strong>Eyes Color</strong>: '+result.datos[i].eyes_color+'<br><strong>Hair Color</strong>: '+result.datos[i].hair_color+'<br></div>').appendTo('#book');
-						$('<dt>Height:</dt><dd>'+result.datos[i].height+'</dd><dt>Waist:</dt><dd>86</dd>'+data_gender+'<dt>Eye color:</dt><dd>'+result.datos[i].eyes_color+'</dd><dt>Hair color:</dt><dd>'+result.datos[i].hair_color+'</dd>').appendTo('#m_data');
+						$('<dt>Height:</dt><dd>'+result.datos[i].height+'</dd><dt>Waist:</dt><dd>86</dd>'+data_gender+'<dt>Shoe size:</dt><dd>'+result.datos[i].shoe_size+'</dd><dt>Eye color:</dt><dd>'+result.datos[i].eyes_color+'</dd><dt>Hair color:</dt><dd>'+result.datos[i].hair_color+'</dd>').appendTo('#m_data');
 					}
 				}
 				$('#listavideos').find('li').remove();
+				$('#galeria .pika-stage').find('img').attr('src','');
 				if (result.videos.length>0){
 					var i;
 					for(i=0;i<result.videos.length;i++){
@@ -219,24 +220,7 @@ function showCompleteDataModel(model_id){
 					$("#pikame").data('pikachoose').bindEvents();
 					
 				}
-				
-			/*
-				$('#galeria').show();
-				
-						var a = function(self){
-				  self.anchor.fancybox();
-			   };
-			   $("#pikame").PikaChoose({buildFinished:a});
-			   */
-			   /*
-					//adds your image
-					$(".pikame").append('<li><img src="../../4.jpg"></li>');
-					//resizes the thumbnails
-					$(".pikame").data('pikachoose').updateThumbs();
-					//makes the clicks work on thumbs
-					$(".pikame").data('pikachoose').bindEvents();
-			   */
-			   
+			
 				if (jQuery('#listavideos').length) {
 					jQuery('#listavideos a').click(function() {
 						jQuery.fancybox({
@@ -288,7 +272,7 @@ function showAllModels(menu_sel){
 					var i;
 					for(i=0;i<result.modelos.length;i++){
 						//$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'">Nombre: '+result.modelos[i].first_name.toUpperCase()+'</a><br><label>Apellido: '+result.modelos[i].last_name.toUpperCase()+'</label><br><label>Url imagen de cara: '+result.modelos[i].url_headshot_photo+'</label><br><label>Url imagen de cuerpo entero: '+result.modelos[i].url_full_length_photo+'</a></li>').appendTo('#menu_'+menu_sel+' ul');
-						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img id="'+result.modelos[i].id+'" src='+result.modelos[i].url_headshot_photo+' alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
+						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img id="'+result.modelos[i].id+'" src='+result.modelos[i].url_photo+' alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
 					}
 				}
 			}
@@ -427,7 +411,7 @@ function showPrint(modelId,url_photo){
 			if (result.res == "SUCCESS"){
 				var i;
 				for(i=0;i<result.datos.length;i++){
-					top.location.href=protocolo+url_print+'?first_name='+result.datos[i].first_name+'&last_name='+result.datos[i].last_name+'&height='+result.datos[i].height+'&gender='+result.datos[i].gender+'&bust='+result.datos[i].bust+'&waist='+result.datos[i].waist+'&hips='+result.datos[i].hips+'&collar='+result.datos[i].collar+'&chest='+result.datos[i].chest+'&eyes_color='+result.datos[i].eyes_color+'&hair_color='+result.datos[i].hair_color+'&url_photo='+url_photo;
+					window.open(protocolo+url_print+'?first_name='+result.datos[i].first_name+'&last_name='+result.datos[i].last_name+'&height='+result.datos[i].height+'&gender='+result.datos[i].gender+'&bust='+result.datos[i].bust+'&waist='+result.datos[i].waist+'&hips='+result.datos[i].hips+'&collar='+result.datos[i].collar+'&chest='+result.datos[i].chest+'&shoe_size='+result.datos[i].shoe_size+'&eyes_color='+result.datos[i].eyes_color+'&hair_color='+result.datos[i].hair_color+'&url_photo='+url_photo);
 				}
 			}	
 		}

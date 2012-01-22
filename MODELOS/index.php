@@ -113,7 +113,7 @@
 		<div class="models_guide">
 			<ul id="primerplano">
 				<?
-					$resultModels = mysql_query("SELECT * FROM models_model WHERE model_type = 'women' ORDER BY first_name");
+					$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = 'women' AND m.id=p.model_id ORDER BY m.first_name");
 					$num_cols = mysql_affected_rows();
 				
 					if ($num_cols>0){
@@ -122,7 +122,7 @@
 				?>
 				<li id="model_<?= $row['id'] ?>">
 					<a id="link_model_<?= $row['id'] ?>">
-						<img id="im_<?= $row['id'] ?>" src="<?= utf8_encode($row['url_headshot_photo']) ?>" alt="<?= utf8_encode($row['first_name']) ?>_<?= utf8_encode($row['last_name']) ?>" />
+						<img id="im_<?= $row['id'] ?>" src="<?= utf8_encode($row['url_photo']) ?>" alt="<?= utf8_encode($row['first_name']) ?>_<?= utf8_encode($row['last_name']) ?>" />
 						<strong><?= strtoupper(utf8_encode($row['first_name'])) ?> <?= strtoupper(utf8_encode($row['last_name'])) ?></strong>
 					</a>
 				</li>

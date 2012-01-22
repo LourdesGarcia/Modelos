@@ -46,6 +46,8 @@
 				}
 			}
 			?>
+			<dt>Shoe size:</dt>
+            <dd><?=  isset($_REQUEST['shoe_size'])?$_REQUEST['shoe_size']:''  ?></dd>
             <dt>Eye color:</dt>
             <dd><?=  isset($_REQUEST['eyes_color'])?$_REQUEST['eyes_color']:''  ?></dd>
             <dt>Hair color:</dt>

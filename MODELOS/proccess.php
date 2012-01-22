@@ -116,7 +116,7 @@ if($requestType){
 		break;
 		case 'showAllModels':
 			if ($menu_sel){
-				$resultModels = mysql_query("SELECT * FROM models_model WHERE model_type = '" . $menu_sel . "' ORDER BY first_name");
+				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.id=p.model_id ORDER BY m.first_name");
 				$num_cols = mysql_affected_rows();
 				if ($num_cols>0){
 					$arrayAux = array();
@@ -125,8 +125,9 @@ if($requestType){
 						$arrayAux['id'] = $row['id'];
 						$arrayAux['first_name'] = utf8_encode($row['first_name']);
 						$arrayAux['last_name'] = utf8_encode($row['last_name']);
-						$arrayAux['url_headshot_photo'] = $row['url_headshot_photo'];
-						$arrayAux['url_full_length_photo'] = $row['url_full_length_photo'];
+						$arrayAux['url_photo'] = $row['url_photo'];
+						//$arrayAux['url_headshot_photo'] = $row['url_headshot_photo'];
+						//$arrayAux['url_full_length_photo'] = $row['url_full_length_photo'];
 						array_push($resultTotal['modelos'],$arrayAux);
 					}
 				} 
@@ -172,6 +173,7 @@ if($requestType){
 						$arrayAux['first_name'] = utf8_encode($row['first_name']);
 						$arrayAux['last_name'] = utf8_encode($row['last_name']);
 						$arrayAux['height'] = $row['height'];
+						$arrayAux['shoe_size'] = utf8_encode($row['shoe_size']);
 						$arrayAux['eyes_color'] = utf8_encode($row['eyes_color']);
 						$arrayAux['hair_color'] = utf8_encode($row['hair_color']);
 						$arrayAux['waist'] = utf8_encode($row['waist']);
@@ -183,8 +185,8 @@ if($requestType){
 							$arrayAux['collar'] = utf8_encode($row['collar']);
 							$arrayAux['chest'] = utf8_encode($row['chest']);
 						}
-						$arrayAux['url_headshot_photo'] = $row['url_headshot_photo'];
-						$arrayAux['url_full_length_photo'] = $row['url_full_length_photo'];
+						//$arrayAux['url_headshot_photo'] = $row['url_headshot_photo'];
+						//$arrayAux['url_full_length_photo'] = $row['url_full_length_photo'];
 						array_push($resultTotal['datos'],$arrayAux);
 					}
 				} 
@@ -207,7 +209,7 @@ if($requestType){
 					for($k=0;$k<$num_cols_photos;$k++){
 						$row3 = mysql_fetch_assoc($resultPhotos);
 						$arrayAux3['id'] = $row3['id'];
-						$arrayAux3['photo_name'] = utf8_encode($row3['photo_name']);
+						//$arrayAux3['photo_name'] = utf8_encode($row3['photo_name']);
 						$arrayAux3['url_photo'] = $row3['url_photo'];
 						$arrayAux3['url_thumbnail'] = $row3['url_thumbnail'];
 						array_push($resultTotal['photos'],$arrayAux3);

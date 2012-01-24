@@ -58,6 +58,7 @@ $resultTotal['modelos'] = array();
 $resultTotal['datos'] = array();
 $resultTotal['videos'] = array();
 $resultTotal['photos']= array();
+$resultTotal['composite'] = array();
 
 $act_date = mktime(0,0,0);
 
@@ -216,6 +217,20 @@ if($requestType){
 						array_push($resultTotal['photos'],$arrayAux3);
 					}
 				} 
+				
+				$resultComposite = mysql_query("SELECT * FROM models_composite WHERE model_id = " . $model_id . " AND active=1 ORDER BY add_date DESC");
+				$num_cols_composite = mysql_affected_rows();
+				if ($num_cols_composite>0){
+					$arrayAux4 = array();
+					for($l=0;$l<$num_cols_composite;$l++){
+						$row4 = mysql_fetch_assoc($resultComposite);
+						$arrayAux4['id'] = $row4['id'];
+						$arrayAux4['composite_name'] = utf8_encode($row4['composite_name']);
+						$arrayAux4['url_composite'] = $row4['url_composite'];
+						array_push($resultTotal['composite'],$arrayAux4);
+					}
+				} 
+				
 				$resultTotal['res']='SUCCESS'; 
 				$resultTotal['mensaje']=$num_cols;
 			}else{

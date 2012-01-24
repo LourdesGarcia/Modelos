@@ -178,8 +178,8 @@ function showCompleteDataModel(model_id){
 				$('.menus').hide();
 				$('#alfabeto').hide();
 				$('#model_selected').show();
+				var i;
 				if (result.datos.length>0){
-					var i;
 					$('#m_name').find('label').remove();
 					$('#m_data').find('dt, dd').remove();
 					for(i=0;i<result.datos.length;i++){
@@ -198,7 +198,6 @@ function showCompleteDataModel(model_id){
 				$('#listavideos').find('li').remove();
 				$('#galeria .pika-stage').find('img').attr('src','');
 				if (result.videos.length>0){
-					var i;
 					for(i=0;i<result.videos.length;i++){
 						//$('<div><a href="'+result.videos[i].url_youtube+'" target="_blank"><img src="'+url_images+'FR.jpg"/></a>'+result.videos[i].video_name+'<div>').appendTo('#youtube_model');
 						$('<li><a id="v_'+result.videos[i].id+'" href="'+result.videos[i].url_youtube+'"><img src="'+url_images+'thumbnail_video.gif" alt="xxx" />'+result.videos[i].video_name+'</a></li>').appendTo('#listavideos');
@@ -206,7 +205,6 @@ function showCompleteDataModel(model_id){
 				}
 				
 				if (result.composite.length>0){
-					var i;
 					for(i=0;i<result.composite.length;i++){
 						$('.composite').html('<a href="'+result.composite[i].url_composite+'">Donwload/Composite</a>');
 					}

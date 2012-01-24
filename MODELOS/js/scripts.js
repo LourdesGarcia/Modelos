@@ -204,6 +204,14 @@ function showCompleteDataModel(model_id){
 						$('<li><a id="v_'+result.videos[i].id+'" href="'+result.videos[i].url_youtube+'"><img src="'+url_images+'thumbnail_video.gif" alt="xxx" />'+result.videos[i].video_name+'</a></li>').appendTo('#listavideos');
 					}
 				}
+				
+				if (result.composite.length>0){
+					var i;
+					for(i=0;i<result.composite.length;i++){
+						$('.composite').html('<a href="'+result.composite[i].url_composite+'">Donwload/Composite</a>');
+					}
+				}
+				
 				$('#galeria #pikame').find('li').remove();
 				if (result.photos.length>0){
 					var i;

@@ -20,7 +20,7 @@
 <script type="text/javascript" src="js/jquery.cycle.lite.js"></script>
 <link rel="stylesheet" href="css/styles.css?v=4" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-<script type="text/javascript" src="js/scripts.js?v=2"></script> 
+<script type="text/javascript" src="js/scripts.js?v=3"></script> 
 </head>
 
 <body>
@@ -306,7 +306,7 @@
 			-->
 			</ul>
 					
-			<h3 class="composite"><a >Donwload/Composite</a></h3>
+			<h3 class="composite"><a href="">Donwload/Composite</a></h3>
 
 		</div>
 		<div id="galeria">

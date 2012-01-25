@@ -141,7 +141,7 @@ if($requestType){
 		break;
 		case 'showModelsByLetter':
 			if ($menu_sel && $letter){
-				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.id=p.model_id AND first_name LIKE '" . strtolower($letter) . "%' ORDER BY m.first_name");
+				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.id=p.model_id AND first_name LIKE '" . $letter . "%' ORDER BY m.first_name");
 				//$resultModels = mysql_query("SELECT * FROM models_model WHERE model_type = '" . $menu_sel . "' AND first_name LIKE '" . strtolower($letter) . "%' ORDER BY first_name");
 				$num_cols = mysql_affected_rows();
 				if ($num_cols>0){
@@ -149,8 +149,8 @@ if($requestType){
 					for($i=0;$i<$num_cols;$i++){
 						$row = mysql_fetch_assoc($resultModels);
 						$arrayAux['id'] = $row['id'];
-						$arrayAux['first_name'] = $row['first_name'];
-						$arrayAux['last_name'] = $row['last_name'];
+						$arrayAux['first_name'] =  utf8_encode($row['first_name']);
+						$arrayAux['last_name'] =  utf8_encode($row['last_name']);
 						$arrayAux['url_photo'] = $row['url_photo'];
 						//$arrayAux['url_full_length_photo'] = $row['url_full_length_photo'];
 						array_push($resultTotal['modelos'],$arrayAux);

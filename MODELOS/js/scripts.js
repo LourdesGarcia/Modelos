@@ -192,7 +192,7 @@ function showCompleteDataModel(model_id){
 							var data_gender = '<dt>Collar:</dt><dd>'+result.datos[i].collar+'</dd><dt>Chest:</dt><dd>'+result.datos[i].chest+'</dd>';
 						}
 						//$('<div id="name_model">'+result.datos[i].first_name.toUpperCase()+' '+result.datos[i].last_name.toUpperCase()+'</div><div id="more_data"> <strong>Height</strong>: '+result.datos[i].height+'<br>'+data_gender+'<br><strong>Waist</strong>: '+result.datos[i].waist+'<br><strong>Eyes Color</strong>: '+result.datos[i].eyes_color+'<br><strong>Hair Color</strong>: '+result.datos[i].hair_color+'<br></div>').appendTo('#book');
-						$('<dt>Height:</dt><dd>'+result.datos[i].height+'</dd><dt>Waist:</dt><dd>86</dd>'+data_gender+'<dt>Shoe size:</dt><dd>'+result.datos[i].shoe_size+'</dd><dt>Eye color:</dt><dd>'+result.datos[i].eyes_color+'</dd><dt>Hair color:</dt><dd>'+result.datos[i].hair_color+'</dd>').appendTo('#m_data');
+						$('<dt>Height:</dt><dd>'+result.datos[i].height+'</dd><dt>Waist:</dt><dd>'+result.datos[i].waist+'</dd>'+data_gender+'<dt>Shoe size:</dt><dd>'+result.datos[i].shoe_size+'</dd><dt>Eye color:</dt><dd>'+result.datos[i].eyes_color+'</dd><dt>Hair color:</dt><dd>'+result.datos[i].hair_color+'</dd>').appendTo('#m_data');
 					}
 				}
 				$('#listavideos').find('li').remove();

@@ -1,7 +1,13 @@
 <?
 	error_reporting(E_ALL);
 	include('config_database.php');
-	define('IMAGES_URL','http://rociolourdes.hostoi.com/img/');
+	define('URL_SERVER','//rociolourdes.hostoi.com/');
+	define('IMAGES_URL',URL_SERVER . 'img/');
+	define('BOOK_URL',URL_SERVER . 'book/');
+	define('MINI_URL',URL_SERVER . 'mini/');
+	define('PPAL_URL',URL_SERVER . 'ppal/');
+	define('COMPOSITE_URL',URL_SERVER . 'composite/');
+	define('INTRO_URL',URL_SERVER . 'intro/');
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -20,7 +26,7 @@
 <script type="text/javascript" src="js/jquery.cycle.lite.js"></script>
 <link rel="stylesheet" href="css/styles.css?v=4" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-<script type="text/javascript" src="js/scripts.js?v=3"></script> 
+<script type="text/javascript" src="js/scripts.js?v=4"></script> 
 </head>
 
 <body>
@@ -99,7 +105,7 @@
 							$rowi = mysql_fetch_assoc($resultIntroi);
 				?>
 				<li id="model_<?= $rowi['id'] ?>">
-					<img src="<?= utf8_encode($rowi['url_photo']) ?>" alt="p_<?= utf8_encode($rowi['id']) ?>" />
+					<img src="<?= INTRO_URL . utf8_encode($rowi['url_photo']) ?>" alt="p_<?= utf8_encode($rowi['id']) ?>" />
 				</li>
 				<?
 						}
@@ -123,7 +129,7 @@
 				?>
 				<li id="model_<?= $row['id'] ?>">
 					<a id="link_model_<?= $row['id'] ?>">
-						<img id="im_<?= $row['id'] ?>" src="<?= utf8_encode($row['url_photo']) ?>" alt="<?= utf8_encode($row['first_name']) ?>_<?= utf8_encode($row['last_name']) ?>" />
+						<img id="im_<?= $row['id'] ?>" src="<?= PPAL_URL . utf8_encode($row['url_photo']) ?>" alt="<?= utf8_encode($row['first_name']) ?>_<?= utf8_encode($row['last_name']) ?>" />
 						<strong><?= strtoupper(utf8_encode($row['first_name'])) ?> <?= strtoupper(utf8_encode($row['last_name'])) ?></strong>
 					</a>
 				</li>

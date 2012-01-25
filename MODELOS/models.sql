@@ -145,44 +145,44 @@ VALUES (2,"nombre_video_1","http://www.youtube.com/watch?v=rPdNn9ov7WI&list=PLB6
 (16,"nombre_video_12","http://www.youtube.com/watch?v=ghIn7A5x74I",1325912408,1);
 
 INSERT INTO models_ppal (model_id,photo_name,url_photo,add_date,active)
-VALUES (1,"photo_name_1","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912400,1),
-(2,"photo_name_2","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912403,1),
-(3,"photo_name_3","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912402,1),
-(4,"photo_name_4","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912403,1),
-(5,"photo_name_5","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912402,1),
-(6,"photo_name_6","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912405,1),
-(7,"photo_name_7","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912406,1),
-(8,"photo_name_8","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912407,1),
-(9,"photo_name_9","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912408,1),
-(10,"photo_name_10","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912410,1),
-(11,"photo_name_11","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912408,1),
-(12,"photo_name_12","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912403,1),
-(13,"photo_name_13","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912402,1),
-(14,"photo_name_14","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912403,1),
-(15,"photo_name_15","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912402,1),
-(16,"photo_name_16","http://www.rociolourdes.hostoi.com/imagesmodel/ppal_adinda.jpg",1325912405,1);
+VALUES (1,"photo_name_1","ppal_adinda.jpg",1325912400,1),
+(2,"photo_name_2","ppal_adinda.jpg",1325912403,1),
+(3,"photo_name_3","ppal_adinda.jpg",1325912402,1),
+(4,"photo_name_4","ppal_adinda.jpg",1325912403,1),
+(5,"photo_name_5","ppal_adinda.jpg",1325912402,1),
+(6,"photo_name_6","ppal_adinda.jpg",1325912405,1),
+(7,"photo_name_7","ppal_adinda.jpg",1325912406,1),
+(8,"photo_name_8","ppal_adinda.jpg",1325912407,1),
+(9,"photo_name_9","ppal_adinda.jpg",1325912408,1),
+(10,"photo_name_10","ppal_adinda.jpg",1325912410,1),
+(11,"photo_name_11","ppal_adinda.jpg",1325912408,1),
+(12,"photo_name_12","ppal_adinda.jpg",1325912403,1),
+(13,"photo_name_13","ppal_adinda.jpg",1325912402,1),
+(14,"photo_name_14","ppal_adinda.jpg",1325912403,1),
+(15,"photo_name_15","ppal_adinda.jpg",1325912402,1),
+(16,"photo_name_16","ppal_adinda.jpg",1325912405,1);
 
 INSERT INTO models_photos (model_id,photo_name,url_photo,url_thumbnail,add_date,active)
-VALUES (2,"photo_name_1","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda01.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda01.jpg",1325912400,1),
-(2,"photo_name_2","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda02.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda02.jpg",1325912403,1),
-(2,"photo_name_3","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda03.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda03.jpg",1325912402,1),
-(7,"photo_name_4","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda04.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda04.jpg",1325912403,1),
-(7,"photo_name_5","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda05.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda05.jpg",1325912402,1),
-(15,"photo_name_6","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda06.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda06.jpg",1325912405,1),
-(14,"photo_name_7","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda07.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda07.jpg",1325912406,1),
-(15,"photo_name_8","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda08.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda08.jpg",1325912407,1),
-(16,"photo_name_9","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda09.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda09.jpg",1325912408,1),
-(14,"photo_name_10","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda10.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda10.jpg",1325912410,1),
-(16,"photo_name_11","http://www.rociolourdes.hostoi.com/imagesmodel/book_adinda11.jpg","http://www.rociolourdes.hostoi.com/imagesmodel/mini_adinda11.jpg",1325912408,1);
+VALUES (2,"photo_name_1","book_adinda01.jpg","mini_adinda01.jpg",1325912400,1),
+(2,"photo_name_2","book_adinda02.jpg","mini_adinda02.jpg",1325912403,1),
+(2,"photo_name_3","book_adinda03.jpg","mini_adinda03.jpg",1325912402,1),
+(7,"photo_name_4","book_adinda04.jpg","mini_adinda04.jpg",1325912403,1),
+(7,"photo_name_5","book_adinda05.jpg","mini_adinda05.jpg",1325912402,1),
+(15,"photo_name_6","book_adinda06.jpg","mini_adinda06.jpg",1325912405,1),
+(14,"photo_name_7","book_adinda07.jpg","mini_adinda07.jpg",1325912406,1),
+(15,"photo_name_8","book_adinda08.jpg","mini_adinda08.jpg",1325912407,1),
+(16,"photo_name_9","book_adinda09.jpg","mini_adinda09.jpg",1325912408,1),
+(14,"photo_name_10","book_adinda10.jpg","mini_adinda10.jpg",1325912410,1),
+(16,"photo_name_11","book_adinda11.jpg","mini_adinda11.jpg",1325912408,1);
 
 INSERT INTO models_composite (model_id,composite_name,url_composite,add_date,active)
-VALUES (2,"composite_name_1","http://www.rociolourdes.hostoi.com/composite/composite01.zip",1325912400,1),
-(7,"composite_name_2","http://www.rociolourdes.hostoi.com/composite/composite02.zip",1325912403,1),
-(14,"composite_name_3","http://www.rociolourdes.hostoi.com/composite/composite03.zip",1325912402,1),
-(15,"composite_name_4","http://www.rociolourdes.hostoi.com/composite/composite04.zip",1325912403,1),
-(16,"composite_name_5","http://www.rociolourdes.hostoi.com/composite/composite05.zip",1325912402,1);
+VALUES (2,"composite_name_1","composite01.zip",1325912400,1),
+(7,"composite_name_2","composite02.zip",1325912403,1),
+(14,"composite_name_3","composite03.zip",1325912402,1),
+(15,"composite_name_4","composite04.zip",1325912403,1),
+(16,"composite_name_5","composite05.zip",1325912402,1);
 
 INSERT INTO models_intro (photo_name,url_photo, add_date,active)
-VALUES ("photo_name_1","http://www.rociolourdes.hostoi.com/intro/intro_01.gif",1325912400,1),
-("photo_name_2","http://www.rociolourdes.hostoi.com/intro/intro_02.gif",1325912403,1),
-("photo_name_3","http://www.rociolourdes.hostoi.com/intro/intro_03.gif",1325912402,1);
+VALUES ("photo_name_1","intro_01.gif",1325912400,1),
+("photo_name_2","intro_02.gif",1325912403,1),
+("photo_name_3","intro_03.gif",1325912402,1);

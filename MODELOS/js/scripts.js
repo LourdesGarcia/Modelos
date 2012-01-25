@@ -1,8 +1,15 @@
 var protocolo =  window.location.protocol;
-var url_print = "//www.rociolourdes.hostoi.com/print.php";
+var url_server = "//www.rociolourdes.hostoi.com/";
 
-var url_proccess = "//www.rociolourdes.hostoi.com/proccess.php";
-var url_images = 'http://www.rociolourdes.hostoi.com/img/';
+var url_print = url_server + "print.php";
+
+var url_proccess = url_server + "proccess.php";
+var url_images = url_server + 'img/';
+
+var url_book = url_server + 'book/';
+var url_mini = url_server + 'mini/';
+var url_ppal = url_server + 'ppal/';
+var url_composite = url_server + 'composite/';
 
 jQuery(document).ready(function() {
 
@@ -206,7 +213,7 @@ function showCompleteDataModel(model_id){
 				
 				if (result.composite.length>0){
 					for(i=0;i<result.composite.length;i++){
-						$('.composite').html('<a href="'+result.composite[i].url_composite+'">Donwload/Composite</a>');
+						$('.composite').html('<a href="'+url_composite + result.composite[i].url_composite+'">Donwload/Composite</a>');
 					}
 				}
 				
@@ -214,12 +221,12 @@ function showCompleteDataModel(model_id){
 				if (result.photos.length>0){
 					var i;
 					var cont = 1;
-					$('#galeria .pika-stage').find('img').attr('src',result.photos[0].url_photo);
+					$('#galeria .pika-stage').find('img').attr('src',url_book + result.photos[0].url_photo);
 					for(i=0;i<result.photos.length;i++){
 							//$('<li id="photo'+result.photos[i].id+'"><a id="link_photo_'+result.photos[i].id+'"><img src="'+result.photos[i].url_thumbnail+'" /><label style="display:none">'+result.photos[i].url_photo+'</label></a></div></li>').appendTo('#photos_model ul');
 						//$('<li id="photo'+result.photos[i].id+'"<a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>').appendTo('#galeria #pikame');
 						//$('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>').appendTo('#galeria #pikame');
-						$("#pikame").append('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+result.photos[i].url_thumbnail+'" ref="'+result.photos[i].url_photo+'" alt="XXX"/></a></div></li>');
+						$("#pikame").append('<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-'+cont+' jcarousel-item-'+cont+'-horizontal" jcarouselindex="'+cont+'" id="photo'+result.photos[i].id+'"><div class="clip"><a><img src="'+url_mini+result.photos[i].url_thumbnail+'" ref="'+url_book +result.photos[i].url_photo+'" alt="XXX"/></a></div></li>');
 						cont++;
 					}
 					$("#pikame").data('pikachoose').updateThumbs();
@@ -279,7 +286,7 @@ function showAllModels(menu_sel){
 					var i;
 					for(i=0;i<result.modelos.length;i++){
 						//$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'">Nombre: '+result.modelos[i].first_name.toUpperCase()+'</a><br><label>Apellido: '+result.modelos[i].last_name.toUpperCase()+'</label><br><label>Url imagen de cara: '+result.modelos[i].url_headshot_photo+'</label><br><label>Url imagen de cuerpo entero: '+result.modelos[i].url_full_length_photo+'</a></li>').appendTo('#menu_'+menu_sel+' ul');
-						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img id="'+result.modelos[i].id+'" src='+result.modelos[i].url_photo+' alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
+						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img id="'+result.modelos[i].id+'" src='+url_ppal +result.modelos[i].url_photo+' alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
 					}
 				}
 			}
@@ -305,7 +312,7 @@ function showModelByLetter(menu_sel,letter){
 					var i;
 					for(i=0;i<result.modelos.length;i++){
 						//$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'">Nombre: '+result.modelos[i].first_name.toUpperCase()+'</a><br><label>Apellido: '+result.modelos[i].last_name.toUpperCase()+'</label><br><label>Url imagen de cara: '+result.modelos[i].url_headshot_photo+'</label><br><label>Url imagen de cuerpo entero: '+result.modelos[i].url_full_length_photo+'</a></li>').appendTo('#menu_'+menu_sel+' ul');
-						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img src="'+result.modelos[i].url_photo+'" alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
+						$('<li id="model_'+result.modelos[i].id+'"><a id="link_model_'+result.modelos[i].id+'"><img src="'+url_ppal +result.modelos[i].url_photo+'" alt="'+result.modelos[i].first_name+'_'+result.modelos[i].last_name+'" /><strong>'+result.modelos[i].first_name+' '+result.modelos[i].last_name+'</strong></a></li>').appendTo('#primerplano .jspContainer .jspPane');
 					}
 				}
 			}else{

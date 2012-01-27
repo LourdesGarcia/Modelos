@@ -1,7 +1,13 @@
 <?
 	error_reporting(E_ALL);
-	include('config_database.php');
-	define('IMAGES_URL','http://rociolourdes.hostoi.com/img/');
+	include('config_database.php');	
+	define('URL_SERVER','//rociolourdes.hostoi.com/');
+	define('IMAGES_URL',URL_SERVER . 'img/');
+	define('BOOK_URL',URL_SERVER . 'book/');
+	define('MINI_URL',URL_SERVER . 'mini/');
+	define('PPAL_URL',URL_SERVER . 'ppal/');
+	define('COMPOSITE_URL',URL_SERVER . 'composite/');
+	define('INTRO_URL',URL_SERVER . 'intro/');
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

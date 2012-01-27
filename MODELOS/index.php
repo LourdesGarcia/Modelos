@@ -48,7 +48,7 @@
 			<option selected>FIND A MODEL</option>
 			<option value="women">WOMEN</option>
 			<?
-				$resultModels1 = mysql_query("SELECT * FROM models_model WHERE model_type = 'women' ORDER BY first_name");
+				$resultModels1 = mysql_query("SELECT * FROM models_model WHERE model_type = 'women' AND active=1 ORDER BY first_name");
 				$num_cols1 = mysql_affected_rows();
 			
 				if ($num_cols1>0){
@@ -62,7 +62,7 @@
 			?>
 			<option value="men">MEN</option>
 			<?
-				$resultModels2 = mysql_query("SELECT * FROM models_model WHERE model_type = 'men' ORDER BY first_name");
+				$resultModels2 = mysql_query("SELECT * FROM models_model WHERE model_type = 'men' AND active=1 ORDER BY first_name");
 				$num_cols2 = mysql_affected_rows();
 			
 				if ($num_cols2>0){
@@ -76,7 +76,7 @@
 			?>
 			<option value="special_booking">SPECIAL BOOKING</option>
 			<?
-				$resultModels3 = mysql_query("SELECT * FROM models_model WHERE model_type = 'special_booking' ORDER BY first_name");
+				$resultModels3 = mysql_query("SELECT * FROM models_model WHERE model_type = 'special_booking' AND active=1 ORDER BY first_name");
 				$num_cols3 = mysql_affected_rows();
 			
 				if ($num_cols3>0){
@@ -97,7 +97,7 @@
 		<div class="models_intro">
 			<ul>
 				<?
-					$resultIntroi = mysql_query("SELECT * FROM models_intro ORDER BY add_date");
+					$resultIntroi = mysql_query("SELECT * FROM models_intro WHERE active=1 ORDER BY add_date");
 					$num_colsi = mysql_affected_rows();
 				
 					if ($num_colsi>0){
@@ -120,7 +120,7 @@
 		<div class="models_guide">
 			<ul id="primerplano">
 				<?
-					$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = 'women' AND m.id=p.model_id ORDER BY m.first_name");
+					$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = 'women' AND m.active=1 AND m.id=p.model_id AND p.active=1 ORDER BY m.first_name");
 					$num_cols = mysql_affected_rows();
 				
 					if ($num_cols>0){

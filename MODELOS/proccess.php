@@ -117,7 +117,7 @@ if($requestType){
 		break;
 		case 'showAllModels':
 			if ($menu_sel){
-				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.id=p.model_id ORDER BY m.first_name");
+				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.id=p.model_id  AND m.active=1  AND p.active=1 ORDER BY m.first_name");
 				$num_cols = mysql_affected_rows();
 				if ($num_cols>0){
 					$arrayAux = array();
@@ -141,7 +141,7 @@ if($requestType){
 		break;
 		case 'showModelsByLetter':
 			if ($menu_sel && $letter){
-				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.id=p.model_id AND first_name LIKE '" . $letter . "%' ORDER BY m.first_name");
+				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.active=1 AND m.id=p.model_id  AND p.active=1 AND first_name LIKE '" . $letter . "%' ORDER BY m.first_name");
 				//$resultModels = mysql_query("SELECT * FROM models_model WHERE model_type = '" . $menu_sel . "' AND first_name LIKE '" . strtolower($letter) . "%' ORDER BY first_name");
 				$num_cols = mysql_affected_rows();
 				if ($num_cols>0){
@@ -165,7 +165,7 @@ if($requestType){
 		break;
 		case 'showCompleteDataModel':
 			if ($model_id){
-				$resultModels = mysql_query("SELECT * FROM models_model WHERE id = " . $model_id);
+				$resultModels = mysql_query("SELECT * FROM models_model WHERE id = " . $model_id . "  AND active=1");
 				$num_cols = mysql_affected_rows();
 				if ($num_cols>0){
 					$arrayAux = array();
@@ -192,7 +192,7 @@ if($requestType){
 						array_push($resultTotal['datos'],$arrayAux);
 					}
 				} 
-				$resultVideos = mysql_query("SELECT * FROM models_youtube WHERE model_id = " . $model_id . " ORDER BY add_date DESC");
+				$resultVideos = mysql_query("SELECT * FROM models_youtube WHERE model_id = " . $model_id . " AND active=1 ORDER BY add_date DESC");
 				$num_cols_videos = mysql_affected_rows();
 				if ($num_cols_videos>0){
 					$arrayAux2 = array();
@@ -204,7 +204,7 @@ if($requestType){
 						array_push($resultTotal['videos'],$arrayAux2);
 					}
 				} 
-				$resultPhotos = mysql_query("SELECT * FROM models_photos WHERE model_id = " . $model_id . " ORDER BY add_date DESC");
+				$resultPhotos = mysql_query("SELECT * FROM models_photos WHERE model_id = " . $model_id . " AND active=1 ORDER BY add_date DESC");
 				$num_cols_photos = mysql_affected_rows();
 				if ($num_cols_photos>0){
 					$arrayAux3 = array();

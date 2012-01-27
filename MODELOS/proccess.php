@@ -60,6 +60,7 @@ $resultTotal['videos'] = array();
 $resultTotal['photos']= array();
 $resultTotal['composite'] = array();
 
+/*
 $act_date = mktime(0,0,0);
 
 $result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')",
@@ -67,7 +68,7 @@ $result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')
                         mysql_real_escape_string(json_encode($_REQUEST)),
 						mysql_real_escape_string($act_date)   
                 ));  
-
+*/
 
 if($requestType){
 	switch($requestType){

@@ -74,7 +74,7 @@ jQuery(document).ready(function() {
 			for($j=0;$j<$num_cols1;$j++){
 				$rowModel = mysql_fetch_assoc($resultModel1);
 	?>
-	<h2><?= strtoupper($rowModel['first_name'])?> <?= strtoupper($rowModel['last_name']) ?> </h2>
+	<h2><?= strtoupper(utf8_decode($rowModel['first_name']))?> <?= strtoupper(utf8_decode($rowModel['last_name'])) ?> </h2>
 	<p>A continuación se muestran los datos existentes para la modelo. Modifique los que desee y pulse al botón Enviar para guardar los cambios.</p>
     <div id="ok" style="display:<?=  (isset($textProccessOK)&&($textProccessOK!=''))?'block':'none' ?>">
     	<div>
@@ -103,11 +103,11 @@ jQuery(document).ready(function() {
                     <div class="coldatos col1">
                         <div>
                             <label for=""><strong>Nombre /</strong> First Name</label>
-                            <input type="text" id="first_name" name="first_name" value="<?= utf8_encode($rowModel['first_name']) ?>"/>
+                            <input type="text" id="first_name" name="first_name" value="<?= utf8_decode($rowModel['first_name']) ?>"/>
                         </div>
 						<div>
 							<label for=""><strong>Apellido /</strong> Last Name</label>
-                            <input type="text" id="last_name" name="last_name" value="<?= $rowModel['last_name'] ?>" />
+                            <input type="text" id="last_name_2" name="last_name_2" value="<?= utf8_decode($rowModel['last_name']) ?>" />
                         </div>
                         <div>
                             <span class="gender">Gender</span>
@@ -188,6 +188,7 @@ jQuery(document).ready(function() {
 					</div>
                 </div>     
                 <div class="agree">
+					<input type="hidden" name="model_id" id="model_id" value='<?= $_REQUEST['model_id'] ?>' />
                     <input type="hidden" name="request_type" id="request_type" value='setModel' />
                     <button type="submit" class="submitButton" value="SUBMIT">Enviar</button>
                 </div>

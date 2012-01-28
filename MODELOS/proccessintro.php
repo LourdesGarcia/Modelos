@@ -14,7 +14,8 @@ $name_add_photo = ((isset($_REQUEST['add_intro']) && ($_REQUEST['add_intro'] != 
 $file_add_photo = ((isset($_FILES['add_intro']['tmp_name']) && ($_FILES['add_intro']['tmp_name'] != ''))?$_FILES['add_intro']['tmp_name']:false);
 
 
-
+$activados=array();
+$desactivados=array();
 
 $resultTotal = array();
 $resultTotal['res']='ERROR'; 
@@ -52,29 +53,71 @@ if($requestType){
 					if ($resultQuery){
 						$textProccessOK = 'Se ha guardado el archivo correctamente.';
 						$resultTotal['res']='SUCCESS'; 
+						$resultTotal['mensaje'] = $textProccessOK;
 					}else{
 						$resultTotal['res']='ERROR'; 
 						$textProccessKO = 'No se ha podido guardar en la base de datos.';
+						$resultTotal['mensaje'] = $textProccessKO;
 					}
 				}else{
 					$resultTotal['res']='ERROR'; 
 					$textProccessKO = ' No se ha podido guardar el archivo en el servidor.';
+					$resultTotal['mensaje'] = $textProccessKO;
 				}
 			}else{
 				$resultTotal['res']='ERROR'; 
 				$textProccessKO = ' No se ha cargado ningún archivo.';
+				$resultTotal['mensaje'] = $textProccessKO;
 			}
 		break;
 		case 'updateIntro':
-			$names=array();
-			$values=array();
 			foreach($_REQUEST as $k => $val){
 				$pos = strpos($k,'intro_');
 				if ($pos === false){	
 				}else{
-					array_push($names,$k);
-					array_push($values,$val);
+					if ($val=='activar'){
+						array_push($activados,"'" . $k . "'");
+					}else{
+						if ($val=='desactivar'){
+							array_push($desactivados,"'" . $k . "'");	
+						}
+					}
 				}
+			}
+			$queryDes='';
+			$queryAct='';
+			$namesAct='';
+			$namesDes='';
+			$OK='';
+			$cont=0;
+			if (!empty($activados)){
+				$cont++;
+			}
+			if (!empty($desactivados)){
+				$cont++;
+			}
+			if (!empty($activados)){
+				$namesAct = implode(',',$activados);
+				$queryAct = mysql_query("UPDATE models_intro SET active = 1 WHERE photo_name IN (" . $namesAct . ") AND active = 0");
+				if ($queryAct){
+					$cont--;
+				}
+			}
+			if (!empty($desactivados)){
+				$namesDes = implode(',',$desactivados);
+				$queryDes =  mysql_query("UPDATE models_intro SET active = 0 WHERE photo_name IN (" . $namesDes . ") AND active = 1");
+				if ($queryDes){
+					$cont--;
+				}
+			}
+			if ($cont!=0){
+				$textProccessKO = ' No se han podido realizar los cambios.';
+				$resultTotal['res']='ERROR'; 
+				$resultTotal['mensaje'] = $textProccessKO;
+			}else{
+				$textProccessOK = ' Se han realizado los cambios correctamente.';
+				$resultTotal['res']='SUCCESS'; 
+				$resultTotal['mensaje'] = $textProccessOK;	
 			}
 		break;
 	}

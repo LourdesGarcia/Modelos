@@ -60,14 +60,14 @@
         	<legend>Imágenes existentes</legend>
 			<ul class="rotabanner">
 				<?
-					$resultIntro1 = mysql_query("SELECT * FROM models_intro WHERE active=1 ORDER BY add_date");
+					$resultIntro1 = mysql_query("SELECT * FROM models_intro ORDER BY add_date DESC");
 					$num_cols1 = mysql_affected_rows();
 					if ($num_cols1>0){
 						$cont=1;
 						for($j=0;$j<$num_cols1;$j++){
 							$row1 = mysql_fetch_assoc($resultIntro1);
 				?>
-              	<li>Imagen mostrada Nº <?= $cont?>: <input name="<?= utf8_encode($row1['photo_name']) ?>" type="radio" value="activar" />Activar  ó <input name="<?= utf8_encode($row1['photo_name']) ?>" type="radio" value="desactivar" />Desactivar 
+              	<li>Imagen mostrada Nº <?= $cont?>: <input name="<?= utf8_encode($row1['photo_name']) ?>" type="radio" value="activar" <?= ($row1['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="<?= utf8_encode($row1['photo_name']) ?>" type="radio" value="desactivar" <?= ($row1['active']==0)?'checked="checked"':'' ?>/>Desactivar 
                 	<img src="<?= INTRO_URL . utf8_encode($row1['url_photo']) ?>" width="500"/>
 				</li>
 				<?
@@ -76,7 +76,7 @@
 					}
 				?>
             </ul>
-			<input type="hidden" name="request_type" id="request_type" value='updateIntro' />
+			<input type="hidden" name="request_type" id="request_type" value="updateIntro" />
         	<input name="actualizar" type="submit" value="Actualizar" />
 		</fieldset>
     </form>

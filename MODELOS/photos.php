@@ -45,7 +45,7 @@
 						for($i=0;$i<$num_cols;$i++){
 							$row = mysql_fetch_assoc($resultModels);
 			?>
-        	<li><a id="<?= $row['id'] ?>" href="photosmodel.php?model_id=<?= $row['id'] ?>"><?= strtoupper(utf8_encode($row['first_name'])) ?> <?= strtoupper(utf8_encode($row['last_name'])) ?></a></li>
+        	<li><a id="<?= $row['id'] ?>" href="photosmodel.php?model_id=<?= $row['id'] ?>"><?= strtoupper($row['first_name']) ?> <?= strtoupper($row['last_name']) ?></a></li>
 			<?
 					}
 				}
@@ -63,7 +63,7 @@
 						for($i=0;$i<$num_cols;$i++){
 							$row = mysql_fetch_assoc($resultModels);
 			?>
-        	<li><a id="<?= $row['id'] ?>" href="photosmodel.php?model_id=<?= $row['id'] ?>"><?= strtoupper(utf8_encode($row['first_name'])) ?> <?= strtoupper(utf8_encode($row['last_name'])) ?></a></li>
+        	<li><a id="<?= $row['id'] ?>" href="photosmodel.php?model_id=<?= $row['id'] ?>"><?= strtoupper($row['first_name']) ?> <?= strtoupper($row['last_name']) ?></a></li>
 			<?
 					}
 				}
@@ -81,7 +81,7 @@
 						for($i=0;$i<$num_cols;$i++){
 							$row = mysql_fetch_assoc($resultModels);
 			?>
-        	<li><a id="<?= $row['id'] ?>" href="photosmodel.php?model_id=<?= $row['id'] ?>"><?= strtoupper(utf8_encode($row['first_name'])) ?> <?= strtoupper(utf8_encode($row['last_name'])) ?></a></li>
+        	<li><a id="<?= $row['id'] ?>" href="photosmodel.php?model_id=<?= $row['id'] ?>"><?= strtoupper($row['first_name']) ?> <?= strtoupper($row['last_name']) ?></a></li>
 			<?
 					}
 				}

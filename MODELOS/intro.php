@@ -66,8 +66,8 @@
 						for($j=0;$j<$num_cols1;$j++){
 							$row1 = mysql_fetch_assoc($resultIntro1);
 				?>
-              	<li>Imagen mostrada Nº <?= $cont?>: <input name="<?= utf8_encode($row1['photo_name']) ?>" type="radio" value="activar" <?= ($row1['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="<?= utf8_encode($row1['photo_name']) ?>" type="radio" value="desactivar" <?= ($row1['active']==0)?'checked="checked"':'' ?>/>Desactivar 
-                	<img src="<?= INTRO_URL . utf8_encode($row1['url_photo']) ?>" width="500"/>
+              	<li>Imagen mostrada Nº <?= $cont?>: <input name="<?= $row1['photo_name'] ?>" type="radio" value="activar" <?= ($row1['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="<?= $row1['photo_name'] ?>" type="radio" value="desactivar" <?= ($row1['active']==0)?'checked="checked"':'' ?>/>Desactivar 
+                	<img src="<?= INTRO_URL . $row1['url_photo'] ?>" width="500"/>
 				</li>
 				<?
 							$cont++;

@@ -55,7 +55,7 @@
 					for($j=0;$j<$num_cols1;$j++){
 						$row1 = mysql_fetch_assoc($resultModels1);
 			?>
-			<option value="m_<?= $row1['id'] ?>"><?= utf8_encode($row1['first_name']) ?> <?= utf8_encode($row1['last_name']) ?></option>
+			<option value="m_<?= $row1['id'] ?>"><?= $row1['first_name'] ?> <?= $row1['last_name'] ?></option>
 			<?
 					}
 				}
@@ -69,7 +69,7 @@
 					for($k=0;$k<$num_cols2;$k++){
 						$row2 = mysql_fetch_assoc($resultModels2);
 			?>
-			<option value="m_<?= $row2['id'] ?>"><?= utf8_encode($row2['first_name']) ?> <?= utf8_encode($row2['last_name']) ?></option>
+			<option value="m_<?= $row2['id'] ?>"><?= $row2['first_name'] ?> <?= $row2['last_name'] ?></option>
 			<?
 					}
 				}
@@ -83,7 +83,7 @@
 					for($j=0;$j<$num_cols3;$j++){
 						$row3 = mysql_fetch_assoc($resultModels3);
 			?>
-			<option value="m_<?= $row3['id'] ?>"><?= utf8_encode($row3['first_name']) ?> <?= utf8_encode($row3['last_name']) ?></option>
+			<option value="m_<?= $row3['id'] ?>"><?= $row3['first_name'] ?> <?= $row3['last_name'] ?></option>
 			<?
 					}
 				}
@@ -105,7 +105,7 @@
 							$rowi = mysql_fetch_assoc($resultIntroi);
 				?>
 				<li id="model_<?= $rowi['id'] ?>">
-					<img src="<?= INTRO_URL . utf8_encode($rowi['url_photo']) ?>" alt="p_<?= utf8_encode($rowi['id']) ?>" />
+					<img src="<?= INTRO_URL . $rowi['url_photo'] ?>" alt="p_<?= $rowi['id'] ?>" />
 				</li>
 				<?
 						}
@@ -129,8 +129,8 @@
 				?>
 				<li id="model_<?= $row['id'] ?>">
 					<a id="link_model_<?= $row['id'] ?>">
-						<img id="im_<?= $row['id'] ?>" src="<?= PPAL_URL . utf8_encode($row['url_photo']) ?>" alt="<?= utf8_encode($row['first_name']) ?>_<?= utf8_encode($row['last_name']) ?>" />
-						<strong><?= strtoupper(utf8_encode($row['first_name'])) ?> <?= strtoupper(utf8_encode($row['last_name'])) ?></strong>
+						<img id="im_<?= $row['id'] ?>" src="<?= PPAL_URL . $row['url_photo'] ?>" alt="<?= $row['first_name'] ?>_<?= $row['last_name'] ?>" />
+						<strong><?= strtoupper($row['first_name']) ?> <?= strtoupper($row['last_name']) ?></strong>
 					</a>
 				</li>
 				<?
@@ -285,31 +285,10 @@
 		<div id="book">
 			<h2 id="m_name"><label id="l_2"><strong></strong></label></h2>
 			<dl id="m_data">
-				<!--
-				<dt>Height:</dt>
-				<dd>1.78</dd>
-				<dt>Bust:</dt>
-				<dd>86</dd>
-				<dt>Waist:</dt>
-				<dd>63</dd>
-				<dt>Hips:</dt>
-				<dd>90</dd>
-				<dt>Shoe size:</dt>
-				<dd>41</dd>
-				<dt>Eye color:</dt>
-				<dd>Green</dd>
-				<dt>Hair color:</dt>
-				<dd>Blonde</dd>
-				-->
 			</dl>
 
 			<h3 class="videos">Videos</h3>
 			<ul id="listavideos">
-				<!--<li><a href="http://www.youtube.com/watch?v=oHg5SJYRHA0"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
-				<li><a href="http://www.youtube.com/watch?v=sAIVGehL88k"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
-				<li><a href="http://www.youtube.com/watch?v=19LZIWHeRjo"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
-				<li><a href="http://www.youtube.com/watch?v=TNjQFbC_lQk"><img src="img/thumbnail_video.gif" alt="xxx" />OperaBrunch</a></li>
-			-->
 			</ul>
 					
 			<h3 class="composite"><a href="">Donwload/Composite</a></h3>
@@ -317,24 +296,9 @@
 		</div>
 		<div id="galeria">
 			<ul id="pikame" class="jcarousel-skin-pika">
-				<!--
-				<li><a href="#"><img src="imagesmodel/mini_adinda01.jpg" ref="imagesmodel/book_adinda01.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda02.jpg" ref="imagesmodel/book_adinda02.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda03.jpg" ref="imagesmodel/book_adinda03.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda04.jpg" ref="imagesmodel/book_adinda04.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda05.jpg" ref="imagesmodel/book_adinda05.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda06.jpg" ref="imagesmodel/book_adinda06.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda07.jpg" ref="imagesmodel/book_adinda07.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda08.jpg" ref="imagesmodel/book_adinda08.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda09.jpg" ref="imagesmodel/book_adinda09.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda10.jpg" ref="imagesmodel/book_adinda10.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				<li><a href="#"><img src="imagesmodel/mini_adinda11.jpg" ref="imagesmodel/book_adinda11.jpg" alt="XXX"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
-				-->
 			</ul>
 		</div>
 	</div>
-    <!-- listado de modelos: EOC -->
-    <!-- filtro listado de modelos: BOC -->
     <ul id="alfabeto" style="display:none">
     	<li><a id="all" class="selected_letter">ALL</a></li>
         <li><a >A</a></li>
@@ -364,7 +328,7 @@
         <li><a >Y</a></li>
         <li><a >Z</a></li>
     </ul>
-    <!-- filtro listado de modelos: EOC -->
+   
 </div>
 
 <div id="footer">

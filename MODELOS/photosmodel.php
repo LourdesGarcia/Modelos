@@ -42,7 +42,7 @@
 			for($j=0;$j<$num_cols1;$j++){
 				$rowModel = mysql_fetch_assoc($resultModel1);
 	?>
-	<h2>Gestión de galería de Fotos de <?= strtoupper(utf8_encode($rowModel['first_name']))?> <?= strtoupper(utf8_encode($rowModel['last_name'])) ?></h2>
+	<h2>Gestión de galería de Fotos de <?= strtoupper($rowModel['first_name'])?> <?= strtoupper($rowModel['last_name']) ?></h2>
 	<?
 			}
 		}

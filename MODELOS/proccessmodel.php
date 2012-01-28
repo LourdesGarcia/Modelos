@@ -1,6 +1,6 @@
 <?php
 
-	error_reporting(E_ALL);
+//	error_reporting(E_ALL);
 
 	include('config_database.php');	
 	include('check_data.php');

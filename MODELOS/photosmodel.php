@@ -25,12 +25,11 @@
 
 <div id="secciones">
 	<ul>
-    	<li><a href="#">Gestión página inicio</a></li>
-    	<li><a href="#">Añadir nuevo modelo</a></li>
-    	<li><a href="#">Modificar modelos</a></li>
-		<li class="active"><a href="#">Gestionar galerías de fotos</a></li>
-        <li><a href="#">Gestionar vídeos</a></li>
-        <li><a href="#"></a></li>
+    	 <li><a href="intro.php">Gestión página inicio</a></li>
+    	<li><a href="addmodel.php">Añadir nuevo modelo</a></li>
+    	<li><a href="setmodel.php">Modificar modelos</a></li>
+		<li class="active"><a href="photos.php">Gestionar galerías de fotos</a></li>
+        <li><a href="videos.php">Gestionar vídeos</a></li>
     </ul>
 </div>
 

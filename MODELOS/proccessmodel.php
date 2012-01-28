@@ -28,6 +28,8 @@ $waist2 = (isset($_REQUEST['waist2'])?$_REQUEST['waist2']:false);
 
 $type_model = ((isset($_REQUEST['category']) && ($_REQUEST['category'] != ''))?$_REQUEST['category']:false);
 
+$estado_modelo = ((isset($_REQUEST['estadomodelo']) && ($_REQUEST['estadomodelo'] != ''))?$_REQUEST['estadomodelo']:false);
+
 $name_ppal_photo = ((isset($_REQUEST['foto_book']) && ($_REQUEST['foto_book'] != ''))?$_REQUEST['foto_book']:false);
 $file_ppal_photo = ((isset($_FILES['foto_book']['tmp_name']) && ($_FILES['foto_book']['tmp_name'] != ''))?$_FILES['foto_book']['tmp_name']:false);
 
@@ -173,7 +175,83 @@ if($requestType){
 				$resultTotal['mensaje'] = $textProccessKO;
 			}
 		break;
-		case 'updateModel':
+		case 'setModel':_
+			if ($first_name && $last_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model && $estado_modelo){
+				if ($file_ppal_photo){
+					if ($file_composite){
+						if ((($gender=='female') && ($bust!='') &&($waist1!='') && ($hips!=''))||(($gender=='male')&& ($collar!='') && ($chest!='') && ($waist2!=''))){
+						
+							$waist_general=$waist1.' '.$waist2;
+							
+							$t_fich_ppal = explode('.',$_FILES['foto_book']['name']);
+							$f_archive_ppal= '1Plano_'.$act_date.'.'. array_pop($t_fich_ppal);
+							$f_name_ppal = 'photo_' . $act_date;
+							$t_fich_composite = explode('.',$_FILES['composite']['name']);
+							$f_archive_composite = 'composite_'.$act_date.'.'.array_pop($t_fich_composite);
+							$f_name_composite = 'composite_' . $act_date;
+							
+							
+							if ((saveFich('foto_book',PPAL_URL_2,$f_archive_ppal))&&(saveFich('composite',COMPOSITE_URL_2,$f_archive_composite))){
+								
+								if ($estado_modelo=='activar'){
+									$active=1;
+								}else{
+									$active=0;
+								}
+								$resultQuery = mysql_query("UPDATE models_model SET first_name=" . $first_name . ", last_name=" . $last_name . ",  gender=" . $gender . ", age=" . $age . ", shoe_size=" . $shoe_size . ", hair_color=" . $hair_color . ",eyes_color=" . $eyes_color . ", height=" . $height . ", bust=". $bust . ", hips=" . $hips . ",waist=" . trim($waist_general) . ",collar=" . $collar . ", chest=" . $chest . ", type_model= " . $type_model . ", act_date=" . $act_date . ", active=" . $active . " WHERE id=" . $model_id);
+								
+								if ($resultQuery){
+									$updatePpalQuery = "UPDATE models_model SET first_name=" . $first_name . " WHERE id=" . $model_id);
+									// desactivar las imagenes principales e insertar la nueva
+									if ($resultPpalQuery){
+										// desactivar el composite principales e insertar la nueva
+										$resultCompositeQuery =;  
+										if ($resultCompositeQuery){
+											$textProccessOK = ' Se ha insertado correctamente.';
+											$resultTotal['res']='SUCCESS'; 
+											$resultTotal['mensaje'] = $textProccessOK;	
+										}else{
+											$textProccessKO = 'No se ha podido guardar el composite de la modelo en la base de datos.';
+											$resultTotal['res']='ERROR'; 
+											$resultTotal['mensaje'] = $textProccessKO;
+										}
+									}else{
+										$textProccessKO = 'No se ha podido guardar la imagen principal de la modelo en la base de datos.';
+										$resultTotal['res']='ERROR'; 
+										$resultTotal['mensaje'] = $textProccessKO;
+									}
+									/* echo $model_id;
+									exit(); */
+								}else{
+									$textProccessKO = 'No se han podido guardar los datos de la modelo en la base de datos.';
+									$resultTotal['res']='ERROR'; 
+									$resultTotal['mensaje'] = $textProccessKO;
+								}
+							}else{
+								$textProccessKO = ' Ha habido un problema con la carga de los ficheros.';
+								$resultTotal['res']='ERROR'; 
+								$resultTotal['mensaje'] = $textProccessKO;
+							}
+						}else{
+							$textProccessKO = ' Faltan datos.';
+							$resultTotal['res']='ERROR'; 
+							$resultTotal['mensaje'] = $textProccessKO;
+						}
+					}else{
+						$textProccessKO = ' No se ha cargado el archivo del composite.';
+						$resultTotal['res']='ERROR'; 
+						$resultTotal['mensaje'] = $textProccessKO;
+					}
+				}else{
+					$textProccessKO = ' No se ha cargado el archivo de la imagen principal.';
+					$resultTotal['res']='ERROR'; 
+					$resultTotal['mensaje'] = $textProccessKO;
+				}
+			}else{
+				$textProccessKO = ' Todos los campos son obligatorios.';
+				$resultTotal['res']='ERROR'; 
+				$resultTotal['mensaje'] = $textProccessKO;
+			}
 		break;
 	}
 }

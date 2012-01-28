@@ -124,10 +124,6 @@ jQuery(document).ready(function() {
                             <label for=""><strong>Cadera /</strong> Hips</label>
                             <input type="text" id="hips" name="hips" value="<?= (isset($_REQUEST['hips'])&&($_REQUEST['hips']!=''))?$_REQUEST['hips']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'' ?>/>
                         </div>
-                        <div>
-                            <label for=""><strong>Apellido /</strong> Last Name</label>
-                            <input type="text" id="last_name" name="last_name" value="<?= (isset($_REQUEST['last_name'])&&($_REQUEST['last_name']!=''))?$_REQUEST['last_name']:'' ?>" />
-                        </div>
 						 <div>
                             <label for=""><strong>Talla pie /</strong> Shoe size</label>
                             <input type="text" id="shoe_size" name="shoe_size" value="<?= (isset($_REQUEST['shoe_size'])&&($_REQUEST['shoe_size']!=''))?$_REQUEST['shoe_size']:'' ?>" />

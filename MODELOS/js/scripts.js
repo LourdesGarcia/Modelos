@@ -216,7 +216,8 @@ function showCompleteDataModel(model_id){
 						$('.composite').html('<a href="'+url_composite + result.composite[i].url_composite+'">Donwload/Composite</a>');
 					}
 				}
-				
+				var ancho = $('pikame').width();
+				$('#pikame').css({'width':ancho});
 				$('#galeria #pikame').find('li').remove();
 				if (result.photos.length>0){
 					var i;

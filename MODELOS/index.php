@@ -1,5 +1,5 @@
 <?
-	error_reporting(E_ALL);
+	//error_reporting(E_ALL);
 	include('config_database.php');
 	define('URL_SERVER','//rociolourdes.hostoi.com/');
 	define('IMAGES_URL',URL_SERVER . 'img/');

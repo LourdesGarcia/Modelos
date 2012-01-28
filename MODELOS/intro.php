@@ -1,5 +1,5 @@
 <?
-	error_reporting(E_ALL);
+	//error_reporting(E_ALL);
 	include('config_database.php');	
 	define('URL_SERVER','//rociolourdes.hostoi.com/');
 	define('IMAGES_URL',URL_SERVER . 'img/');
@@ -52,7 +52,6 @@
             <input name="add_intro" id="add_archivo_intro" type="file" />
 			<input type="hidden" name="request_type" id="request_type" value='addIntro' />
             <input name="enviar" value="Enviar" type="submit" />
-			<legend><?= (isset($textProccess)&&($textProccess!=''))?$textProccess:'' ?></legend>
     	</fieldset>
     </form>
     <form action="proccessintro.php" method="POST" ENCTYPE="multipart/form-data">

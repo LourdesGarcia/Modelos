@@ -90,15 +90,15 @@
 						for($i=0;$i<$num_cols;$i++){
 							$row = mysql_fetch_assoc($resultPhotos);
 				?>
-              	<li><img src="<?= MINI_URL . $row['url_thumbnail'] ?>" /><input name="photo_<?= $row['id'] ?>" type="radio" value="activar" <?= ($row['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="imagen01" type="radio" value="desactivar" <?= ($row['active']==0)?'checked="checked"':'' ?> />Desactivar</li>
+              	<li><img src="<?= MINI_URL . $row['url_thumbnail'] ?>" /><input name="photo_<?= $row['id'] ?>" type="radio" value="activar" <?= ($row['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="photo_<?= $row['id'] ?>" type="radio" value="desactivar" <?= ($row['active']==0)?'checked="checked"':'' ?> />Desactivar</li>
             <?
 					}
 				}
 			?>
 			</ul>
 			<input type="hidden" name="model_id" id="model_id" value="<?= $_REQUEST['model_id'] ?>" />
-			<input type="hidden" name="request_type" id="request_type" value="updatePhotosS" />
-        	<input name="xx" type="submit" value="Actualizar" />
+			<input type="hidden" name="request_type" id="request_type" value="updatePhotos" />
+        	<input name="actualizar" type="submit" value="Actualizar" />
 		</fieldset>
     </form>
 </div>

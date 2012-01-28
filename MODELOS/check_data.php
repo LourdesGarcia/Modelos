@@ -164,7 +164,7 @@
 			return false;
 		}
 		else {
-		echo $_FILES[$nameFich]['tmp_name'].'/'.$_FILES[$nameFich]['name'].','.$ruta_destino.$fich_name;
+		//echo $_FILES[$nameFich]['tmp_name'].'/'.$_FILES[$nameFich]['name'].','.$ruta_destino.$fich_name;
 		
 			//	move_uploaded_file($_FILES[$nameFich]['tmp_name'].'/'.$_FILES[$nameFich]['name'], $ruta_destino.$fich_name);
 			//if ((isset($_FILES[$nameFich]['name'])&&($_FILES[$nameFich]['error'] == UPLOAD_ERR_OK))) {

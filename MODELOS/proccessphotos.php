@@ -57,9 +57,9 @@ if($requestType){
 					$f_name_mini = 'mini_' . $act_date;
 					$f_archive_mini= 'mini_'.$act_date.'.'.array_pop($t_fich_mini);
 					$f_name_photo = 'photo_' . $act_date;
-					echo "HOLAHOLA";
-					if ((saveFich('big',BOOK_URL_2,$f_archive_big))&&(saveFich('thumbnail',MINI_URL_2,$f_archive_mini))){
-						echo "HOLA2";
+					$bigOK = saveFich('big',BOOK_URL_2,$f_archive_big);
+					$thumbnailOK=saveFich('thumbnail',MINI_URL_2,$f_archive_mini);
+					if ($bigOK && $thumbnailOK){
 						$resultQuery = mysql_query(sprintf("INSERT INTO models_photos VALUES ('','%s','%s','%s','%s','%s','%s')",
 							mysql_real_escape_string($model_id),
 							mysql_real_escape_string($f_name_photo),
@@ -68,7 +68,6 @@ if($requestType){
 							mysql_real_escape_string($act_date),
 							mysql_real_escape_string(1)
 						));  
-						echo "HOLA2";
 						if ($resultQuery){
 							$textProccessOK = 'Se ha guardado el archivo correctamente.';
 							$resultTotal['res']='SUCCESS'; 
@@ -94,9 +93,9 @@ if($requestType){
 				$resultTotal['mensaje'] = $textProccessKO;
 			}
 		break;
-		/*case 'updatePhotos':
+		case 'updatePhotos':
 			foreach($_REQUEST as $k => $val){
-				$pos = strpos($k,'video_');
+				$pos = strpos($k,'photo_');
 				if ($pos === false){	
 				}else{
 					$video_array = explode('_',$k);
@@ -123,16 +122,14 @@ if($requestType){
 			}
 			if (!empty($activados)){
 				$namesAct = implode(',',$activados);
-				$queryAct = mysql_query("UPDATE models_youtube SET active = 1 WHERE id IN (" . $namesAct . ") AND active = 0");
-					//echo "UPDATE models_youtube SET active = 1 WHERE model_id IN (" . $namesAct . ") AND active = 0";
-					//exit();
+				$queryAct = mysql_query("UPDATE models_photos SET active = 1 WHERE id IN (" . $namesAct . ") AND active = 0");
 				if ($queryAct){
 					$cont--;
 				}
 			}
 			if (!empty($desactivados)){
 				$namesDes = implode(',',$desactivados);
-				$queryDes =  mysql_query("UPDATE models_youtube SET active = 0 WHERE id IN (" . $namesDes . ") AND active = 1");
+				$queryDes =  mysql_query("UPDATE models_photos SET active = 0 WHERE id IN (" . $namesDes . ") AND active = 1");
 				if ($queryDes){
 					$cont--;
 				}
@@ -146,7 +143,7 @@ if($requestType){
 				$resultTotal['res']='SUCCESS'; 
 				$resultTotal['mensaje'] = $textProccessOK;	
 			}
-		break;*/
+		break;
 	}
 }
 

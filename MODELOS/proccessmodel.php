@@ -67,7 +67,7 @@ $result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')
 if($requestType){
 	switch($requestType){
 		case 'addModel':
-			if ($first_name && $last_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model){
+			if ($first_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model){
 				if ($file_ppal_photo){
 					if ($file_composite){
 						if ((($gender=='female') && ($bust!='') &&($waist1!='') && ($hips!=''))||(($gender=='male')&& ($collar!='') && ($chest!='') && ($waist2!=''))){
@@ -180,7 +180,7 @@ if($requestType){
 			exit();
 		break;
 		case 'setModel':
-			if ($first_name && $last_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model && $estado_modelo){
+			if ($first_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model && $estado_modelo){
 				if ((($gender=='female') && ($bust!='') &&($waist1!='') && ($hips!=''))||(($gender=='male')&& ($collar!='') && ($chest!='') && ($waist2!=''))){
 					$waist_general=$waist1.' '.$waist2;
 					if ($estado_modelo=='activar'){
@@ -188,11 +188,13 @@ if($requestType){
 					}else{
 						$active=0;
 					}
+					$ok3=false;
 					//echo "UPDATE models_model SET first_name='" . $first_name . "', last_name='" . $last_name . "',  gender='" . $gender . "', age='" . $age . "', shoe_size='" . $shoe_size . "', hair_color='" . $hair_color . "',eyes_color='" . $eyes_color . "', height='" . $height . "', bust='". $bust . "', hips='" . $hips . "', waist='" . trim($waist_general) . "', collar='" . $collar . "', chest='" . $chest . "', model_type='" . $type_model . "', add_date='" . $act_date . "', active='" . $active . "' WHERE id='" . $model_id . "'";
 				//	exit();
 					$resultQuery = mysql_query("UPDATE models_model SET first_name='" . $first_name . "', last_name='" . $last_name . "',  gender='" . $gender . "', age='" . $age . "', shoe_size='" . $shoe_size . "', hair_color='" . $hair_color . "',eyes_color='" . $eyes_color . "', height='" . $height . "', bust='". $bust . "', hips='" . $hips . "', waist='" . trim($waist_general) . "', collar='" . $collar . "', chest='" . $chest . "', model_type='" . $type_model . "', add_date='" . $act_date . "', active='" . $active . "' WHERE id='" . $model_id . "'");
 					
 					if ($resultQuery){
+						$ok3=tru3;
 						$ok=false;
 						$ok2=false;
 						if ($file_ppal_photo){
@@ -248,10 +250,11 @@ if($requestType){
 								$resultTotal['mensaje'] = $textProccessKO;
 							}
 						}
-						if ($ok&&$ok2==true){
+						if ($ok1||$ok2||$ok3){
 							$textProccessOK = ' Se han modificado los datos correctamente.';
 							$resultTotal['res']='SUCCESS'; 
 							$resultTotal['mensaje'] = $textProccessOK;	
+							
 						}
 					}else{
 						$textProccessKO = 'No se han podido actualizar los datos en la base de datos.';

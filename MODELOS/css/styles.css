@@ -295,3 +295,6 @@ img {border:none;}
     width: 158px;
 	margin-left:5px;
 }
+#ok { border:#33FF00 solid 2px; background-color: #00FF99; margin:20px 0;}
+#ko { border: #FF0000 solid 2px; background-color: #FF6666; margin:20px 0;}
+	#ok div, #ko div { border:#FFFFFF solid 2px; padding:25px; }

@@ -12,9 +12,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Isabel Navarro. Model management: Gestor de contenidos</title>
 <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
-<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link href="css/styles.css?v=2" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script> 
-<script type="text/javascript" src="js/scriptsintro.js"></script> 
 </head>
 
 <body id="administrador">
@@ -26,26 +25,37 @@
 
 <div id="secciones">
 	<ul>
-    	<li class="active"><a href="#">Gestión página inicio</a></li>
-    	<li><a href="#">Añadir nuevo modelo</a></li>
-    	<li><a href="#">Modificar modelos</a></li>
-		<li><a href="#">Gestionar galerías de fotos</a></li>
-        <li><a href="#">Gestionar vídeos</a></li>
-        <li><a href="#"></a></li>
+    	<li class="active"><a href="intro.php">Gestión página inicio</a></li>
+    	<li><a href="addmodel.php">Añadir nuevo modelo</a></li>
+    	<li><a href="setmodel.php">Modificar modelos</a></li>
+		<li><a href="photos.php">Gestionar galerías de fotos</a></li>
+        <li><a href="videos.php">Gestionar vídeos</a></li>
     </ul>
 </div>
 
 <div id="panelCentral">
 	<h2>Administración de imágenes de entrada al sitio</h2>
 	<p>Desde este panel puede activar o desactivar imágenes para la intro del sitio web y añadir nuevas. La última imagen añadida será la primera mostrada.</p>
-    <form>
+	 <div id="ok" style="display:<?=  (isset($textProccessOK)&&($textProccessOK!=''))?'block':'none' ?>">
+    	<div>
+    		<p><?=  (isset($textProccessOK)&&($textProccessOK!=''))?$textProccessOK:'' ?></p>
+    	</div>
+    </div>
+    <div id="ko" style="display:<?=  (isset($textProccessKO)&&($textProccessKO!=''))?'block':'none' ?>">
+    	<div>
+            <p><?=  (isset($textProccessKO)&&($textProccessKO!=''))?$textProccessKO:'' ?></p>
+    	</div>
+    </div>
+    <form action="proccessintro.php" method="POST" ENCTYPE="multipart/form-data">
     	<fieldset>
         	<legend>Añadir Imágen</legend>
-            <input name="" type="file" />
+            <input name="add_intro" id="add_archivo_intro" type="file" />
+			<input type="hidden" name="request_type" id="request_type" value='addIntro' />
             <input name="enviar" value="Enviar" type="submit" />
+			<legend><?= (isset($textProccess)&&($textProccess!=''))?$textProccess:'' ?></legend>
     	</fieldset>
     </form>
-    <form>
+    <form action="proccessintro.php" method="POST" ENCTYPE="multipart/form-data">
     	<fieldset>
         	<legend>Imágenes existentes</legend>
 			<ul class="rotabanner">
@@ -66,7 +76,8 @@
 					}
 				?>
             </ul>
-        	<input name="xx" type="submit" value="Actualizar" />
+			<input type="hidden" name="request_type" id="request_type" value='updateIntro' />
+        	<input name="actualizar" type="submit" value="Actualizar" />
 		</fieldset>
     </form>
 </div>

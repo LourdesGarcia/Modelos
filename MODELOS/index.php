@@ -38,7 +38,7 @@
     <ul id="menu">
     	<li><a id="women" class="selected_menu">Women</a></li>
         <li><a id="men">Men</a></li>
-        <li><a id="special_booking">Special bookings</a></li>
+        <li><a id="special_booking">Special booking</a></li>
         <li><a id="become_a_model">Become a model</a></li>
         <li><a id="contact">Contact</a></li>
     </ul>
@@ -46,7 +46,8 @@
 		<label for="find_a_model">Find a model</label>
 		<select name="find_a_model" id="find_a_model">
 			<option selected>FIND A MODEL</option>
-			<option value="women">WOMEN</option>
+			<!--<option value="women">WOMEN</option>-->
+            <optgroup label="WOMEN">
 			<?
 				$resultModels1 = mysql_query("SELECT * FROM models_model WHERE model_type = 'women' AND active=1 ORDER BY first_name");
 				$num_cols1 = mysql_affected_rows();
@@ -60,7 +61,9 @@
 					}
 				}
 			?>
-			<option value="men">MEN</option>
+            </optgroup>
+			<!--<option value="men">MEN</option>-->
+            <optgroup label="MEN">
 			<?
 				$resultModels2 = mysql_query("SELECT * FROM models_model WHERE model_type = 'men' AND active=1 ORDER BY first_name");
 				$num_cols2 = mysql_affected_rows();
@@ -74,7 +77,9 @@
 					}
 				}
 			?>
-			<option value="special_booking">SPECIAL BOOKING</option>
+            </optgroup>
+			<!--<option value="special_booking">SPECIAL BOOKING</option>-->
+            <optgroup label="SPECIAL BOOKING">
 			<?
 				$resultModels3 = mysql_query("SELECT * FROM models_model WHERE model_type = 'special_booking' AND active=1 ORDER BY first_name");
 				$num_cols3 = mysql_affected_rows();
@@ -88,6 +93,7 @@
 					}
 				}
 			?>
+            </optgroup>
 		</select>
 	</div>
 </div>
@@ -298,6 +304,7 @@
 			<ul id="pikame" class="jcarousel-skin-pika">
 			</ul>
 		</div>
+        <a href="#" id="backfrombook">Back</a>
 	</div>
     <ul id="alfabeto" style="display:none">
     	<li><a id="all" class="selected_letter">ALL</a></li>
@@ -334,8 +341,8 @@
 <div id="footer">
 	<p>&copy;2011 Isabel Navarro Model Management</p>
     <ul>
-        <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li>
-        <li><a  title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Twitter" /></a></li>
+        <!-- <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li> -->
+        <li><a href="http://www.facebook.com/pages/Isabel-Navarro-Model-Management/133070660058118" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
     	<li>powered by <a  title="LILIJIMENEZ">LILIJIMENEZ</a></li>
 	</ul>
 </div>

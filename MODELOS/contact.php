@@ -33,7 +33,7 @@
 
 <div id="header">
 	<h1>
-    	<a ><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
+    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
 	</h1>
     <ul id="menu">
     	<li><a id="women" href="women.php">Women</a></li>

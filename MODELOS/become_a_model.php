@@ -33,7 +33,7 @@
 
 <div id="header">
 	<h1>
-    	<a ><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
+    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
 	</h1>
     <ul id="menu">
     	<li><a id="women" href="women.php">Women</a></li>
@@ -101,97 +101,99 @@
 <div id="container">
 	<div id="menu_become_a_model" class="menus">
 		<h2><span>Cómo</span> ser modelo / <span>Become</span> a model</h2>
+		<p id="email_ok" style="display:<?=  (isset($ok)&&($ok!=''))?'block':'none' ?>"><?= (isset($ok)&&($ok!=''))?$ok:'' ?></p>
+		<p id="email_ko" style="display:<?=  (isset($ko)&&($ko!=''))?'block':'none' ?>"><?= (isset($ko)&&($ko!=''))?$ko:'' ?></p>
 		<form class="adjuntos" action="proccess.php" method="POST" ENCTYPE="multipart/form-data">
 			<div class="container_formdatos">
 				<div class="coldatos col1">
 					<div>
 						<label for=""><strong>Nombre /</strong> First Name</label>
-						<input type="text" id="first_name" name="first_name"/>
+						<input type="text" id="first_name" name="first_name"  value="<?=  (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['first_name'])&&($_REQUEST['first_name']!=''))?$_REQUEST['first_name']:'') ?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Dirección /</strong> Address</label>
-						<input type="text" id="address" name="address"/>
+						<input type="text" id="address" name="address"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['address'])&&($_REQUEST['address']!=''))?$_REQUEST['address']:'' )?>"/>
 					</div>
 					<div>
 						<label for=""></label>
-						<input type="text" id="address_cont" name="address_cont" />
+						<input type="text" id="address_cont" name="address_cont" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['address_cont'])&&($_REQUEST['address_cont']!=''))?$_REQUEST['address_cont']:'') ?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Tel. /</strong> Phone Number</label>
-						<input type="text" id="phone_number" name="phone_number"maxlength="9"/>
+						<input type="text" id="phone_number" name="phone_number" maxlength="9" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['phone_number'])&&($_REQUEST['phone_number']!=''))?$_REQUEST['phone_number']:'') ?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Móvil /</strong> Mobile</label>
-						<input type="text" id="mobile" name="mobile" maxlength="9"/>
+						<input type="text" id="mobile" name="mobile" maxlength="9" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['mobile'])&&($_REQUEST['mobile']!=''))?$_REQUEST['mobile']:'') ?>"/>
 					</div>
 					<div>
 						<span class="gender">Gender</span>
-						<input type="radio" id="female" name="sex" value="female"/>
+						<input type="radio" id="female" name="sex" value="female"  <?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['sex'])&&($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female'))?'checked="ckecked"':'') ?>/>
 						<label for="" class="nobullet"><strong>Female</strong></label>
-						<input type="radio" id="male" name="sex" value="male" />
+						<input type="radio" id="male" name="sex" value="male" <?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['sex'])&&($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male'))?'checked="ckecked"':'') ?>/>
 						<label for="" class="nobullet"><strong>Male</strong></label>
 					</div>
 					<div>
 						<label for=""><strong>Edad /</strong> Age</label>
-						<input type="text" id="age" name="age" />
+						<input type="text" id="age" name="age" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['age'])&&($_REQUEST['age']!=''))?$_REQUEST['age']:'') ?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Altura /</strong> Height</label>
-						<input type="text" id="height" name="height" />
+						<input type="text" id="height" name="height" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['height'])&&($_REQUEST['height']!=''))?$_REQUEST['height']:'') ?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Pecho /</strong> Bust</label>
-						<input type="text" id="bust" name="bust"/>
+						<input type="text" id="bust" name="bust"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['bust'])&&($_REQUEST['bust']!=''))?$_REQUEST['bust']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'') ?>/>
 					</div>
 					<div>
 						<label for=""><strong>Cintura</strong> / Waist</label>
-						<input type="text" id="waist1" name="waist1" />
+						<input type="text" id="waist1" name="waist1"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['waist1'])&&($_REQUEST['waist1']!=''))?$_REQUEST['waist1']:'' )?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'') ?>/>
 					</div>
 					<div>
 						<label for=""><strong>Cadera /</strong> Hips</label>
-						<input type="text" id="hips" name="hips"  />
+						<input type="text" id="hips" name="hips" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['hips'])&&($_REQUEST['hips']!=''))?$_REQUEST['hips']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'') ?>/>
 					</div>
 				</div>
 				<div class="coldatos col2">
 					<div>
 						<label for=""><strong>Apellido /</strong> Last Name</label>
-						<input type="text" id="last_name" name="last_name"  />
+						<input type="text" id="last_name" name="last_name" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['last_name'])&&($_REQUEST['last_name']!=''))?$_REQUEST['last_name']:'') ?>" />
 					</div>
 					<div>
 						<label for=""><strong>C.P. /</strong> Zip Code</label>
-						<input type="text" id="zip_code" name="zip_code" />
+						<input type="text" id="zip_code" name="zip_code" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['zip_code'])&&($_REQUEST['zip_code']!=''))?$_REQUEST['zip_code']:'') ?>"  />
 					</div>
 					<div>
 						<label for=""><strong>Ciudad /</strong>City</label>
-						<input type="text" id="city" name="city"/>
+						<input type="text" id="city" name="city" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['city'])&&($_REQUEST['city']!=''))?$_REQUEST['city']:'') ?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Provincia /</strong> State</label>
-						<input type="text" id="the_state" name="the_state"/>
+						<input type="text" id="the_state" name="the_state" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['the_state'])&&($_REQUEST['the_state']!=''))?$_REQUEST['the_state']:'')?>"/>
 					</div>
 					<div>
 						<label for="">E-mail</label>
-						<input type="text" id="email" name="email"/>
+						<input type="text" id="email" name="email"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['email'])&&($_REQUEST['email']!=''))?$_REQUEST['email']:'') ?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Pelo /</strong> Hair Color</label>
-						<input type="text" id="hair_color" name="hair_color" />
+						<input type="text" id="hair_color" name="hair_color"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['hair_color'])&&($_REQUEST['hair_color']!=''))?$_REQUEST['hair_color']:'' )?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Ojos /</strong> Eyes Color</label>
-						<input type="text" id="eyes_color" name="eyes_color"/>
+						<input type="text" id="eyes_color" name="eyes_color"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['eyes_color'])&&($_REQUEST['eyes_color']!=''))?$_REQUEST['eyes_color']:'' )?>"/>
 					</div>
 					<div>
 						<label for=""><strong>Cuello /</strong> Collar</label>
-						<input type="text" id="collar" name="collar"/>
+						<input type="text" id="collar" name="collar"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['collar'])&&($_REQUEST['collar']!=''))?$_REQUEST['collar']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'') ?>/>
 					</div>
 					<div>
 						<label for=""><strong>Pecho /</strong> Chest</label>
-						<input type="text" id="chest" name="chest"/>
+						<input type="text" id="chest" name="chest"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['chest'])&&($_REQUEST['chest']!=''))?$_REQUEST['chest']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'') ?>/>
 					</div>
 					<div>
 						<label for=""><strong>Cintura /</strong> Waist</label>
-						<input type="text" id="waist2" name="waist2" />
+						<input type="text" id="waist2" name="waist2"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['waist2'])&&($_REQUEST['waist2']!=''))?$_REQUEST['waist2']:'') ?>" <?=  (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'')?>/>
 					</div>
 				</div>
 			</div>

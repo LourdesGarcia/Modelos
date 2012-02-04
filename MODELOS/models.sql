@@ -4,7 +4,6 @@ DROP TABLE IF EXISTS `models_model`;
 DROP TABLE IF EXISTS `models_youtube`;
 DROP TABLE IF EXISTS `models_photos`;
 DROP TABLE IF EXISTS `models_ppal`;
-/*DROP TABLE IF EXISTS `models_admin`;*/
 DROP TABLE IF EXISTS `models_log`;
 DROP TABLE IF EXISTS `models_intro`;
 DROP TABLE IF EXISTS `models_composite`;
@@ -25,8 +24,6 @@ CREATE TABLE `models_model` (
   `waist` mediumtext collate utf8_general_ci,	/* both */
   `collar` mediumtext collate utf8_general_ci,	/* male */
   `chest` mediumtext collate utf8_general_ci,	/* male */
-  /*`url_headshot_photo` mediumtext collate utf8_general_ci,	
-  `url_full_length_photo` mediumtext collate utf8_general_ci,*/
   `model_type` mediumtext collate utf8_general_ci,	/* women, men, special */
   `add_date` int(11) NOT NULL DEFAULT "0",
   `active` tinyint(1) DEFAULT '1',
@@ -67,21 +64,6 @@ CREATE TABLE `models_ppal` (
 		CONSTRAINT `FK_models_ppal_model` FOREIGN KEY (`model_id`) REFERENCES `models_model` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-/*CREATE TABLE `models_admin` (			
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `first_name` mediumtext collate utf8_general_ci,
-  `last_name` mediumtext collate utf8_general_ci,
-  `city` mediumtext collate utf8_general_ci,
-  `phone_number` int(9) NOT NULL DEFAULT "0",
-  `mobile` int(9) NOT NULL DEFAULT "0",
-  `email` mediumtext collate utf8_general_ci,
-  `password` mediumtext collate utf8_general_ci,
-  `user_name` mediumtext collate utf8_general_ci,
-  `add_date` int(11) NOT NULL DEFAULT "0",
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-*/
-
 CREATE TABLE `models_log` (
         `id` int(10) NOT NULL AUTO_INCREMENT,
         `request_type` mediumtext COLLATE utf8_general_ci,
@@ -109,9 +91,11 @@ CREATE TABLE `models_composite` (
         PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+/*
+
+// MODELOS DE PRUEBA 
 
 
-/* MODELOS DE PRUEBA */
 INSERT INTO models_model (first_name,last_name,gender,age,shoe_size,hair_color,eyes_color,height,bust,hips,waist,collar,chest,model_type,add_date,active)
 VALUES ("Ana","Lopez","female","21 años","talla 38","pelo rubio","ojos negros","1.80 m","85","65","95","","","women",1325912400,1),
 ("Alba","Gonzalez","female","21 años","talla 37","pelo rubio","ojos negros","1.80 m","85","65","95","","","women",1325912400,1),
@@ -186,3 +170,5 @@ INSERT INTO models_intro (photo_name,url_photo, add_date,active)
 VALUES ("photo_name_1","intro_01.gif",1325912400,1),
 ("photo_name_2","intro_02.gif",1325912403,1),
 ("photo_name_3","intro_03.gif",1325912402,1);
+
+*/

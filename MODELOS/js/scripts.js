@@ -13,6 +13,35 @@ var url_composite = url_server + 'composite/';
 
 jQuery(document).ready(function() {
 
+		
+	jQuery("input[name='sex']").live('click', function(e){
+			var otroOp = jQuery("input[name='sex']:checked").attr('id');
+			if (otroOp=="male"){
+				jQuery('#bust').val('');
+				jQuery('#waist1').val('');
+				jQuery('#hips').val('');
+				jQuery('#bust').attr('disabled','disabled');
+				jQuery('#hips').attr('disabled','disabled');
+				jQuery('#waist1').attr('disabled','disabled');
+				jQuery("#collar").removeAttr('disabled');
+				jQuery("#chest").removeAttr('disabled');
+				jQuery("#waist2").removeAttr('disabled');
+			}else{
+				if (otroOp=="female"){
+					jQuery('#collar').val('');
+					jQuery('#chest').val('');
+					jQuery('#waist2').val('');
+					jQuery("#bust").removeAttr('disabled');
+					jQuery("#hips").removeAttr('disabled');
+					jQuery("#waist1").removeAttr('disabled');
+					jQuery("#collar").attr('disabled','disabled');
+					jQuery("#chest").attr('disabled','disabled');
+					jQuery("#waist2").attr('disabled','disabled');
+				}else{
+					alert('otro');
+				}
+			}
+	});
 
 
 /*

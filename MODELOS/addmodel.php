@@ -51,7 +51,7 @@ jQuery(document).ready(function() {
 });
 </script>
 <div id="cabecera">
-    	<img src="../img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" />
+    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
         <h1 class="floatRight">ISABEL NAVARRO. Model management.</h1>
 </div>
 

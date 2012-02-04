@@ -18,7 +18,7 @@
 <body id="administrador">
 
 <div id="cabecera">
-    	<img src="../img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" />
+    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
         <h1 class="floatRight">ISABEL NAVARRO. Model management.</h1>
 </div>
 
@@ -60,11 +60,11 @@
     <form action="proccessvideos.php" method="POST" ENCTYPE="multipart/form-data">
     	<fieldset>
         	<legend>Añadir Vídeo</legend>
-            <p>Los vídeos deben tener un título no superior a 15 caracteres y un enlace a la ubicación del vídeo. Introduzca ambos datos y pulse el botón Enviar.</p>
+            <p>Los vídeos deben tener un título no superior a 30 caracteres y un enlace a la ubicación del vídeo. Introduzca ambos datos y pulse el botón Enviar.</p>
             <ul class="rotabanner">
             	<li>
                     <label for="titulo"><strong>Título</strong></label>
-                    <input type="text" maxlength="15" id="titulo" name="titulo"/>
+                    <input type="text" maxlength="30" id="titulo" name="titulo"/>
 				</li>
                 <li>
                     <label for="url"><strong>Link al vídeo</strong></label>

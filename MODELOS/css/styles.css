@@ -124,7 +124,7 @@ img {border:none;}
 	
 	/* Formulario "Become a model" */
 	#menu_become_a_model {}
-		#menu_become_a_model h2 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; text-transform:uppercase; letter-spacing:5px; margin: 23px 0;}
+		#menu_become_a_model h2 { font-family: ‘Abel’, Arial, serif; font-weight:400; font-size:17px; color:#999999; text-transform:uppercase; letter-spacing:5px; margin: 17px 0;}
 			#menu_become_a_model h2 span { color:#333333;}
 
 	#menu_become_a_model label { font-size:11px; color:#999999;}
@@ -289,3 +289,17 @@ img {border:none;}
 #ok { border:#33FF00 solid 2px; background-color: #00FF99; margin:20px 0;}
 #ko { border: #FF0000 solid 2px; background-color: #FF6666; margin:20px 0;}
 	#ok div, #ko div { border:#FFFFFF solid 2px; padding:25px; }
+	
+	
+#email_ok{
+	font-family: ‘Abel’,Arial,serif;
+    font-style: oblique;
+	margin: 14px 0;
+}
+
+#email_ko{
+	font-family: ‘Abel’,Arial,serif;
+	color: #FF0000;
+    font-style: oblique;
+	margin: 14px 0;
+}

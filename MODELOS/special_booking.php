@@ -112,7 +112,7 @@
 							$row = mysql_fetch_assoc($resultModels);
 				?>
 				<li id="model_<?= $row['id'] ?>">
-					<a id="link_model_<?= $row['id'] ?>">
+					<a id="link_model_<?= $row['id'] ?>" href="model_selected.php?model_id=<?=  $row['id'] ?>">
 						<img id="im_<?= $row['id'] ?>" src="<?= PPAL_URL . $row['url_photo'] ?>" alt="<?= $row['first_name'] ?>_<?= $row['last_name'] ?>" />
 						<strong><?= strtoupper($row['first_name']) ?> <?= strtoupper($row['last_name']) ?></strong>
 					</a>

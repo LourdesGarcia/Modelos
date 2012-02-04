@@ -35,7 +35,7 @@
 
 <div id="header">
 	<h1>
-    	<a ><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
+    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
 	</h1>
     <ul id="menu">
     	<li><a id="women" href="women.php" class="selected_menu" >Women</a></li>
@@ -118,27 +118,40 @@
 			<dl id="m_data">
 				<dt>Height:</dt>
 				<dd><?= $row4['height'] ?></dd>
+				<?
+					if ($row4['gender']=='female'){
+				?>
 				<dt>Bust:</dt>
 				<dd><?= $row4['bust'] ?></dd>
 				<dt>Waist:</dt>
 				<dd><?= $row4['waist'] ?></dd>
 				<dt>Hips:</dt>
 				<dd><?= $row4['hips'] ?></dd>
+				<?
+					}
+					if ($row4['gender']=='male'){
+				?>
+				<dt>Collar:</dt>
+				<dd><?= $row4['collar'] ?></dd>
+				<dt>Chest:</dt>
+				<dd><?= $row4['chest'] ?></dd>
+				<dt>Waist:</dt>
+				<dd><?= $row4['waist'] ?></dd>
+				<?
+					}
+				?>
 				<dt>Shoe size:</dt>
-				<dd><?= $row4['shoe_size'] ?></dd>
+				<dd><?= $row4['shoe_size']  ?></dd>
 				<dt>Eye color:</dt>
 				<dd><?= $row4['eyes_color'] ?></dd>
 				<dt>Hair color:</dt>
 				<dd><?= $row4['hair_color'] ?></dd>
-			</dl>
-			<?
-					}
-				}
-			?>
-
-
+				</dl>
 				<?
-					$resultVideos = mysql_query("SELECT * FROM models_youtube WHERE model_id = '" . $model_id . "' AND active=1");
+						}
+					}
+
+					$resultVideos = mysql_query("SELECT * FROM models_youtube WHERE model_id = '" . $model_id . "' AND active=1 ORDER BY add_date DESC");
 					$num_cols5 = mysql_affected_rows();
 				
 					if ($num_cols5>0){
@@ -179,14 +192,14 @@
 		<div id="galeria">
 			<ul id="pikame" class="jcarousel-skin-pika">
 				<?
-					$resultPhotos = mysql_query("SELECT * FROM models_photos WHERE model_id = '" . $model_id . "' AND active=1");
+					$resultPhotos = mysql_query("SELECT * FROM models_photos WHERE model_id = '" . $model_id . "' AND active=1 ORDER BY add_date DESC");
 					$num_cols7 = mysql_affected_rows();
 				
 					if ($num_cols7>0){
 						for($j=0;$j<$num_cols7;$j++){
 							$row7 = mysql_fetch_assoc($resultPhotos);
 				?>
-				<li><a href="print.php?model_id=<?= $model_id ?>"><img src="<?= MINI_URL . $row7['url_thumbnail'] ?>" ref="<?= BOOK_URL . $row7['url_photo'] ?>" alt="xxx"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="print.php?model_id=<?= $model_id ?>&photo_id=<?= $row7['id'] ?>"><img src="<?= MINI_URL . $row7['url_thumbnail'] ?>" ref="<?= BOOK_URL . $row7['url_photo'] ?>" alt="xxx"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
 				<?
 						}
 					}

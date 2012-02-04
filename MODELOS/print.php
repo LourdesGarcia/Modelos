@@ -1,3 +1,18 @@
+<?php
+
+	include('config_database.php');
+	define('URL_SERVER','//rociolourdes.hostoi.com/');
+	define('IMAGES_URL',URL_SERVER . 'img/');
+	define('BOOK_URL',URL_SERVER . 'book/');
+	define('MINI_URL',URL_SERVER . 'mini/');
+	define('PPAL_URL',URL_SERVER . 'ppal/');
+	define('COMPOSITE_URL',URL_SERVER . 'composite/');
+	define('INTRO_URL',URL_SERVER . 'intro/');
+	
+	$model_id = (isset($_REQUEST['model_id'])&&($_REQUEST['model_id']))?$_REQUEST['model_id']:false;
+	$photo_id = (isset($_REQUEST['photo_id'])&&($_REQUEST['photo_id']))?$_REQUEST['photo_id']:false;
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,51 +26,75 @@
 
 <div id="header">
 	<h1>
-    	<img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." />
+    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." /></a>
 	</h1>
     <a href="javascript:window.print()" id="print"><img src="img/click-here-to-print.jpg" alt="print this page" id="print-button" /></a>
 </div>
 
 <div id="container">
 	<div id="book">
-    	<h2><?=  isset($_REQUEST['first_name'])?strtoupper($_REQUEST['first_name']):'' ?> <strong><?=   isset($_REQUEST['last_name'])?strtoupper($_REQUEST['last_name']):''?></strong></h2>
+		<?
+			if ($model_id){
+				$resultModel = mysql_query("SELECT * FROM models_model WHERE id = '" . $model_id . "'");
+				$num_cols = mysql_affected_rows();
+			
+				if ($num_cols>0){
+					for($j=0;$j<$num_cols;$j++){
+						$row = mysql_fetch_assoc($resultModel);
+		?>
+    	<h2><?= $row['first_name'] ?><strong><?=   $row['last_name'] ?></strong></h2>
         <dl>
             <dt>Height:</dt>
-            <dd><?= isset($_REQUEST['height'])?$_REQUEST['height']:'' ?></dd>
+            <dd><?= $row['height'] ?></dd>
 			<?
-			if (isset($_REQUEST['gender']) && ($_REQUEST['gender'])!=''){
-				if (($_REQUEST['gender']=='female')&&(isset($_REQUEST['bust']))&&($_REQUEST['bust']!='')&&(isset($_REQUEST['waist']))&&($_REQUEST['waist']!='')&&(isset($_REQUEST['hips']))&&($_REQUEST['hips']!='')){
+				if ($row['gender']=='female'){
 			?>
 			<dt>Bust:</dt>
-            <dd><?= $_REQUEST['bust'] ?></dd>
+            <dd><?= $row['bust'] ?></dd>
             <dt>Waist:</dt>
-            <dd><?= $_REQUEST['waist'] ?></dd>
+            <dd><?= $row['waist'] ?></dd>
             <dt>Hips:</dt>
-            <dd><?= $_REQUEST['hips'] ?></dd>
+            <dd><?= $row['hips'] ?></dd>
 			<?
 				}
-				if (($_REQUEST['gender']=='male')&&(isset($_REQUEST['collar']))&&($_REQUEST['collar']!='')&&(isset($_REQUEST['waist']))&&($_REQUEST['waist']!='')&&(isset($_REQUEST['chest']))&&($_REQUEST['chest']!='')){
+				if ($row['gender']=='male'){
 			?>
 			<dt>Collar:</dt>
-            <dd><?= $_REQUEST['collar'] ?></dd>
+            <dd><?= $row['collar'] ?></dd>
             <dt>Chest:</dt>
-            <dd><?= $_REQUEST['chest'] ?></dd>
+            <dd><?= $row['chest'] ?></dd>
             <dt>Waist:</dt>
-            <dd><?= $_REQUEST['waist'] ?></dd>
+            <dd><?= $row['waist'] ?></dd>
 			<?
 				}
-			}
 			?>
 			<dt>Shoe size:</dt>
-            <dd><?=  isset($_REQUEST['shoe_size'])?$_REQUEST['shoe_size']:''  ?></dd>
+            <dd><?= $row['shoe_size']  ?></dd>
             <dt>Eye color:</dt>
-            <dd><?=  isset($_REQUEST['eyes_color'])?$_REQUEST['eyes_color']:''  ?></dd>
+            <dd><?=  $row['eyes_color']?></dd>
             <dt>Hair color:</dt>
-            <dd><?=  isset($_REQUEST['hair_color'])?$_REQUEST['hair_color']:''  ?></dd>
+            <dd><?=  $row['hair_color'] ?></dd>
         </dl>
+		<?
+					}
+				}
+			}
+		?>
     </div>
     <div id="galeria">
-    	<img src="<?=  isset($_REQUEST['url_photo'])?$_REQUEST['url_photo']:''  ?>" />
+		<? if ($photo_id){
+			$resultPhotos = mysql_query("SELECT url_photo FROM models_photos WHERE id = '" . $photo_id . "' AND model_id='" . $model_id . "' AND active=1");
+			$num_cols2 = mysql_affected_rows();
+			if ($num_cols2>0){
+				for($j=0;$j<$num_cols2;$j++){
+					$row2 = mysql_fetch_assoc($resultPhotos);
+		?>
+    	<img src="<?=  BOOK_URL . $row2['url_photo'] ?>" />
+		<? 	
+					}
+				}
+			}
+		?>
     </div>
 </div>
 

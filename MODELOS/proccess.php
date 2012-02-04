@@ -59,6 +59,9 @@ $resultTotal['videos'] = array();
 $resultTotal['photos']= array();
 $resultTotal['composite'] = array();
 
+$ok='';
+$ko='';
+
 /*
 $act_date = mktime(0,0,0);
 
@@ -81,40 +84,47 @@ if($requestType){
 									$bHayFicheros = 0; 
 									$sCabeceraTexto = ""; 
 									$sAdjuntos = "";
-									//echo '--'.$first_name.','.$last_name.','.$address.','.$address_cont.','.$phone_number.','.$mobile.','.$gender.','.$age.','.$height.','.$zip_code.','.$city.','.$the_state.','.$email.','.$hair_color.','.$eyes_color.','.$file_headshot_photo.','.$file_full_length_photo;
-									//exit();
-									if (form_mail("rolu06@gmail.com", "asuntoo", "Los datos introducidos en el formulario son:\n\n", "poner_email@deDestino.com",$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust, $waist1,$hips,$collar,$waist2,$chest) ){
+									if (form_mail("casting@isabelnavarro.net", "Become a model", "Los datos introducidos en el formulario son:\n\n", "poner_email@deDestino.com",$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust, $waist1,$hips,$collar,$waist2,$chest) ){
+									//if (form_mail("rolu06@gmail.com", "Become a model", "Los datos introducidos en el formulario son:\n\n", $email ,$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust, $waist1,$hips,$collar,$waist2,$chest) ){
 									}else{
 										$resultTotal['res']='ERROR'; 
-										$resultTotal['mensaje']= utf8_encode('- No se ha podido enviar el correo. Por favor, inténtalo de nuevo.');
+										$resultTotal['mensaje']= ' No se ha podido enviar el correo. Por favor, inténtalo de nuevo.';
 									}
 									$resultTotal['res']='SUCCESS'; 
-									$resultTotal['mensaje']= utf8_encode(json_encode($file_headshot_photo));
+									$resultTotal['mensaje']= 'Muchas gracias por enviarnos tus datos.';
 								}else{
 									$resultTotal['res']='ERROR'; 
-									$resultTotal['mensaje']= utf8_encode('- Todos los campos son obligatorios');
+									$resultTotal['mensaje']= ' Todos los campos son obligatorios';
 								}
 							}else{
 								$resultTotal['res']='ERROR'; 
-								$resultTotal['mensaje']= utf8_encode('- Código Postal numérico.');
+								$resultTotal['mensaje']= ' Código Postal numérico.';
 							}
 						}else{
 							$resultTotal['res']='ERROR'; 
-							$resultTotal['mensaje']= utf8_encode('- Teléfono numérico.');	
+							$resultTotal['mensaje']= ' Teléfono numérico.';	
 						}
 					}else{
 						$resultTotal['res']='ERROR'; 
-						$resultTotal['mensaje']= utf8_encode('- Móvil numérico.');	
+						$resultTotal['mensaje']= ' Móvil numérico.';	
 					}
 				}else{
 					$resultTotal['res']='ERROR'; 
-					$resultTotal['mensaje']= utf8_encode('- Formato invalido de email.');
+					$resultTotal['mensaje']= ' Formato inválido de email.';
 				}
 			}else{
 				$resultTotal['res']='ERROR'; 
-				$resultTotal['mensaje']=utf8_encode('- Todos los campos son obligatorios.');
+				$resultTotal['mensaje']=' Todos los campos son obligatorios.';
 			}
+			if ($resultTotal['res']=='ERROR'){
+				$ko = $resultTotal['mensaje'];
+			}else{
+				$ok = $resultTotal['mensaje'];
+			}
+			include 'become_a_model.php';
+			exit();
 		break;
+		/*
 		case 'showAllModels':
 			if ($menu_sel){
 				$resultModels = mysql_query("SELECT m.id as id, p.url_photo as url_photo, m.first_name as first_name, m.last_name as last_name  FROM models_model m, models_ppal p WHERE m.model_type = '" . $menu_sel . "' AND m.id=p.model_id  AND m.active=1  AND p.active=1 ORDER BY m.first_name");
@@ -235,6 +245,7 @@ if($requestType){
 				$resultTotal['mensaje']=utf8_encode('- Falta el tipo de modelo.');
 			}
 		break;
+		*/
 	}
 }
 

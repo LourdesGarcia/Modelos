@@ -47,7 +47,7 @@ if($requestType){
 				if ($name_video && $url_video){
 					$resultQuery = mysql_query(sprintf("INSERT INTO models_youtube VALUES ('','%s','%s','%s','%s','%s')",
 						mysql_real_escape_string($model_id),
-						mysql_real_escape_string($name_video . ' ' . $act_date),
+						mysql_real_escape_string($name_video),
 						mysql_real_escape_string($url_video),
 						mysql_real_escape_string($act_date),  
 						mysql_real_escape_string(1)

@@ -22,28 +22,17 @@ jQuery(document).ready(function() {
 	jQuery("input[name='sex']").live('click', function(e){
 			var otroOp = jQuery("input[name='sex']:checked").attr('id');
 			if (otroOp=="male"){
-				jQuery('#bust').val('');
-				jQuery('#waist1').val('');
-				jQuery('#hips').val('');
+				//jQuery('#bust').val('');
 				jQuery('#bust').attr('disabled','disabled');
-				jQuery('#hips').attr('disabled','disabled');
-				jQuery('#waist1').attr('disabled','disabled');
-				jQuery("#collar").removeAttr('disabled');
 				jQuery("#chest").removeAttr('disabled');
-				jQuery("#waist2").removeAttr('disabled');
+				jQuery("#collar").removeAttr('disabled');
 			}else{
 				if (otroOp=="female"){
-					jQuery('#collar').val('');
-					jQuery('#chest').val('');
-					jQuery('#waist2').val('');
-					jQuery("#bust").removeAttr('disabled');
-					jQuery("#hips").removeAttr('disabled');
-					jQuery("#waist1").removeAttr('disabled');
-					jQuery("#collar").attr('disabled','disabled');
+					//jQuery('#chest').val('');
 					jQuery("#chest").attr('disabled','disabled');
-					jQuery("#waist2").attr('disabled','disabled');
-				}else{
-					//alert('otro');
+					//jQuery('#collar').val('');
+					jQuery("#collar").attr('disabled','disabled');
+					jQuery("#bust").removeAttr('disabled');
 				}
 			}
 	});
@@ -120,17 +109,25 @@ jQuery(document).ready(function() {
                             <label for=""><strong>Altura /</strong> Height</label>
                             <input type="text" id="height" name="height" value="<?=$rowModel['height'] ?>"  />
                         </div>
+						<div>
+                            <label for=""><strong>Cuello /</strong> Collar</label>
+                            <input type="text" id="collar" name="collar" value="<?= $rowModel['gender']=='male'?$rowModel['collar']:'' ?>" <?= ($rowModel['gender']=='male')?'':'disabled="disabled"' ?>/>
+                        </div>
+                        <div>
+                            <label for=""><strong>Pecho /</strong> Chest</label>
+                            <input type="text" id="chest" name="chest" value="<?= $rowModel['gender']=='male'?$rowModel['chest']:'' ?>" <?= ($rowModel['gender']=='male')?'':'disabled="disabled"' ?>/>
+                        </div> 
                         <div>
                             <label for=""><strong>Pecho /</strong> Bust</label>
                             <input type="text" id="bust" name="bust" value="<?= $rowModel['gender']=='female'?$rowModel['bust']:'' ?>" <?= ($rowModel['gender']=='female')?'':'disabled="disabled"' ?>/>
                         </div>
                         <div>
                             <label for=""><strong>Cintura /</strong> Waist</label>
-                            <input type="text" id="waist1" name="waist1" value="<?= $rowModel['gender']=='female'?$rowModel['waist']:'' ?>" <?= ($rowModel['gender']=='female')?'':'disabled="disabled"' ?>/>
+                            <input type="text" id="waist" name="waist" value="<?= $rowModel['waist'] ?>" />
                         </div>
                         <div>
                             <label for=""><strong>Cadera /</strong> Hips</label>
-                            <input type="text" id="hips" name="hips" value="<?= $rowModel['gender']=='female'?$rowModel['hips']:'' ?>" <?= ($rowModel['gender']=='female')?'':'disabled="disabled"' ?> />
+                            <input type="text" id="hips" name="hips" value="<?= $rowModel['hips'] ?>" />
                         </div>
 						<div>
                             <label for=""><strong>Talla pie /</strong> Shoe size</label>
@@ -143,18 +140,6 @@ jQuery(document).ready(function() {
                         <div>
                             <label for=""><strong>Ojos /</strong> Eyes Color</label>
                             <input type="text" id="eyes_color" name="eyes_color" value="<?=  $rowModel['eyes_color'] ?>"/>
-                        </div>
-                        <div>
-                            <label for=""><strong>Cuello /</strong> Collar</label>
-                            <input type="text" id="collar" name="collar" value="<?= $rowModel['gender']=='male'?$rowModel['collar']:'' ?>" <?= ($rowModel['gender']=='male')?'':'disabled="disabled"' ?>/>
-                        </div>
-                        <div>
-                            <label for=""><strong>Pecho /</strong> Chest</label>
-                            <input type="text" id="chest" name="chest" value="<?= $rowModel['gender']=='male'?$rowModel['chest']:'' ?>" <?= ($rowModel['gender']=='male')?'':'disabled="disabled"' ?>/>
-                        </div>
-                        <div>
-                            <label for=""><strong>Cintura /</strong> Waist</label>
-                            <input type="text" id="waist2" name="waist2" value="<?= $rowModel['gender']=='male'?$rowModel['waist']:'' ?>" <?= ($rowModel['gender']=='male')?'':'disabled="disabled"' ?>/>
                         </div>
                         <div>
                             <label for=""><strong>Foto book</strong></label>

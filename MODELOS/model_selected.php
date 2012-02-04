@@ -28,7 +28,6 @@
 <script type="text/javascript" src="js/jquery.cycle.lite.js"></script>
 <link rel="stylesheet" href="css/styles.css?v=4" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-
 </head>
 
 <body>
@@ -123,23 +122,25 @@
 				?>
 				<dt>Bust:</dt>
 				<dd><?= $row4['bust'] ?></dd>
-				<dt>Waist:</dt>
-				<dd><?= $row4['waist'] ?></dd>
-				<dt>Hips:</dt>
-				<dd><?= $row4['hips'] ?></dd>
 				<?
 					}
 					if ($row4['gender']=='male'){
+						if ($row4['collar']!=''){
 				?>
 				<dt>Collar:</dt>
 				<dd><?= $row4['collar'] ?></dd>
+				<?
+						}
+				?>
 				<dt>Chest:</dt>
 				<dd><?= $row4['chest'] ?></dd>
-				<dt>Waist:</dt>
-				<dd><?= $row4['waist'] ?></dd>
 				<?
 					}
 				?>
+				<dt>Hips:</dt>
+				<dd><?= $row4['hips'] ?></dd>
+				<dt>Waist:</dt>
+				<dd><?= $row4['waist'] ?></dd>
 				<dt>Shoe size:</dt>
 				<dd><?= $row4['shoe_size']  ?></dd>
 				<dt>Eye color:</dt>
@@ -214,7 +215,7 @@
 </div>
 
 <div id="footer">
-	<p>&copy;2011 Isabel Navarro Model Management</p>
+	<p>&copy;2012 Isabel Navarro Model Management</p>
     <ul>
         <!-- <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li> -->
         <li><a href="http://www.facebook.com/pages/Isabel-Navarro-Model-Management/133070660058118" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
@@ -222,5 +223,13 @@
 	</ul>
 </div>
 <script type="text/javascript" src="js/scripts.js?v=4"></script> 
+<script type="text/javascript">
+	var model_type = '<?= isset($row4['model_type'])?$row4['model_type']:'' ?>';
+	if (model_type!=''){
+		$('#menu li a').removeClass('selected_menu');
+		$('#menu li #'+model_type).addClass('selected_menu');
+	}
+		
+</script>
 </body>
 </html>

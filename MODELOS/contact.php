@@ -112,7 +112,7 @@
 </div>
 
 <div id="footer">
-	<p>&copy;2011 Isabel Navarro Model Management</p>
+	<p>&copy;2012 Isabel Navarro Model Management</p>
     <ul>
         <!-- <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li> -->
         <li><a href="http://www.facebook.com/pages/Isabel-Navarro-Model-Management/133070660058118" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>

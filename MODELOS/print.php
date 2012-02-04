@@ -45,35 +45,37 @@
     	<h2><?= $row['first_name'] ?><strong><?=   $row['last_name'] ?></strong></h2>
         <dl>
             <dt>Height:</dt>
-            <dd><?= $row['height'] ?></dd>
-			<?
-				if ($row['gender']=='female'){
-			?>
-			<dt>Bust:</dt>
-            <dd><?= $row['bust'] ?></dd>
-            <dt>Waist:</dt>
-            <dd><?= $row['waist'] ?></dd>
-            <dt>Hips:</dt>
-            <dd><?= $row['hips'] ?></dd>
-			<?
-				}
-				if ($row['gender']=='male'){
-			?>
-			<dt>Collar:</dt>
-            <dd><?= $row['collar'] ?></dd>
-            <dt>Chest:</dt>
-            <dd><?= $row['chest'] ?></dd>
-            <dt>Waist:</dt>
-            <dd><?= $row['waist'] ?></dd>
-			<?
-				}
-			?>
-			<dt>Shoe size:</dt>
-            <dd><?= $row['shoe_size']  ?></dd>
-            <dt>Eye color:</dt>
-            <dd><?=  $row['eyes_color']?></dd>
-            <dt>Hair color:</dt>
-            <dd><?=  $row['hair_color'] ?></dd>
+				<dd><?= $row['height'] ?></dd>
+				<?
+					if ($row['gender']=='female'){
+				?>
+				<dt>Bust:</dt>
+				<dd><?= $row['bust'] ?></dd>
+				<?
+					}
+					if ($row['gender']=='male'){
+						if ($row['collar']!=''){
+				?>
+				<dt>Collar:</dt>
+				<dd><?= $row['collar'] ?></dd>
+				<?
+						}
+				?>
+				<dt>Chest:</dt>
+				<dd><?= $row['chest'] ?></dd>
+				<?
+					}
+				?>
+				<dt>Hips:</dt>
+				<dd><?= $row['hips'] ?></dd>
+				<dt>Waist:</dt>
+				<dd><?= $row['waist'] ?></dd>
+				<dt>Shoe size:</dt>
+				<dd><?= $row['shoe_size']  ?></dd>
+				<dt>Eye color:</dt>
+				<dd><?= $row['eyes_color'] ?></dd>
+				<dt>Hair color:</dt>
+				<dd><?= $row['hair_color'] ?></dd>
         </dl>
 		<?
 					}
@@ -99,15 +101,10 @@
 </div>
 
 <div id="footer">
-	<p>&copy;2011 Isabel Navarro Model Management</p>
-	<p>Príncipe de Vergara 90, 1°D - Madrid - 28006 (Spain)</p>
-
-    <p>T.  +34 915 633 042<br />
-        M. +34 651 422 161<br />
-        Fax +34 915 630 339<br />
-        Fashion: models@isabelnavarro.net<br />
-        Commercial: casting@isabelnavarro.net<br />
-        Scouting: isabel@isabelnavarro.net</p>
+	<p class="left">&copy;2012 Isabel Navarro Model Management</p>
+	<p class="right">Príncipe de Vergara, 90 1°D 28006 - Madrid (Spain)<br />
+    	T. +34 915 633 042 - M. +34 651 422 161<br />
+        models@isabelnavarro.net</p>
 </div>
 
 

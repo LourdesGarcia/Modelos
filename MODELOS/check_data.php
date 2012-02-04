@@ -30,52 +30,7 @@
 	}
 	
 	
-	/*function form_mail($sPara, $sAsunto, $sTexto, $sDe)
-		{ 
-		$bHayFicheros = 0; 
-		$sCabeceraTexto = ""; 
-		$sAdjuntos = "";
-
-		if ($sDe)$sCabeceras = "From:".$sDe."\n"; 
-		else $sCabeceras = ""; 
-		$sCabeceras .= "MIME-version: 1.0\n"; 
-		foreach ($_REQUEST as $sNombre => $sValor) 
-		$sTexto = $sTexto."\n".$sNombre." = ".$sValor;
-
-		foreach ($_FILES as $vAdjunto)
-		{ 
-		if ($bHayFicheros == 0)
-		{ 
-		$bHayFicheros = 1; 
-		$sCabeceras .= "Content-type: multipart/mixed;"; 
-		$sCabeceras .= "boundary=\"--_Separador-de-mensajes_--\"\n";
-
-		$sCabeceraTexto = "----_Separador-de-mensajes_--\n"; 
-		$sCabeceraTexto .= "Content-type: text/plain;charset=iso-8859-1\n"; 
-		$sCabeceraTexto .= "Content-transfer-encoding: 7BIT\n";
-
-		$sTexto = $sCabeceraTexto.$sTexto; 
-		} 
-		if ($vAdjunto["size"] > 0)
-		{ 
-		$sAdjuntos .= "\n\n----_Separador-de-mensajes_--\n"; 
-		$sAdjuntos .= "Content-type: ".$vAdjunto["type"].";name=\"".$vAdjunto["name"]."\"\n";; 
-		$sAdjuntos .= "Content-Transfer-Encoding: BASE64\n"; 
-		$sAdjuntos .= "Content-disposition: attachment;filename=\"".$vAdjunto["name"]."\"\n\n";
-
-		$oFichero = fopen($vAdjunto["tmp_name"], 'r'); 
-		$sContenido = fread($oFichero, filesize($vAdjunto["tmp_name"])); 
-		$sAdjuntos .= chunk_split(base64_encode($sContenido)); 
-		fclose($oFichero); 
-		} 
-		}
-
-		if ($bHayFicheros) 
-		$sTexto .= $sAdjuntos."\n\n----_Separador-de-mensajes_----\n"; 
-		return(mail($sPara, $sAsunto, $sTexto, $sCabeceras)); 
-	}*/
-	
-	function form_mail($sPara, $sAsunto, $sTexto, $sDe,$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust, $waist1,$hips,$collar,$waist2,$chest)
+	function form_mail($sPara, $sAsunto, $sTexto, $sDe,$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust,$waist,$hips,$chest)
 		{ 
 		$bHayFicheros = 0; 
 		$sCabeceraTexto = ""; 
@@ -100,14 +55,12 @@
 		$sTexto = $sTexto."\n Color de pelo: ".$hair_color;
 		$sTexto = $sTexto."\n Color de ojos: ".$eyes_color;
 		$sTexto = $sTexto."\n Altura: ".$height;
-
+		$sTexto = $sTexto."\n Cintura: ".$waist;
+		$sTexto = $sTexto."\n Cadera: ".$hips;
+		
 		if ($gender=='female'){
 			$sTexto = $sTexto."\n Pecho: ".$bust;
-			$sTexto = $sTexto."\n Cintura: ".$waist1;
-			$sTexto = $sTexto."\n Cadera: ".$hips;
 		}else{
-			$sTexto = $sTexto."\n Cuello: ".$collar;
-			$sTexto = $sTexto."\n Cintura: ".$waist2;
 			$sTexto = $sTexto."\n Pecho: ".$chest;
 		}
 

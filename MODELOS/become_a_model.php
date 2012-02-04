@@ -146,12 +146,8 @@
 						<input type="text" id="bust" name="bust"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['bust'])&&($_REQUEST['bust']!=''))?$_REQUEST['bust']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'') ?>/>
 					</div>
 					<div>
-						<label for=""><strong>Cintura</strong> / Waist</label>
-						<input type="text" id="waist1" name="waist1"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['waist1'])&&($_REQUEST['waist1']!=''))?$_REQUEST['waist1']:'' )?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'') ?>/>
-					</div>
-					<div>
-						<label for=""><strong>Cadera /</strong> Hips</label>
-						<input type="text" id="hips" name="hips" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['hips'])&&($_REQUEST['hips']!=''))?$_REQUEST['hips']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'') ?>/>
+						<label for=""><strong>Pecho /</strong> Chest</label>
+						<input type="text" id="chest" name="chest"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['chest'])&&($_REQUEST['chest']!=''))?$_REQUEST['chest']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'') ?>/>
 					</div>
 				</div>
 				<div class="coldatos col2">
@@ -184,16 +180,12 @@
 						<input type="text" id="eyes_color" name="eyes_color"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['eyes_color'])&&($_REQUEST['eyes_color']!=''))?$_REQUEST['eyes_color']:'' )?>"/>
 					</div>
 					<div>
-						<label for=""><strong>Cuello /</strong> Collar</label>
-						<input type="text" id="collar" name="collar"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['collar'])&&($_REQUEST['collar']!=''))?$_REQUEST['collar']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'') ?>/>
+						<label for=""><strong>Cintura</strong> / Waist</label>
+						<input type="text" id="waist" name="waist"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['waist'])&&($_REQUEST['waist']!=''))?$_REQUEST['waist']:'' )?>" />
 					</div>
 					<div>
-						<label for=""><strong>Pecho /</strong> Chest</label>
-						<input type="text" id="chest" name="chest"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['chest'])&&($_REQUEST['chest']!=''))?$_REQUEST['chest']:'') ?>"  <?= (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'') ?>/>
-					</div>
-					<div>
-						<label for=""><strong>Cintura /</strong> Waist</label>
-						<input type="text" id="waist2" name="waist2"  value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['waist2'])&&($_REQUEST['waist2']!=''))?$_REQUEST['waist2']:'') ?>" <?=  (isset($ok)&&($ok!=''))?'':(isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'')?>/>
+						<label for=""><strong>Cadera /</strong> Hips</label>
+						<input type="text" id="hips" name="hips" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['hips'])&&($_REQUEST['hips']!=''))?$_REQUEST['hips']:'') ?>" />
 					</div>
 				</div>
 			</div>
@@ -235,7 +227,7 @@
 </div>
 
 <div id="footer">
-	<p>&copy;2011 Isabel Navarro Model Management</p>
+	<p>&copy;2012 Isabel Navarro Model Management</p>
     <ul>
         <!-- <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li> -->
         <li><a href="http://www.facebook.com/pages/Isabel-Navarro-Model-Management/133070660058118" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>

@@ -17,14 +17,13 @@ $gender = ((isset($_REQUEST['sex']) && ($_REQUEST['sex'] != ''))?$_REQUEST['sex'
 $age = ((isset($_REQUEST['age']) && ($_REQUEST['age'] != ''))?$_REQUEST['age']:false);
 $height = ((isset($_REQUEST['height']) && ($_REQUEST['height'] != ''))?$_REQUEST['height']:false);
 $bust = (isset($_REQUEST['bust'])?$_REQUEST['bust']:false);
-$waist1 = (isset($_REQUEST['waist1'])?$_REQUEST['waist1']:false);
+$waist = (isset($_REQUEST['waist'])?$_REQUEST['waist']:false);
 $hips = (isset($_REQUEST['hips'])?$_REQUEST['hips']:false);
 $shoe_size = ((isset($_REQUEST['shoe_size']) && ($_REQUEST['shoe_size'] != ''))?$_REQUEST['shoe_size']:false);
 $hair_color = ((isset($_REQUEST['hair_color']) && ($_REQUEST['hair_color'] != ''))?$_REQUEST['hair_color']:false);
 $eyes_color = ((isset($_REQUEST['eyes_color']) && ($_REQUEST['eyes_color'] != ''))?$_REQUEST['eyes_color']:false);
 $collar = (isset($_REQUEST['collar'])?$_REQUEST['collar']:false);
 $chest = (isset($_REQUEST['chest'])?$_REQUEST['chest']:false);
-$waist2 = (isset($_REQUEST['waist2'])?$_REQUEST['waist2']:false);
 
 $type_model = ((isset($_REQUEST['category']) && ($_REQUEST['category'] != ''))?$_REQUEST['category']:false);
 
@@ -67,13 +66,11 @@ $result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')
 if($requestType){
 	switch($requestType){
 		case 'addModel':
-			if ($first_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model){
+			if ($first_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model && $hips && $waist){
 				if ($file_ppal_photo){
 					if ($file_composite){
-						if ((($gender=='female') && ($bust!='') &&($waist1!='') && ($hips!=''))||(($gender=='male')&& ($collar!='') && ($chest!='') && ($waist2!=''))){
-							
-							$waist_general=$waist1.' '.$waist2;
-							
+						if ((($gender=='female') && ($bust!=''))||(($gender=='male')&&($chest!=''))){
+
 							$t_fich_ppal = explode('.',$_FILES['foto_book']['name']);
 							$f_archive_ppal= '1Plano_'.$act_date.'.'. array_pop($t_fich_ppal);
 							$f_name_ppal = 'photo_' . $act_date;
@@ -95,7 +92,7 @@ if($requestType){
 									mysql_real_escape_string($height),
 									mysql_real_escape_string($bust),
 									mysql_real_escape_string($hips),
-									mysql_real_escape_string(trim($waist_general)),
+									mysql_real_escape_string(trim($waist)),
 									mysql_real_escape_string($collar),
 									mysql_real_escape_string($chest),
 									mysql_real_escape_string($type_model),
@@ -180,9 +177,8 @@ if($requestType){
 			exit();
 		break;
 		case 'setModel':
-			if ($first_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model && $estado_modelo){
-				if ((($gender=='female') && ($bust!='') &&($waist1!='') && ($hips!=''))||(($gender=='male')&& ($collar!='') && ($chest!='') && ($waist2!=''))){
-					$waist_general=$waist1.' '.$waist2;
+			if ($first_name && $gender && $height && $shoe_size && $hair_color && $eyes_color && $type_model && $estado_modelo && $hips && $waist){
+				if ((($gender=='female') && ($bust!=''))||(($gender=='male')&& ($chest!=''))){
 					if ($estado_modelo=='activar'){
 							$active=1;
 					}else{
@@ -191,7 +187,7 @@ if($requestType){
 					$ok3=false;
 					//echo "UPDATE models_model SET first_name='" . $first_name . "', last_name='" . $last_name . "',  gender='" . $gender . "', age='" . $age . "', shoe_size='" . $shoe_size . "', hair_color='" . $hair_color . "',eyes_color='" . $eyes_color . "', height='" . $height . "', bust='". $bust . "', hips='" . $hips . "', waist='" . trim($waist_general) . "', collar='" . $collar . "', chest='" . $chest . "', model_type='" . $type_model . "', add_date='" . $act_date . "', active='" . $active . "' WHERE id='" . $model_id . "'";
 				//	exit();
-					$resultQuery = mysql_query("UPDATE models_model SET first_name='" . $first_name . "', last_name='" . $last_name . "',  gender='" . $gender . "', age='" . $age . "', shoe_size='" . $shoe_size . "', hair_color='" . $hair_color . "',eyes_color='" . $eyes_color . "', height='" . $height . "', bust='". $bust . "', hips='" . $hips . "', waist='" . trim($waist_general) . "', collar='" . $collar . "', chest='" . $chest . "', model_type='" . $type_model . "', add_date='" . $act_date . "', active='" . $active . "' WHERE id='" . $model_id . "'");
+					$resultQuery = mysql_query("UPDATE models_model SET first_name='" . $first_name . "', last_name='" . $last_name . "',  gender='" . $gender . "', age='" . $age . "', shoe_size='" . $shoe_size . "', hair_color='" . $hair_color . "',eyes_color='" . $eyes_color . "', height='" . $height . "', bust='". $bust . "', hips='" . $hips . "', waist='" . $waist . "', collar='" . $collar . "', chest='" . $chest . "', model_type='" . $type_model . "', add_date='" . $act_date . "', active='" . $active . "' WHERE id='" . $model_id . "'");
 					
 					if ($resultQuery){
 						$ok3=tru3;

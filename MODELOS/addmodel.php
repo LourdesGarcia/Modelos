@@ -23,27 +23,16 @@ jQuery(document).ready(function() {
 			var otroOp = jQuery("input[name='sex']:checked").attr('id');
 			if (otroOp=="male"){
 				jQuery('#bust').val('');
-				jQuery('#waist1').val('');
-				jQuery('#hips').val('');
 				jQuery('#bust').attr('disabled','disabled');
-				jQuery('#hips').attr('disabled','disabled');
-				jQuery('#waist1').attr('disabled','disabled');
-				jQuery("#collar").removeAttr('disabled');
 				jQuery("#chest").removeAttr('disabled');
-				jQuery("#waist2").removeAttr('disabled');
+				jQuery("#collar").removeAttr('disabled');
 			}else{
 				if (otroOp=="female"){
-					jQuery('#collar').val('');
 					jQuery('#chest').val('');
-					jQuery('#waist2').val('');
-					jQuery("#bust").removeAttr('disabled');
-					jQuery("#hips").removeAttr('disabled');
-					jQuery("#waist1").removeAttr('disabled');
-					jQuery("#collar").attr('disabled','disabled');
 					jQuery("#chest").attr('disabled','disabled');
-					jQuery("#waist2").attr('disabled','disabled');
-				}else{
-					//alert('otro');
+					jQuery('#collar').val('');
+					jQuery("#collar").attr('disabled','disabled');
+					jQuery("#bust").removeAttr('disabled');
 				}
 			}
 	});
@@ -112,17 +101,25 @@ jQuery(document).ready(function() {
                             <label for=""><strong>Altura /</strong> Height</label>
                             <input type="text" id="height" name="height" value="<?= (isset($_REQUEST['height'])&&($_REQUEST['height']!=''))?$_REQUEST['height']:'' ?>"  />
                         </div>
+						<div>
+                            <label for=""><strong>Cuello /</strong> Collar (opt)</label>
+                            <input type="text" id="collar" name="collar" value="<?= (isset($_REQUEST['collar'])&&($_REQUEST['collar']!=''))?$_REQUEST['collar']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'' ?>/>
+                        </div>
+                        <div>
+                            <label for=""><strong>Pecho /</strong> Chest</label>
+                            <input type="text" id="chest" name="chest" value="<?= (isset($_REQUEST['chest'])&&($_REQUEST['chest']!=''))?$_REQUEST['chest']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):''  ?>/>
+                        </div>
                         <div>
                             <label for=""><strong>Pecho /</strong> Bust</label>
                             <input type="text" id="bust" name="bust" value="<?= (isset($_REQUEST['bust'])&&($_REQUEST['bust']!=''))?$_REQUEST['bust']:'' ?>" <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'' ?>/>
                         </div>
                         <div>
                             <label for=""><strong>Cintura /</strong> Waist</label>
-                            <input type="text" id="waist1" name="waist1" value="<?= (isset($_REQUEST['waist1'])&&($_REQUEST['waist1']!=''))?$_REQUEST['waist1']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'' ?> />
+                            <input type="text" id="waist" name="waist" value="<?= (isset($_REQUEST['waist'])&&($_REQUEST['waist']!=''))?$_REQUEST['waist']:'' ?>" />
                         </div>
                         <div>
                             <label for=""><strong>Cadera /</strong> Hips</label>
-                            <input type="text" id="hips" name="hips" value="<?= (isset($_REQUEST['hips'])&&($_REQUEST['hips']!=''))?$_REQUEST['hips']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female')?'':'disabled="disabled"'):'' ?>/>
+                            <input type="text" id="hips" name="hips" value="<?= (isset($_REQUEST['hips'])&&($_REQUEST['hips']!=''))?$_REQUEST['hips']:'' ?>" />
                         </div>
 						 <div>
                             <label for=""><strong>Talla pie /</strong> Shoe size</label>
@@ -135,18 +132,6 @@ jQuery(document).ready(function() {
                         <div>
                             <label for=""><strong>Ojos /</strong> Eyes Color</label>
                             <input type="text" id="eyes_color" name="eyes_color" value="<?= (isset($_REQUEST['eyes_color'])&&($_REQUEST['eyes_color']!=''))?$_REQUEST['eyes_color']:'' ?>"/>
-                        </div>
-                        <div>
-                            <label for=""><strong>Cuello /</strong> Collar</label>
-                            <input type="text" id="collar" name="collar" value="<?= (isset($_REQUEST['collar'])&&($_REQUEST['collar']!=''))?$_REQUEST['collar']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):'' ?>/>
-                        </div>
-                        <div>
-                            <label for=""><strong>Pecho /</strong> Chest</label>
-                            <input type="text" id="chest" name="chest" value="<?= (isset($_REQUEST['chest'])&&($_REQUEST['chest']!=''))?$_REQUEST['chest']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):''  ?>/>
-                        </div>
-                        <div>
-                            <label for=""><strong>Cintura /</strong> Waist</label>
-                            <input type="text" id="waist2" name="waist2" value="<?= (isset($_REQUEST['waist2'])&&($_REQUEST['waist2']!=''))?$_REQUEST['waist2']:'' ?>"  <?= isset($_REQUEST['sex'])?(($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male')?'':'disabled="disabled"'):''  ?>/>
                         </div>
                         <div>
                             <label for=""><strong>Foto book</strong></label>

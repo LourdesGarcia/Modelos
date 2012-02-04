@@ -54,7 +54,7 @@ table {
 
 /* Estructura */
 #header, #container, #footer { margin:0 auto; width:978px; position:relative;}
-#header { border-bottom:#C5C5C5 solid 1px; padding-bottom:5px; height:54px; margin-bottom:10px;}
+#header { border-bottom:#C5C5C5 solid 1px; padding-bottom:5px; height:54px; margin-bottom:10px; margin-top:10px;}
 #container { height:527px;}
 #footer { border-top:#C5C5C5 solid 1px; height:30px; margin-top:10px;}
 
@@ -91,7 +91,7 @@ img {border:none;}
 	/* Intro site */
 .models_intro { background-color:#FFFFFF; position: absolute; width: 978px;  z-index: 99; height:527px;}
 .models_intro ul li{ float:left;}
-#saltar_intro { z-index:99; width:977px; height:90px; position:absolute; bottom:0; left:0; line-height: 85px; text-align:center; color:#FFFFFF; background:transparent url(../img/fondo_saltar_intro.png) top left repeat-x; font-size:12px;}
+#saltar_intro { z-index:99; width:977px; height:90px; position:absolute; bottom:0; left:0; line-height: 85px; text-align:center; color:#A7A7A7; /*background:transparent url(../img/fondo_saltar_intro.png) top left repeat-x;*/ font-size:12px;}
 
 	/* Listado de modelos por book */
 	#primerplano { height:500px; overflow:auto;}

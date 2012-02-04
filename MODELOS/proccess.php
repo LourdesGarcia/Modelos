@@ -17,7 +17,7 @@ $gender = ((isset($_REQUEST['sex']) && ($_REQUEST['sex'] != ''))?$_REQUEST['sex'
 $age = ((isset($_REQUEST['age']) && ($_REQUEST['age'] != ''))?$_REQUEST['age']:false);
 $height = ((isset($_REQUEST['height']) && ($_REQUEST['height'] != ''))?$_REQUEST['height']:false);
 $bust = (isset($_REQUEST['bust'])?$_REQUEST['bust']:false);
-$waist1 = (isset($_REQUEST['waist1'])?$_REQUEST['waist1']:false);
+$waist= (isset($_REQUEST['waist'])?$_REQUEST['waist']:false);
 $hips = (isset($_REQUEST['hips'])?$_REQUEST['hips']:false);
 $zip_code = ((isset($_REQUEST['zip_code']) && ($_REQUEST['zip_code'] != ''))?$_REQUEST['zip_code']:false);
 $city = ((isset($_REQUEST['city']) && ($_REQUEST['city'] != ''))?$_REQUEST['city']:false);
@@ -27,7 +27,6 @@ $hair_color = ((isset($_REQUEST['hair_color']) && ($_REQUEST['hair_color'] != ''
 $eyes_color = ((isset($_REQUEST['eyes_color']) && ($_REQUEST['eyes_color'] != ''))?$_REQUEST['eyes_color']:false);
 $collar = (isset($_REQUEST['collar'])?$_REQUEST['collar']:false);
 $chest = (isset($_REQUEST['chest'])?$_REQUEST['chest']:false);
-$waist2 = (isset($_REQUEST['waist2'])?$_REQUEST['waist2']:false);
 $name_headshot_photo = ((isset($_REQUEST['headshot_photo']) && ($_REQUEST['headshot_photo'] != ''))?$_REQUEST['headshot_photo']:false);
 $name_full_length_photo = ((isset($_REQUEST['full_length_photo']) && ($_REQUEST['full_length_photo'] != ''))?$_REQUEST['full_length_photo']:false);
 
@@ -75,17 +74,17 @@ $result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')
 if($requestType){
 	switch($requestType){
 		case 'submitForm':
-			if ($first_name && $last_name && $address && $phone_number && $mobile && $gender && $age && $height && $zip_code && $city && $the_state && $email && $hair_color && $eyes_color && $file_headshot_photo&& $file_full_length_photo ){
+			if ($first_name && $last_name && $address && $phone_number && $mobile && $gender && $age && $height && $zip_code && $city && $the_state && $email && $hair_color && $eyes_color && $file_headshot_photo&& $file_full_length_photo && $waist && $hips ){
 				if (checkEmail($email)){
 					if (is_numeric($mobile)){
 						if (is_numeric($phone_number)){
 							if (is_numeric($zip_code)){
-								if ((($gender=='female') && ($bust!='') &&($waist1!='') && ($hips!=''))||(($gender=='male')&& ($collar!='') && ($chest!='') && ($waist2!=''))){
+								if ((($gender=='female') && ($bust!=''))||(($gender=='male') && ($chest!=''))){
 									$bHayFicheros = 0; 
 									$sCabeceraTexto = ""; 
 									$sAdjuntos = "";
-									if (form_mail("casting@isabelnavarro.net", "Become a model", "Los datos introducidos en el formulario son:\n\n", "poner_email@deDestino.com",$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust, $waist1,$hips,$collar,$waist2,$chest) ){
-									//if (form_mail("rolu06@gmail.com", "Become a model", "Los datos introducidos en el formulario son:\n\n", $email ,$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust, $waist1,$hips,$collar,$waist2,$chest) ){
+									if (form_mail("casting@isabelnavarro.net", "Become a model", "Los datos introducidos en el formulario son:\n\n", $email ,$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust,$waist,$hips,$chest)){
+									//if (form_mail("rolu06@gmail.com", "Become a model", "Los datos introducidos en el formulario son:\n\n", $email ,$first_name ,$last_name ,$address, $address_cont , $phone_number , $mobile , $gender, $age,$height , $zip_code, $city , $the_state , $email , $hair_color , $eyes_color , $file_headshot_photo, $file_full_length_photo,$bust,$waist,$hips,$chest)){
 									}else{
 										$resultTotal['res']='ERROR'; 
 										$resultTotal['mensaje']= ' No se ha podido enviar el correo. Por favor, inténtalo de nuevo.';

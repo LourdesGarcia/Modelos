@@ -13,6 +13,9 @@ var url_composite = url_server + 'composite/';
 
 jQuery(document).ready(function() {
 
+
+
+/*
 	  	// Ocultamos elementos del selector de modelos
 	jQuery("#hidden_link").fancybox().trigger('click');
 
@@ -126,11 +129,11 @@ jQuery(document).ready(function() {
 		var modelId = model.substr(2,model.length);
 		showPrint(modelId,url_photo);	
 	});
-	
+	*/
 	jQuery("#find_a_model").live('change', function(e){
 		var idM = jQuery("#find_a_model option:selected").val();
 		if (idM!=''){
-			if ((idM=='women')||(idM=='men')||(idM=='special_booking')){
+			/*if ((idM=='women')||(idM=='men')||(idM=='special_booking')){
 				$('#alfabeto').show();
 				$('#alfabeto li a').removeClass('selected_letter');
 				jQuery('#all').addClass('selected_letter');
@@ -144,17 +147,26 @@ jQuery(document).ready(function() {
 				var valueM = idM.substr(2,idM.length);
 				showCompleteDataModel(valueM);
 				$('#model_selected').show();
+			}*/
+			switch(idM){
+				case 'women':
+					top.location.href=url_server+'women.php';
+				break;
+				case 'men':
+					top.location.href=url_server+'men.php';
+				break;
+				case 'special_booking':
+					top.location.href=url_server+'special_booking.php';
+				break;
+				default:
+					var valueM = idM.substr(2,idM.length);
+					top.location.href=url_server+'model_selected.php?model_id='+valueM;
+				break;
 			}
 		}
 	});	
-
-	/////////////////////
-	/* jQuery('#photos_model ul li a').live('click', function(e){
-		var urlMini = $(this).find('label').text();
-		//alert(urlMini);
-		jQuery('#model_selected #big_photo img').attr('src',urlMini);
-	}); */
-
+	
+/*
 	jQuery("#saltar_intro").live('click', function(e){
 		jQuery('.menus').hide();
 		$('#alfabeto').show();
@@ -166,9 +178,9 @@ jQuery(document).ready(function() {
 		$('#model_selected').hide();
 	});
 	
-	
+	*/
 });//
-
+/*
 function showCompleteDataModel(model_id){
 	var dataString = 'model_id=' + model_id + '&request_type=showCompleteDataModel';
 	$.ajax({
@@ -260,12 +272,7 @@ function showCompleteDataModel(model_id){
 			}
 		}
 	}); //ajax
-	/*if (jQuery('#pikame').length) {
-		jQuery('#pikame').PikaChoose({carousel:true, showTooltips:true, autoPlay:false});
-	}
-	*/ 
-	//$("#pikame").PikaChoose({auto_play:true, IESafe: true});
-	
+
 }
 
 function showAllModels(menu_sel){
@@ -381,35 +388,6 @@ function checkData(first_name,last_name,address,phone_number,mobile,gender,age,h
 	//}
 }
 
-function sendData(first_name,last_name,address,phone_number,mobile,gender,age,height,bust,waist1,hips,zip_code,city,the_state,email,hair_color,eyes_color,collar,chest,waist2,headshot_photo,full_length_photo){
-	/*var dataString = 'first_name=' + first_name + '&last_name=' + last_name + '&address=' + address +
-					 '&phone_number=' + phone_number + '&mobile=' + mobile + '&gender=' + gender + '&age=' + age + 
-					 '&height=' + height + '&bust=' + bust + '&waist1=' + waist1 + '&hips=' + hips + 
-					 '&zip_code=' + zip_code + '&city=' + city + '&the_state=' + the_state + '&email=' + email + 
-					 '&hair_color=' + hair_color + '&eyes_color=' + eyes_color + '&collar=' + collar + '&chest=' + chest + 
-					 '&waist2=' + waist2 + '&headshot_photo=' + headshot_photo + '&full_length_photo=' + full_length_photo + 
-					 '&request_type=submitForm'; 
-	$.ajax({
-		type: "POST",
-		url: protocolo + url_proccess,
-		data: dataString,
-		dataType: "json",
-		cache: false,
-		error: function(a, b, c){
-				alert('a: ' + a + ',b: ' + b + ',c: ' +c );
-		},
-		success: function(result){
-			if (result.res == "SUCCESS"){
-				alert('todo esta ok');
-			}else{
-				//QUITAR ALERT Y PONER POPUP
-				alert(result.mensaje); 
-			}
-		}
-	}); //ajax
-	*/
-	
-}
 
 function showPrint(modelId,url_photo){
 	var dataString = 'model_id=' + modelId + '&request_type=showCompleteDataModel';
@@ -432,26 +410,6 @@ function showPrint(modelId,url_photo){
 		}
 	}); //ajax
 }
-
-
-/*function goPrint(modelId,first_name,last_name,height,gender,bust,waist,hips,collar,chest,eyes_color,hair_color,url_photo){
-	var dataString = 'first_name='+first_name+'&last_name='+last_name+'&height='+height+'&gender='+gender+'&bust='+bust+'&waist='+waist+'&hips='+hips+'&collar='+collar+'&chest='+chest+'&hair_color='+hair_color+'&url_photo='+url_photo;
-	$.ajax({
-		type: "POST",
-		url: protocolo + url_print,
-		data: dataString,
-		//dataType: "json",
-		cache: false,
-		error: function(a, b, c){
-				alert('a: ' + a + ',b: ' + b + ',c: ' +c );
-		},
-		success: function(result){
-			if (result.res == "SUCCESS"){
-				
-			}
-		}
-	}); 
-}*/
 
 function cleanInput(){
 	$('input').each(function(){
@@ -484,3 +442,5 @@ function validatedMobile(p){
 	//return ((!isNaN(p))&&(p.length==9)&&(p.substring(0,1)!='6'));
 	return (!isNaN(p));
 }
+
+*/

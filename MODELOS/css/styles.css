@@ -219,7 +219,7 @@ img {border:none;}
 	.pika-imgnav a.play {background: url(../img/play.png) no-repeat 0% 50%; height: 100px; width: 44px;top:0;left:50%;display: none;cursor:pointer;}
 	.pika-imgnav a.pause {background: url(../img/pause.png) no-repeat 0% 50%; height: 100px; width: 44px;top:0;left:50%;display:none;cursor:pointer;}
 	/* Ocultamos los controles de la imagen grande */
-	.pika-imgnav a.previous, .pika-imgnav a.next, .pika-imgnav a.play, .pika-imgnav a.pause, .pika-textnav { display:none;}
+	/*.pika-imgnav a.previous, .pika-imgnav a.next, .pika-imgnav a.play, .pika-imgnav a.pause, .pika-textnav { display:none;}*/
 
 /* The previous and next textual buttons */
 .pika-textnav {overflow: hidden; margin: 10px 0 0 0;bottom:10px; position:absolute;}

@@ -155,7 +155,39 @@
     </ul>
    
 </div>
-
+<script type="text/javascript">
+	var letter = '<?= (isset($_REQUEST['letter'])&&($_REQUEST['letter']!=''))?$_REQUEST['letter']:'' ?>';
+	$('#alfabeto li a').removeClass('selected_letter');
+	$('#alfabeto li a').each(function(i){
+		var let = $(this).text();
+		if (letter==let){
+			$(this).addClass('selected_letter');
+			if (let != 'ALL'){
+				$('#primerplano li').each(function(i){
+					var nameLi = $(this).find('strong').attr('id');
+					var nameLi2 = nameLi.substr(2,1);
+					if (nameLi2!=let){
+						$(this).removeClass('active_model');
+						$(this).hide();
+					}else{
+						$(this).show();
+						$(this).addClass('active_model');
+					}
+				});
+			}else{
+				$('#primerplano li').each(function(i){
+					if (!$(this).hasClass('active_model')){
+						$(this).show();
+						$(this).addClass('active_model');
+					}
+				});
+			}
+			if ($('#primerplano').length) {
+				$('#primerplano').jScrollPane();
+			}	
+		}
+	});
+</script> 
 <div id="footer">
 	<p>&copy;2012 Isabel Navarro Model Management</p>
     <ul>

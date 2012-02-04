@@ -10,6 +10,10 @@
 	define('INTRO_URL',URL_SERVER . 'intro/');
 	
 	$model_id = (isset($_REQUEST['model_id'])&&($_REQUEST['model_id']))?$_REQUEST['model_id']:false;
+	
+	$model_type='';
+	
+	$letter='';
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -112,8 +116,10 @@
 				if ($num_cols4>0){
 					for($j=0;$j<$num_cols4;$j++){
 						$row4 = mysql_fetch_assoc($resultModel4);
+						$model_type = $row4['model_type'] ;
+						$letter = substr($row4['first_name'],0,1);
 			?>
-			<h2 id="m_name"><label id="l_<?= $model_id ?>"><?=  $row4['first_name'] ?><strong><?= $row4['last_name'] ?></strong></label></h2>
+			<h2 id="m_name"><label id="l_<?= $model_id ?>"><?= $row4['first_name'] ?><strong><?= $row4['last_name'] ?></strong></label></h2>
 			<dl id="m_data">
 				<dt>Height:</dt>
 				<dd><?= $row4['height'] ?></dd>
@@ -207,7 +213,7 @@
 				?>
 			</ul>
 		</div>
-        <a href="#" id="backfrombook">Back</a>
+        <a href="<?= $model_type ?>.php?letter=<?= $letter ?>" id="backfrombook">Back</a>
     </div>
 	<?
 		}

@@ -110,10 +110,10 @@
 						for($i=0;$i<$num_cols;$i++){
 							$row = mysql_fetch_assoc($resultModels);
 				?>
-				<li id="model_<?= $row['id'] ?>">
+				<li id="model_<?= $row['id'] ?>" class="active_model">
 					<a id="link_model_<?= $row['id'] ?>" href="model_selected.php?model_id=<?=  $row['id'] ?>">
 						<img id="im_<?= $row['id'] ?>" src="<?= PPAL_URL . $row['url_photo'] ?>" alt="<?= $row['first_name'] ?>_<?= $row['last_name'] ?>" />
-						<strong><?= strtoupper($row['first_name']) ?> <?= strtoupper($row['last_name']) ?></strong>
+						<strong id="n_<?= strtoupper($row['first_name']) ?><?= strtoupper($row['last_name']) ?>"><?= strtoupper($row['first_name']) ?> <?= strtoupper($row['last_name']) ?></strong>
 					</a>
 				</li>
 				<?

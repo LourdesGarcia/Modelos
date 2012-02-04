@@ -195,6 +195,39 @@ jQuery(document).ready(function() {
 		}
 	});	
 	
+	jQuery("#alfabeto li a").live('click', function(){
+		var nameC = $(this).text();
+		if (nameC!=''){
+			if (nameC != 'ALL'){
+				$('#primerplano li').each(function(i){
+					var nameLi = $(this).find('strong').attr('id');
+					var nameLi2 = nameLi.substr(2,1);
+					//if (nameLi2.indexOf(nameC)==-1) {
+					if (nameLi2!=nameC){
+						$(this).removeClass('active_model');
+						$(this).hide();
+					}else{
+						$(this).show();
+						$(this).addClass('active_model');
+					}
+				});
+				$('#alfabeto li a').removeClass('selected_letter');
+				$(this).addClass('selected_letter');
+			}else{
+				$('#primerplano li').each(function(i){
+					if (!$(this).hasClass('active_model')){
+						$(this).show();
+						$(this).addClass('active_model');
+					}
+				});
+				$('#alfabeto li a').removeClass('selected_letter');
+				$(this).addClass('selected_letter');
+			}
+		}
+	});
+		
+
+	
 /*
 	jQuery("#saltar_intro").live('click', function(e){
 		jQuery('.menus').hide();

@@ -223,6 +223,9 @@ jQuery(document).ready(function() {
 				$('#alfabeto li a').removeClass('selected_letter');
 				$(this).addClass('selected_letter');
 			}
+			if ($('#primerplano').length) {
+				$('#primerplano').jScrollPane();
+			}		
 		}
 	});
 		

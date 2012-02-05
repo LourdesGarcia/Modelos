@@ -1,10 +1,11 @@
 <?
 	//error_reporting(E_ALL);
-	include('config_database.php');	
+	include('../config_database.php');	
+	define('URL_WEB','//www.rociolourdes.hostoi.com/');
 	define('URL_SERVER','//rociolourdes.hostoi.com/');
-	define('IMAGES_URL',URL_SERVER . 'img/');
-	define('BOOK_URL',URL_SERVER . 'book/');
-	define('MINI_URL',URL_SERVER . 'mini/');
+	define('IMAGES_URL',URL_SERVER . '../img/');
+	define('BOOK_URL',URL_SERVER . '../book/');
+	define('MINI_URL',URL_SERVER . '../mini/');
 	define('URL_ADMIN',URL_SERVER . 'admin/');
 
 ?>
@@ -20,7 +21,7 @@
 <body id="administrador">
 
 <div id="cabecera">
-    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
+    	<a href="<?= URL_WEB ?>index.php"><img src="../img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
         <h1 class="floatRight">ISABEL NAVARRO. Model management.</h1>
 </div>
 

@@ -2,10 +2,10 @@
 
 //error_reporting(E_ALL);
 
-include('config_database.php');
-include('check_data.php');
+include('../config_database.php');
+include('../check_data.php');
 define('URL_SERVER_2','//rociolourdes.hostoi.com/');
-define('VIDEOS_URL_2','youtube/');
+define('VIDEOS_URL_2','../youtube/');
 define('URL_ADMIN_2', URL_SERVER_2 . 'admin/');
 
 $requestType = ((isset($_REQUEST['request_type']) && ($_REQUEST['request_type'] != ''))?$_REQUEST['request_type']:false);

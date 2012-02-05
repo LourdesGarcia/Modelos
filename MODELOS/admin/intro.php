@@ -1,9 +1,10 @@
 <?
 	//error_reporting(E_ALL);
-	include('config_database.php');	
+	include('../config_database.php');	
+	define('URL_WEB','//www.rociolourdes.hostoi.com/');
 	define('URL_SERVER','//rociolourdes.hostoi.com/');
-	define('IMAGES_URL',URL_SERVER . 'img/');
-	define('INTRO_URL',URL_SERVER . 'intro/');
+	define('IMAGES_URL',URL_SERVER . '../img/');
+	define('INTRO_URL',URL_SERVER . '../intro/');
 	define('URL_ADMIN',URL_SERVER . 'admin/');
 
 ?>
@@ -13,14 +14,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Isabel Navarro. Model management: Gestor de contenidos</title>
 <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
-<link href="css/styles.css?v=2" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script> 
+<link href="../css/styles.css?v=2" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery.js"></script> 
 </head>
 
 <body id="administrador">
 
 <div id="cabecera">
-    	<a href="index.php"><img src="img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
+    	<a href="<?= URL_WEB ?>index.php"><img src="../img/logo_isabel_navarro.jpg" alt="ISABEL NAVARRO. Model management." class="floatLeft" /><span class="hide2">ISABEL NAVARRO. Model management.</span></a>
         <h1 class="floatRight">ISABEL NAVARRO. Model management.</h1>
 </div>
 

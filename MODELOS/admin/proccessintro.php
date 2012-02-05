@@ -2,10 +2,10 @@
 
 //error_reporting(E_ALL);
 
-include('config_database.php');
-include('check_data.php');
+include('../config_database.php');
+include('../check_data.php');
 define('URL_SERVER_2','//rociolourdes.hostoi.com/');
-define('INTRO_URL_2','intro/');
+define('INTRO_URL_2','../intro/');
 define('URL_ADMIN_2', URL_SERVER_2 . 'admin/');
 
 $requestType = ((isset($_REQUEST['request_type']) && ($_REQUEST['request_type'] != ''))?$_REQUEST['request_type']:false);

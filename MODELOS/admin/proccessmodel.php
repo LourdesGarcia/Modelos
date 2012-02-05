@@ -2,12 +2,12 @@
 
 //	error_reporting(E_ALL);
 
-	include('config_database.php');	
-	include('check_data.php');
+	include('../config_database.php');	
+	include('../check_data.php');
 	define('URL_SERVER_2','//rociolourdes.hostoi.com/');
-	define('IMAGES_URL_2','img/');
-	define('PPAL_URL_2', 'ppal/');
-	define('COMPOSITE_URL_2', 'composite/');
+	define('IMAGES_URL_2','../img/');
+	define('PPAL_URL_2', '../ppal/');
+	define('COMPOSITE_URL_2', '../composite/');
 	define('URL_ADMIN_2', URL_SERVER_2 . 'admin/');
 	
 

@@ -4,6 +4,7 @@
 	define('URL_SERVER','//rociolourdes.hostoi.com/');
 	define('IMAGES_URL',URL_SERVER . 'img/');
 	define('VIDEOS_URL',URL_SERVER . 'youtube/');
+	define('URL_ADMIN', URL_SERVER . 'admin/');
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

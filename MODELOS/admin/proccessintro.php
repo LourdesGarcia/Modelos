@@ -5,13 +5,10 @@
 include('config_database.php');
 include('check_data.php');
 define('URL_SERVER_2','//rociolourdes.hostoi.com/');
-define('VIDEOS_URL_2','youtube/');
+define('INTRO_URL_2','intro/');
+define('URL_ADMIN_2', URL_SERVER_2 . 'admin/');
 
 $requestType = ((isset($_REQUEST['request_type']) && ($_REQUEST['request_type'] != ''))?$_REQUEST['request_type']:false);
-
-$name_video = ((isset($_REQUEST['titulo']) && ($_REQUEST['titulo'] != ''))?$_REQUEST['titulo']:false);
-$url_video = ((isset($_REQUEST['url']) && ($_REQUEST['url'] != ''))?$_REQUEST['url']:false);
-$model_id = ((isset($_REQUEST['model_id']) && ($_REQUEST['model_id'] != ''))?$_REQUEST['model_id']:false);
 
 $name_add_photo = ((isset($_REQUEST['add_intro']) && ($_REQUEST['add_intro'] != ''))?$_REQUEST['add_intro']:false);
 
@@ -42,18 +39,20 @@ $result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')
 
 if($requestType){
 	switch($requestType){
-		case 'addVideos':
-			if ($model_id){
-				if ($name_video && $url_video){
-					$resultQuery = mysql_query(sprintf("INSERT INTO models_youtube VALUES ('','%s','%s','%s','%s','%s')",
-						mysql_real_escape_string($model_id),
-						mysql_real_escape_string($name_video),
-						mysql_real_escape_string($url_video),
-						mysql_real_escape_string($act_date),  
+		case 'addIntro':
+			if ($file_add_photo){
+				$t_fich = explode('.',$_FILES['add_intro']['name']);
+				$f_name = 'intro_' . $act_date;
+				$f_archive= 'intro_'.$act_date.'.'.array_pop($t_fich);
+				if (saveFich('add_intro',INTRO_URL_2,$f_archive)){
+					$resultQuery = mysql_query(sprintf("INSERT INTO models_intro VALUES ('','%s','%s','%s','%s')",
+						mysql_real_escape_string($f_name),
+						mysql_real_escape_string($f_archive),
+						mysql_real_escape_string($act_date),
 						mysql_real_escape_string(1)
 					));  
 					if ($resultQuery){
-						$textProccessOK = 'Se ha guardado la url del vídeo correctamente.';
+						$textProccessOK = 'Se ha guardado el archivo correctamente.';
 						$resultTotal['res']='SUCCESS'; 
 						$resultTotal['mensaje'] = $textProccessOK;
 					}else{
@@ -63,26 +62,25 @@ if($requestType){
 					}
 				}else{
 					$resultTotal['res']='ERROR'; 
-					$textProccessKO = ' Falta el nombre y/o la url del vídeo.';
+					$textProccessKO = ' No se ha podido guardar el archivo en el servidor.';
 					$resultTotal['mensaje'] = $textProccessKO;
 				}
 			}else{
 				$resultTotal['res']='ERROR'; 
-				$textProccessKO = ' Falta el identificador de la modelo.';
+				$textProccessKO = ' No se ha cargado ningún archivo.';
 				$resultTotal['mensaje'] = $textProccessKO;
 			}
 		break;
-		case 'updateVideos':
+		case 'updateIntro':
 			foreach($_REQUEST as $k => $val){
-				$pos = strpos($k,'video_');
+				$pos = strpos($k,'intro_');
 				if ($pos === false){	
 				}else{
-					$video_array = explode('_',$k);
 					if ($val=='activar'){
-						array_push($activados, $video_array[1]);
+						array_push($activados,"'" . $k . "'");
 					}else{
 						if ($val=='desactivar'){
-							array_push($desactivados,$video_array[1]);	
+							array_push($desactivados,"'" . $k . "'");	
 						}
 					}
 				}
@@ -101,16 +99,14 @@ if($requestType){
 			}
 			if (!empty($activados)){
 				$namesAct = implode(',',$activados);
-				$queryAct = mysql_query("UPDATE models_youtube SET active = 1 WHERE id IN (" . $namesAct . ") AND active = 0");
-					//echo "UPDATE models_youtube SET active = 1 WHERE model_id IN (" . $namesAct . ") AND active = 0";
-					//exit();
+				$queryAct = mysql_query("UPDATE models_intro SET active = 1 WHERE photo_name IN (" . $namesAct . ") AND active = 0");
 				if ($queryAct){
 					$cont--;
 				}
 			}
 			if (!empty($desactivados)){
 				$namesDes = implode(',',$desactivados);
-				$queryDes =  mysql_query("UPDATE models_youtube SET active = 0 WHERE id IN (" . $namesDes . ") AND active = 1");
+				$queryDes =  mysql_query("UPDATE models_intro SET active = 0 WHERE photo_name IN (" . $namesDes . ") AND active = 1");
 				if ($queryDes){
 					$cont--;
 				}
@@ -129,6 +125,6 @@ if($requestType){
 }
 
 //echo json_encode($resultTotal);
-include 'videosmodel.php';
+include 'intro.php';
 exit();
 ?>

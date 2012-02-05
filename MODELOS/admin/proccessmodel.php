@@ -8,6 +8,8 @@
 	define('IMAGES_URL_2','img/');
 	define('PPAL_URL_2', 'ppal/');
 	define('COMPOSITE_URL_2', 'composite/');
+	define('URL_ADMIN_2', URL_SERVER_2 . 'admin/');
+	
 
 $requestType = ((isset($_REQUEST['request_type']) && ($_REQUEST['request_type'] != ''))?$_REQUEST['request_type']:false);
 

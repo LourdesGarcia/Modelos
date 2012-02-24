@@ -199,7 +199,7 @@
 		<div id="galeria">
 			<ul id="pikame" class="jcarousel-skin-pika">
 				<?
-					$resultPhotos = mysql_query("SELECT * FROM models_photos WHERE model_id = '" . $model_id . "' AND active=1 ORDER BY add_date DESC");
+					$resultPhotos = mysql_query("SELECT * FROM models_photos WHERE model_id = '" . $model_id . "' AND active=1 ORDER BY selectedOrder");
 					$num_cols7 = mysql_affected_rows();
 				
 					if ($num_cols7>0){

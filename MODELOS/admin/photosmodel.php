@@ -85,13 +85,13 @@
             <p>Listado de imágenes existentes en el book de la modelo. Puede activar o desactivar su visualización seleccionando la opción de cada foto y pulsando finalmente el botón Actualizar</p>
             <ul class="rotabanner">
 			<?
-				$resultPhotos= mysql_query("SELECT * FROM models_photos WHERE model_id = '" . $_REQUEST['model_id']. "' ORDER BY add_date DESC");
+				$resultPhotos= mysql_query("SELECT * FROM models_photos WHERE model_id = '" . $_REQUEST['model_id']. "' ORDER BY selectedOrder");
 					$num_cols = mysql_affected_rows();
 					if ($num_cols>0){
 						for($i=0;$i<$num_cols;$i++){
 							$row = mysql_fetch_assoc($resultPhotos);
 				?>
-              	<li><img height="57" width="46" src="<?= MINI_URL . $row['url_thumbnail'] ?>" /><input name="photo_<?= $row['id'] ?>" type="radio" value="activar" <?= ($row['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="photo_<?= $row['id'] ?>" type="radio" value="desactivar" <?= ($row['active']==0)?'checked="checked"':'' ?> />Desactivar <input name="photo_<?= $row['id'] ?>" type="checkbox" value="borrar"/>Borrar</li>
+              	<li><img height="57" width="46" src="<?= MINI_URL . $row['url_thumbnail'] ?>" /><input name="photo_<?= $row['id'] ?>" type="radio" value="activar" <?= ($row['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="photo_<?= $row['id'] ?>" type="radio" value="desactivar" <?= ($row['active']==0)?'checked="checked"':'' ?> />Desactivar <input name="photo_<?= $row['id'] ?>" type="checkbox" value="borrar"/>Borrar <input id="selectedOrder" style="font-size:16px;width:77px;" type="text" value="<?= ($row['selectedOrder']=='2147483647')?'':$row['selectedOrder'] ?>" name="order_<?= $row['id'] ?>" maxlength="9" /></li>
             <?
 					}
 				}

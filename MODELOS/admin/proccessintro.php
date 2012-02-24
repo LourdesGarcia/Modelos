@@ -120,6 +120,20 @@ if($requestType){
 					$cont--;
 				}
 			}
+				
+			foreach($_REQUEST as $k2 => $val2){
+				$pos2 = strpos($k2,'order_');
+				if ($pos2 === false){	
+				}else{
+					$order_array = explode('_',$k2);
+					if ($val2!=''){
+						$queryOrder =  mysql_query("UPDATE models_intro SET selectedOrder = " . $val2 . " WHERE id IN (" . $order_array[1] . ")");
+					}else{
+						$queryOrder =  mysql_query("UPDATE models_intro SET selectedOrder = '2147483647' WHERE id IN (" . $order_array[1] . ")");
+					}
+				}
+			}
+			
 			if ($cont!=0){
 				$textProccessKO = ' No se han podido realizar los cambios.';
 				$resultTotal['res']='ERROR'; 

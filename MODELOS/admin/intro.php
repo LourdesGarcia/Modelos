@@ -61,14 +61,14 @@
         	<legend>Imágenes existentes</legend>
 			<ul class="rotabanner">
 				<?
-					$resultIntro1 = mysql_query("SELECT * FROM models_intro ORDER BY add_date DESC");
+					$resultIntro1 = mysql_query("SELECT * FROM models_intro ORDER BY selectedOrder");
 					$num_cols1 = mysql_affected_rows();
 					if ($num_cols1>0){
 						$cont=1;
 						for($j=0;$j<$num_cols1;$j++){
 							$row1 = mysql_fetch_assoc($resultIntro1);
 				?>
-              	<li>Imagen mostrada Nº <?= $cont?>: <input name="<?= $row1['photo_name'] ?>" type="radio" value="activar" <?= ($row1['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="<?= $row1['photo_name'] ?>" type="radio" value="desactivar" <?= ($row1['active']==0)?'checked="checked"':'' ?>/>Desactivar <input name="<?= $row1['photo_name'] ?>" type="checkbox" value="borrar"/>Borrar
+              	<li>Imagen mostrada Nº <?= $cont?>: <input name="<?= $row1['photo_name'] ?>" type="radio" value="activar" <?= ($row1['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="<?= $row1['photo_name'] ?>" type="radio" value="desactivar" <?= ($row1['active']==0)?'checked="checked"':'' ?>/>Desactivar <input name="<?= $row1['photo_name'] ?>" type="checkbox" value="borrar"/>Borrar <input id="selectedOrder" style="font-size:16px;width:77px;" type="text" value="<?= ($row1['selectedOrder']=='2147483647')?'':$row1['selectedOrder'] ?>" name="order_<?= $row1['id'] ?>" maxlength="9" />
                 	<img src="<?= INTRO_URL . $row1['url_photo'] ?>" width="500"/>
 				</li>
 				<?

@@ -103,7 +103,7 @@
 		<div class="models_intro">
 			<ul>
 				<?
-					$resultIntroi = mysql_query("SELECT * FROM models_intro WHERE active=1 ORDER BY add_date DESC");
+					$resultIntroi = mysql_query("SELECT * FROM models_intro WHERE active=1 ORDER BY selectedOrder");
 					$num_colsi = mysql_affected_rows();
 				
 					if ($num_colsi>0){

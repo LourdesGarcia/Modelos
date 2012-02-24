@@ -91,7 +91,7 @@
 						for($i=0;$i<$num_cols;$i++){
 							$row = mysql_fetch_assoc($resultPhotos);
 				?>
-              	<li><img src="<?= MINI_URL . $row['url_thumbnail'] ?>" /><input name="photo_<?= $row['id'] ?>" type="radio" value="activar" <?= ($row['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="photo_<?= $row['id'] ?>" type="radio" value="desactivar" <?= ($row['active']==0)?'checked="checked"':'' ?> />Desactivar</li>
+              	<li><img height="57" width="46" src="<?= MINI_URL . $row['url_thumbnail'] ?>" /><input name="photo_<?= $row['id'] ?>" type="radio" value="activar" <?= ($row['active']==1)?'checked="checked"':'' ?> />Activar  ó <input name="photo_<?= $row['id'] ?>" type="radio" value="desactivar" <?= ($row['active']==0)?'checked="checked"':'' ?> />Desactivar <input name="photo_<?= $row['id'] ?>" type="checkbox" value="borrar"/>Borrar</li>
             <?
 					}
 				}

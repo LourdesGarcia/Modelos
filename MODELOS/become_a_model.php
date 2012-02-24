@@ -126,12 +126,11 @@
 						<label for=""><strong>Móvil /</strong> Mobile</label>
 						<input type="text" id="mobile" name="mobile" maxlength="9" value="<?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['mobile'])&&($_REQUEST['mobile']!=''))?$_REQUEST['mobile']:'') ?>"/>
 					</div>
-					<div>
-						<span class="gender">Gender</span>
+					<div style="text-align:right;">
 						<input type="radio" id="female" name="sex" value="female"  <?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['sex'])&&($_REQUEST['sex']!='')&&($_REQUEST['sex']=='female'))?'checked="ckecked"':'') ?>/>
-						<label for="" class="nobullet"><strong>Female</strong></label>
+						<label for="" class="nobullet"><strong>Mujer /</strong> Female</label>
 						<input type="radio" id="male" name="sex" value="male" <?= (isset($ok)&&($ok!=''))?'':((isset($_REQUEST['sex'])&&($_REQUEST['sex']!='')&&($_REQUEST['sex']=='male'))?'checked="ckecked"':'') ?>/>
-						<label for="" class="nobullet"><strong>Male</strong></label>
+						<label for="" class="nobullet"><strong>Hombre /</strong> Male</label>
 					</div>
 					<div>
 						<label for=""><strong>Edad /</strong> Age</label>
@@ -192,12 +191,12 @@
 			<div  class="adjuntos bloqueAdjuntos" >
 				<div>
 					<label for=""><strong>Adjuntar foto de cara /</strong> Attach a headshot photo:</label>
-					<input type="file" id="headshot_photo" name="headshot_photo" size=30 maxlength=200> 
+					<input type="file" id="headshot_photo" name="headshot_photo" size=20 maxlength=200> 
 					<input type="hidden" name="MAX_FILE_SIZE"  value=100000 />
 				</div>
 				<div>
 					<label for=""><strong>Adjuntar foto de cuerpo entero /</strong> Attach a full length photo:</label>
-					<input type="file" id="full_length_photo" name="full_length_photo" size=30 maxlength=200> 
+					<input type="file" id="full_length_photo" name="full_length_photo" size=20 maxlength=200> 
 					<input type="hidden" name="MAX_FILE_SIZE"  value=100000 />
 				</div>
 				<div class="agree">
@@ -229,8 +228,8 @@
 <div id="footer">
 	<p>&copy;2012 Isabel Navarro Model Management</p>
     <ul>
-        <!-- <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li> -->
-        <li><a href="http://www.facebook.com/pages/Isabel-Navarro-Model-Management/133070660058118" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
+        <li><a href="https://twitter.com/#!/IsabelNavarroMo" title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li>
+        <li><a href="http://www.facebook.com/IsabelNavarroModelManagement" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
     	<li>powered by <a  title="LILIJIMENEZ">LILIJIMENEZ</a></li>
 	</ul>
 </div>

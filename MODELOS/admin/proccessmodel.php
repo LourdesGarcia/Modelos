@@ -192,7 +192,7 @@ if($requestType){
 					$resultQuery = mysql_query("UPDATE models_model SET first_name='" . $first_name . "', last_name='" . $last_name . "',  gender='" . $gender . "', age='" . $age . "', shoe_size='" . $shoe_size . "', hair_color='" . $hair_color . "',eyes_color='" . $eyes_color . "', height='" . $height . "', bust='". $bust . "', hips='" . $hips . "', waist='" . $waist . "', collar='" . $collar . "', chest='" . $chest . "', model_type='" . $type_model . "', add_date='" . $act_date . "', active='" . $active . "' WHERE id='" . $model_id . "'");
 					
 					if ($resultQuery){
-						$ok3=tru3;
+						$ok3=true;
 						$ok=false;
 						$ok2=false;
 						if ($file_ppal_photo){

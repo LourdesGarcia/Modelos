@@ -206,14 +206,14 @@
 						for($j=0;$j<$num_cols7;$j++){
 							$row7 = mysql_fetch_assoc($resultPhotos);
 				?>
-				<li><a href="print.php?model_id=<?= $model_id ?>&photo_id=<?= $row7['id'] ?>"><img src="<?= MINI_URL . $row7['url_thumbnail'] ?>" ref="<?= BOOK_URL . $row7['url_photo'] ?>" alt="xxx"/></a><span>Click aquí para imprimir esta fotografía.</span></li>
+				<li><a href="print.php?model_id=<?= $model_id ?>&photo_id=<?= $row7['id'] ?>" title="Click aquí para imprimir esta fotografía" target="_blank"><img src="<?= MINI_URL . $row7['url_thumbnail'] ?>" ref="<?= BOOK_URL . $row7['url_photo'] ?>" alt=""/></a></li>
 				<?
 						}
 					}
 				?>
 			</ul>
 		</div>
-        <a href="<?= $model_type ?>.php?letter=<?= $letter ?>" id="backfrombook">Back</a>
+        <a href="javascript:history.back(1)" id="backfrombook">Back</a>
     </div>
 	<?
 		}
@@ -223,8 +223,8 @@
 <div id="footer">
 	<p>&copy;2012 Isabel Navarro Model Management</p>
     <ul>
-        <!-- <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li> -->
-        <li><a href="http://www.facebook.com/pages/Isabel-Navarro-Model-Management/133070660058118" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
+        <li><a href="https://twitter.com/#!/IsabelNavarroMo" title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li>
+        <li><a href="http://www.facebook.com/IsabelNavarroModelManagement" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
     	<li>powered by <a  title="LILIJIMENEZ">LILIJIMENEZ</a></li>
 	</ul>
 </div>

@@ -25,6 +25,7 @@ $file_add_mini = ((isset($_FILES['thumbnail']['tmp_name']) && ($_FILES['thumbnai
 
 $activados=array();
 $desactivados=array();
+$borrados=array();
 
 $resultTotal = array();
 $resultTotal['res']='ERROR'; 
@@ -36,14 +37,6 @@ $textProccessKO = '';
 $textProccessOK = '';
 
 $act_date = mktime();
-
-/*
-$result = mysql_query(sprintf("INSERT INTO models_log VALUES ('','%s','%s','%s')",
-                        mysql_real_escape_string($requestType),
-                        mysql_real_escape_string(json_encode($_REQUEST)),
-						mysql_real_escape_string($act_date)   
-                ));  
-*/
 
 if($requestType){
 	switch($requestType){
@@ -107,18 +100,26 @@ if($requestType){
 							array_push($desactivados,$video_array[1]);	
 						}
 					}
+					if ($val=='borrar'){
+						array_push($borrados,$video_array[1]);	
+					}
 				}
 			}
 			$queryDes='';
 			$queryAct='';
 			$namesAct='';
 			$namesDes='';
+			$namesRmv='';
+			$queryRmv='';
 			$OK='';
 			$cont=0;
 			if (!empty($activados)){
 				$cont++;
 			}
 			if (!empty($desactivados)){
+				$cont++;
+			}
+			if (!empty($borrados)){
 				$cont++;
 			}
 			if (!empty($activados)){
@@ -132,6 +133,13 @@ if($requestType){
 				$namesDes = implode(',',$desactivados);
 				$queryDes =  mysql_query("UPDATE models_photos SET active = 0 WHERE id IN (" . $namesDes . ") AND active = 1");
 				if ($queryDes){
+					$cont--;
+				}
+			}
+			if (!empty($borrados)){
+				$namesRmv = implode(',',$borrados);
+				$queryRmv =  mysql_query("DELETE FROM models_photos WHERE id IN (" . $namesRmv . ")");
+				if ($queryRmv){
 					$cont--;
 				}
 			}

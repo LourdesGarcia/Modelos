@@ -15,6 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Isabel Navarro. Model management</title>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="js/jquery.js"></script> 
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
@@ -100,22 +101,35 @@
 
 <div id="container">
 	<div id="menu_contact" class="menus">
-		<p>Príncipe de Vergara 90, 1°D<br />Madrid<br />28006 (Spain)</p>
-		<p><span>T.</span>  +34 915 633 042<br />
-			<span>M.</span> +34 651 422 161<br />
-			<span>Fax</span> +34 915 630 339</p>
-		<p><span>INFORMATION</span></p>
-		<p><strong>Fashion</strong><br /><a href="mailto:models@isabelnavarro.net">models@isabelnavarro.net</a></p>
-		<p><strong>Commercial</strong><br /><a href="mailto:casting@isabelnavarro.net">casting@isabelnavarro.net</a></p>
-		<p><strong>Scouting</strong><br /><a href="isabel@isabelnavarro.net">isabel@isabelnavarro.net</a></p>
-	</div>
+    	<h2><span>CONTACTO</span> / CONTACT</h2>
+        <div class="columna">
+        	<h3>Dirección / Address</h3>
+            <p>Calle Príncipe de Vergara <br />90, 1°D - Madrid<br />28006 (Spain)</p>
+            <p><span>T.</span>  +34 915 633 042<br />
+                <span>M.</span> +34 651 422 161</p>
+            <p><strong>Fashion</strong><br /><a href="mailto:models@isabelnavarro.net">models@isabelnavarro.net</a></p>
+            <p><strong>Commercial</strong><br /><a href="mailto:casting@isabelnavarro.net">casting@isabelnavarro.net</a></p>
+            <p><strong>Scouting</strong><br /><a href="isabel@isabelnavarro.net">isabel@isabelnavarro.net</a></p>
+		</div><!-- primera columna -->
+        <div class="columna">
+        	<h3>Síguenos / Follow us</h3>
+			<ul class="contacto_sociales">
+            	<li><a href="https://www.facebook.com/IsabelNavarroModelManagement" class="facebook">isabelnavarromodelsmanagement</a></li>
+				<li><a href="https://twitter.com/#!/IsabelNavarroMo" class="twitter">@isabelnavarromo</a></li>
+			</ul>
+		</div><!-- segunda columna -->
+        <div class="mapa">
+        	<iframe width="430" height="355" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.es/maps/ms?msa=0&amp;msid=215618044455572295580.0004b9824803249f5cb7d&amp;ie=UTF8&amp;t=m&amp;ll=40.438006,-3.678864&amp;spn=0.002899,0.004603&amp;z=17&amp;iwloc=0004b9826bf82dd3382cc&amp;output=embed"></iframe><br /><small>Ver <a href="http://maps.google.es/maps/ms?msa=0&amp;msid=215618044455572295580.0004b9824803249f5cb7d&amp;ie=UTF8&amp;t=m&amp;ll=40.438006,-3.678864&amp;spn=0.002899,0.004603&amp;z=17&amp;iwloc=0004b9826bf82dd3382cc&amp;source=embed" style="color:#0000FF;text-align:left">Isabel Navarro Model Management</a> en un mapa más grande</small>
+		</div><!-- mapa -->
+        <br class="clear" />
+    </div>
 </div>
 
 <div id="footer">
 	<p>&copy;2012 Isabel Navarro Model Management</p>
     <ul>
-        <!-- <li><a  title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li> -->
-        <li><a href="http://www.facebook.com/pages/Isabel-Navarro-Model-Management/133070660058118" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
+        <li><a href="https://twitter.com/#!/IsabelNavarroMo" title="Isabel Navarro Model Management at Twitter"><img src="img/icon_twitter.png" alt="at Twitter" /></a></li>
+        <li><a href="http://www.facebook.com/IsabelNavarroModelManagement" title="Isabel Navarro Model Management at Facebook"><img src="img/icon_facebook.png" alt="at Facebook" /></a></li>
     	<li>powered by <a  title="LILIJIMENEZ">LILIJIMENEZ</a></li>
 	</ul>
 </div>

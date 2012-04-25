@@ -54,13 +54,14 @@ if($requestType){
 					$bigOK = saveFich('big',BOOK_URL_2,$f_archive_big);
 					$thumbnailOK=saveFich('thumbnail',MINI_URL_2,$f_archive_mini);
 					if ($bigOK && $thumbnailOK){
-						$resultQuery = mysql_query(sprintf("INSERT INTO models_photos VALUES ('','%s','%s','%s','%s','%s','%s')",
+						$resultQuery = mysql_query(sprintf("INSERT INTO models_photos VALUES ('','%s','%s','%s','%s','%s','%s','%s')",
 							mysql_real_escape_string($model_id),
 							mysql_real_escape_string($f_name_photo),
 							mysql_real_escape_string($f_archive_big),
 							mysql_real_escape_string($f_archive_mini),
 							mysql_real_escape_string($act_date),
-							mysql_real_escape_string(1)
+							mysql_real_escape_string(1),
+							mysql_real_escape_string(2147483647)
 						));  
 						if ($resultQuery){
 							$textProccessOK = 'Se ha guardado el archivo correctamente.';
